@@ -6,7 +6,7 @@ public record Job(
     string Company,
     string Location,
     string Description,
-    IReadOnlyList<string> Requirements,
+    IReadOnlyList<string>? Requirements,
     string Link,
     string SourcingPlatform,
     string DatePublished);

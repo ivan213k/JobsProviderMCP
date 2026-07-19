@@ -10,7 +10,7 @@ public class JobSearchQueryTests
     {
         var query = new JobSearchQuery("Go|Java", null, null);
 
-        var results = query.Validate(new ValidationContext(query));
+        IEnumerable<ValidationResult> results = query.Validate(new ValidationContext(query));
 
         Assert.Empty(results);
     }
@@ -20,9 +20,9 @@ public class JobSearchQueryTests
     {
         var query = new JobSearchQuery("[", null, null);
 
-        var results = query.Validate(new ValidationContext(query)).ToList();
+        List<ValidationResult> results = query.Validate(new ValidationContext(query)).ToList();
 
-        var result = Assert.Single(results);
+        ValidationResult result = Assert.Single(results);
         Assert.Contains(nameof(JobSearchQuery.Search), result.MemberNames);
     }
 }
