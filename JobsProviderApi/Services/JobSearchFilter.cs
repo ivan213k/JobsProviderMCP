@@ -4,7 +4,8 @@ using JobsProviderApi.Models;
 namespace JobsProviderApi.Services;
 
 /// <summary>
-/// Filtering shared by the per-source job services: free-text/regex search plus must-have/preferred skill matching.
+/// Filtering shared by the per-source job services: free-text/regex search plus must-have/preferred skill and
+/// preferred-location matching.
 /// </summary>
 public class JobSearchFilter : IJobSearchFilter
 {
@@ -13,26 +14,44 @@ public class JobSearchFilter : IJobSearchFilter
         var regex = new Regex(query.Search, RegexOptions.IgnoreCase | RegexOptions.CultureInvariant);
         IEnumerable<Job> result = jobs.Where(job => regex.IsMatch(job.Title) || regex.IsMatch(job.Description));
 
-        if (query.MustHaveSkills is { Length: > 0 })
+        string[] mustHaveSkills = NormalizeForComparing(query.MustHaveSkills);
+        string[] preferredSkills = NormalizeForComparing(query.PreferredSkills);
+        string[] preferredLocations = NormalizeForComparing(query.PreferredLocations);
+
+        if (mustHaveSkills.Length > 0)
         {
-            result = result.Where(job => query.MustHaveSkills.All(skill => HasSkill(job, skill)));
+            result = result.Where(job => mustHaveSkills.All(skill => HasSkill(job, skill)));
         }
 
-        if (query.PreferredSkills is { Length: > 0 })
+        if (preferredSkills.Length > 0)
         {
-            result = result.Where(job => query.PreferredSkills.Any(skill => HasSkill(job, skill)));
+            result = result.Where(job => preferredSkills.Any(skill => HasSkill(job, skill)));
+        }
+
+        if (preferredLocations.Length > 0)
+        {
+            result = result.Where(job => preferredLocations.Any(location => IsInLocation(job, location)));
         }
 
         return result.Take(query.Take).ToList();
     }
 
-    private static bool HasSkill(Job job, string skill)
+    private static bool HasSkill(Job job, string normalizedSkill)
     {
-        if(job.Requirements is null)
+        if (job.Requirements is null)
         {
             return false;
         }
 
-        return job.Requirements.Any(requirement => string.Equals(requirement.Trim(), skill.Trim(), StringComparison.OrdinalIgnoreCase));
+        return job.Requirements.Any(requirement =>
+            string.Equals(requirement.Trim(), normalizedSkill, StringComparison.OrdinalIgnoreCase));
     }
+
+    private static bool IsInLocation(Job job, string normalizedLocation) =>
+        job.Location.Contains(normalizedLocation, StringComparison.OrdinalIgnoreCase);
+
+    private static string[] NormalizeForComparing(string[]? values) =>
+        values?.Where(value => !string.IsNullOrWhiteSpace(value))
+                .Select(value => value.Trim())
+                .ToArray() ?? [];
 }

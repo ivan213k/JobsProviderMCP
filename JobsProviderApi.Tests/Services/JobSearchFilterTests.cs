@@ -5,7 +5,7 @@ namespace JobsProviderApi.Tests.Services;
 
 public class JobSearchFilterTests
 {
-    private static readonly JobSearchQuery MatchAllQuery = new(".*", null, null, Take: 1000);
+    private static readonly JobSearchQuery MatchAllQuery = new(".*", MustHaveSkills: null, PreferredSkills: null, PreferredLocations: null, "DE", Take: 1000);
     private readonly JobSearchFilter _sut = new();
 
     [Fact]
@@ -78,6 +78,35 @@ public class JobSearchFilterTests
     }
 
     [Fact]
+    public void Apply_WithPreferredLocations_RequiresAtLeastOneLocationToMatch()
+    {
+        var jobs = new[]
+        {
+            TestJobs.Create(1) with { Location = "Berlin, Germany (Hybrid)" },
+            TestJobs.Create(2) with { Location = "Remote (EU)" },
+            TestJobs.Create(3) with { Location = "Austin, TX (On-site)" },
+        };
+
+        IReadOnlyList<Job> result = _sut.Apply(jobs, MatchAllQuery with { PreferredLocations = ["Berlin", "Remote"] });
+
+        Assert.Equal([1, 2], result.Select(j => j.Id));
+    }
+
+    [Fact]
+    public void Apply_LocationMatching_IsSubstringNotExactlyLocation()
+    {
+        var jobs = new[]
+        {
+            TestJobs.Create(1) with { Location = "Berlin, Germany (Hybrid)" },
+            TestJobs.Create(2) with { Location = "Austin, TX (On-site)" },
+        };
+
+        IReadOnlyList<Job> result = _sut.Apply(jobs, MatchAllQuery with { PreferredLocations = ["germany"] });
+
+        Assert.Equal([1], result.Select(j => j.Id));
+    }
+
+    [Fact]
     public void Apply_CombinesFiltersWithAnd()
     {
         var jobs = new[]
@@ -87,7 +116,9 @@ public class JobSearchFilterTests
             TestJobs.Create(3, title: "Java Engineer", requirements: ["Go", "gRPC"]),
         };
 
-        IReadOnlyList<Job> result = _sut.Apply(jobs, new JobSearchQuery("Go Engineer", ["Go", "gRPC"], null));
+        IReadOnlyList<Job> result = _sut.Apply(
+            jobs,
+            new JobSearchQuery("Go Engineer", ["Go", "gRPC"], PreferredSkills: null, PreferredLocations: null, "DE"));
 
         Assert.Equal([1], result.Select(j => j.Id));
     }
@@ -97,7 +128,9 @@ public class JobSearchFilterTests
     {
         List<Job> jobs = Enumerable.Range(1, 20).Select(id => TestJobs.Create(id)).ToList();
 
-        IReadOnlyList<Job> result = _sut.Apply(jobs, new JobSearchQuery(".*", null, null));
+        IReadOnlyList<Job> result = _sut.Apply(
+            jobs,
+            new JobSearchQuery(".*", MustHaveSkills: null, PreferredSkills: null, PreferredLocations: null, "DE"));
 
         Assert.Equal(10, result.Count);
         Assert.Equal(Enumerable.Range(1, 10), result.Select(j => j.Id));
