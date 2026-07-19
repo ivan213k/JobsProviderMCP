@@ -1,0 +1,1705 @@
+{
+  "_comment": "Mock job postings for the AgenticJob POC. Descriptions are intentionally full of marketing 'fluff' so the /scan skill has something to summarize away. `link`, `sourcingPlatform`, and `datePublished` are fake/non-resolving placeholders. Not real jobs.",
+  "jobs": [
+    {
+      "id": 1,
+      "title": "Junior Backend Engineer (Go)",
+      "company": "Marrow Systems",
+      "location": "Remote (EU)",
+      "description": "Do you dream in stack traces and wake up thinking about elegant abstractions? Marrow Systems is looking for a junior-level Backend Engineer to join our team. We're a purpose-driven, values-first company on a mission to make a dent in the universe. In this role you will design and scale our Go microservices that process millions of API requests a day, own service boundaries, and harden our gRPC contracts between teams, collaborate closely with cross-functional stakeholders, and help set the bar for engineering excellence across the org. We're a team that values ownership, curiosity, and getting things done without a mountain of process. Perks include a generous learning budget, an annual company retreat, and top-of-the-line hardware. Sound like your kind of challenge? We can't wait to meet you. Requirements: 0-1 years of relevant experience, hands-on expertise with Go, gRPC, PostgreSQL and distributed systems, and strong communication skills; experience working in a fast-paced startup environment is a plus.",
+      "requirements": [
+        "0-1 years of professional experience",
+        "Go",
+        "gRPC",
+        "PostgreSQL",
+        "distributed systems"
+      ],
+      "link": "https://careers.marrow-systems.example.com/jobs/3555026676",
+      "sourcingPlatform": "Company Careers Page",
+      "datePublished": "2026-05-28"
+    },
+    {
+      "id": 2,
+      "title": "Mid-Level Backend Engineer (Go)",
+      "company": "Torchlight Interactive",
+      "location": "Remote (Global)",
+      "description": "Are you a rockstar 10x ninja engineer who breathes clean code and eats hard problems for breakfast?! Torchlight Interactive is looking for a mid-level-level Backend Engineer to join our team. We're building category-defining products for a market that didn't know it needed us yet, until it did. In this role you will design and scale our Go microservices that process millions of API requests a day, own service boundaries, and harden our gRPC contracts between teams, collaborate closely with cross-functional stakeholders, and help set the bar for engineering excellence across the org. We're a team that values ownership, curiosity, and getting things done without a mountain of process. We offer free snacks, a foosball table, and unlimited PTO (that nobody actually takes). If this sounds like you, we'd love to hear your story. Requirements: 2-4 years of relevant experience, hands-on expertise with Go, gRPC, PostgreSQL and distributed systems, and strong communication skills; experience working in a fast-paced startup environment is a plus.",
+      "requirements": [
+        "2-4 years of professional experience",
+        "Go",
+        "gRPC",
+        "PostgreSQL",
+        "distributed systems"
+      ],
+      "link": "https://www.indeed.com/viewjob?jk=d80fb843",
+      "sourcingPlatform": "Indeed",
+      "datePublished": "2026-06-08"
+    },
+    {
+      "id": 3,
+      "title": "Senior Backend Engineer (Go)",
+      "company": "Keystone Corp",
+      "location": "Seattle, WA (Hybrid)",
+      "description": "We're on the hunt for a passionate, detail-obsessed engineer ready to make a real dent. Keystone Corp is looking for a senior-level Backend Engineer to join our team. We're reimagining an entire industry with a small, scrappy team of A-players who move fast and never settle. In this role you will design and scale our Go microservices that process millions of API requests a day, own service boundaries, and harden our gRPC contracts between teams, collaborate closely with cross-functional stakeholders, and help set the bar for engineering excellence across the org. We're a team that values ownership, curiosity, and getting things done without a mountain of process. You'll get equity that matters, a wellness stipend, and unlimited coffee (obviously). We're building something special, and we think you could be a huge part of it. Requirements: 5-8 years of relevant experience, hands-on expertise with Go, gRPC, PostgreSQL and distributed systems, and strong communication skills; experience working in a fast-paced startup environment is a plus.",
+      "requirements": [
+        "5+ years of professional experience",
+        "Go",
+        "gRPC",
+        "PostgreSQL",
+        "distributed systems"
+      ],
+      "link": "https://wellfound.com/jobs/3618348156-senior-backend-engineer-go-keystone-corp",
+      "sourcingPlatform": "Wellfound",
+      "datePublished": "2026-06-12"
+    },
+    {
+      "id": 4,
+      "title": "Staff Backend Engineer (Go)",
+      "company": "Indigo Studio",
+      "location": "Remote (EU)",
+      "description": "We're on the hunt for a passionate, detail-obsessed engineer ready to make a real dent. Indigo Studio is looking for a staff-level Backend Engineer to join our team. We're a bold, relentless, customer-obsessed team building the future, one sprint at a time. In this role you will design and scale our Go microservices that process millions of API requests a day, own service boundaries, and harden our gRPC contracts between teams, collaborate closely with cross-functional stakeholders, and help set the bar for engineering excellence across the org. We're a team that values ownership, curiosity, and getting things done without a mountain of process. Enjoy flexible hours, a home-office stipend, and quarterly hackathons that actually ship things. We move fast, care deeply, and would love to have you along for the ride. Requirements: 8+ years of relevant experience, hands-on expertise with Go, gRPC, PostgreSQL and distributed systems, and strong communication skills; experience working in a fast-paced startup environment is a plus.",
+      "requirements": [
+        "8+ years of professional experience",
+        "Go",
+        "gRPC",
+        "PostgreSQL",
+        "distributed systems"
+      ],
+      "link": "https://www.glassdoor.com/job-listing/staff-backend-engineer-go-indigo-studio-JV_IC3583472422.htm",
+      "sourcingPlatform": "Glassdoor",
+      "datePublished": "2026-06-27"
+    },
+    {
+      "id": 5,
+      "title": "Junior Backend Engineer (Java/Spring)",
+      "company": "Upland Robotics",
+      "location": "Berlin, Germany (Hybrid)",
+      "description": "We're looking for a rare unicorn who combines deep technical chops with relentless product instinct. Upland Robotics is looking for a junior-level Backend Engineer to join our team. We're a hyper-growth, category-defining scale-up on a rocketship trajectory to change how the world works. In this role you will build and maintain Spring Boot services powering our core transaction engine, and integrate event-driven workflows on top of Kafka, collaborate closely with cross-functional stakeholders, and help set the bar for engineering excellence across the org. We're a team that values ownership, curiosity, and getting things done without a mountain of process. We offer free snacks, a foosball table, and unlimited PTO (that nobody actually takes). We move fast, care deeply, and would love to have you along for the ride. Requirements: 0-1 years of relevant experience, hands-on expertise with Java, Spring Boot, PostgreSQL and Kafka, and strong communication skills; experience working in a fast-paced startup environment is a plus.",
+      "requirements": [
+        "0-1 years of professional experience",
+        "Java",
+        "Spring Boot",
+        "PostgreSQL",
+        "Kafka"
+      ],
+      "link": "https://www.glassdoor.com/job-listing/junior-backend-engineer-java-spring-upland-robotics-JV_IC3824122944.htm",
+      "sourcingPlatform": "Glassdoor",
+      "datePublished": "2026-06-24"
+    },
+    {
+      "id": 6,
+      "title": "Mid-Level Backend Engineer (Java/Spring)",
+      "company": "Nimbus Group",
+      "location": "Seattle, WA (Hybrid)",
+      "description": "We're looking for a rare unicorn who combines deep technical chops with relentless product instinct. Nimbus Group is looking for a mid-level-level Backend Engineer to join our team. We're a hyper-growth, category-defining scale-up on a rocketship trajectory to change how the world works. In this role you will build and maintain Spring Boot services powering our core transaction engine, and integrate event-driven workflows on top of Kafka, collaborate closely with cross-functional stakeholders, and help set the bar for engineering excellence across the org. We're a team that values ownership, curiosity, and getting things done without a mountain of process. We offer free snacks, a foosball table, and unlimited PTO (that nobody actually takes). We're building something special, and we think you could be a huge part of it. Requirements: 2-4 years of relevant experience, hands-on expertise with Java, Spring Boot, PostgreSQL and Kafka, and strong communication skills; experience working in a fast-paced startup environment is a plus.",
+      "requirements": [
+        "2-4 years of professional experience",
+        "Java",
+        "Spring Boot",
+        "PostgreSQL",
+        "Kafka"
+      ],
+      "link": "https://www.glassdoor.com/job-listing/mid-level-backend-engineer-java-spring-nimbus-group-JV_IC3945283238.htm",
+      "sourcingPlatform": "Glassdoor",
+      "datePublished": "2026-05-31"
+    },
+    {
+      "id": 7,
+      "title": "Senior Backend Engineer (Java/Spring)",
+      "company": "Longbow Dynamics",
+      "location": "Stockholm, Sweden (On-site)",
+      "description": "We're on the hunt for a passionate, detail-obsessed engineer ready to make a real dent. Longbow Dynamics is looking for a senior-level Backend Engineer to join our team. We're reimagining an entire industry with a small, scrappy team of A-players who move fast and never settle. In this role you will build and maintain Spring Boot services powering our core transaction engine, and integrate event-driven workflows on top of Kafka, collaborate closely with cross-functional stakeholders, and help set the bar for engineering excellence across the org. We're a team that values ownership, curiosity, and getting things done without a mountain of process. We offer free snacks, a foosball table, and unlimited PTO (that nobody actually takes). If this sounds like you, we'd love to hear your story. Requirements: 5-8 years of relevant experience, hands-on expertise with Java, Spring Boot, PostgreSQL and Kafka, and strong communication skills; experience working in a fast-paced startup environment is a plus.",
+      "requirements": [
+        "5+ years of professional experience",
+        "Java",
+        "Spring Boot",
+        "PostgreSQL",
+        "Kafka"
+      ],
+      "link": "https://careers.longbow-dynamics.example.com/jobs/3622351953",
+      "sourcingPlatform": "Company Careers Page",
+      "datePublished": "2026-05-22"
+    },
+    {
+      "id": 8,
+      "title": "Staff Backend Engineer (Java/Spring)",
+      "company": "Nova Analytics",
+      "location": "New York, NY (Hybrid)",
+      "description": "We're looking for a rare unicorn who combines deep technical chops with relentless product instinct. Nova Analytics is looking for a staff-level Backend Engineer to join our team. We're a hyper-growth, category-defining scale-up on a rocketship trajectory to change how the world works. In this role you will build and maintain Spring Boot services powering our core transaction engine, and integrate event-driven workflows on top of Kafka, collaborate closely with cross-functional stakeholders, and help set the bar for engineering excellence across the org. We're a team that values ownership, curiosity, and getting things done without a mountain of process. We have kombucha on tap, a dog-friendly office, and a culture of radical candor. Join us and help write the next chapter of our story. Requirements: 8+ years of relevant experience, hands-on expertise with Java, Spring Boot, PostgreSQL and Kafka, and strong communication skills; experience working in a fast-paced startup environment is a plus.",
+      "requirements": [
+        "8+ years of professional experience",
+        "Java",
+        "Spring Boot",
+        "PostgreSQL",
+        "Kafka"
+      ],
+      "link": "https://careers.nova-analytics.example.com/jobs/3947809627",
+      "sourcingPlatform": "Company Careers Page",
+      "datePublished": "2026-06-17"
+    },
+    {
+      "id": 9,
+      "title": "Junior Backend Engineer (Python/Django)",
+      "company": "Fjord Dynamics",
+      "location": "Warsaw, Poland (Remote)",
+      "description": "We're on the hunt for a passionate, detail-obsessed engineer ready to make a real dent. Fjord Dynamics is looking for a junior-level Backend Engineer to join our team. We're reimagining an entire industry with a small, scrappy team of A-players who move fast and never settle. In this role you will extend our Django monolith's REST APIs, optimize slow ORM queries, and partner with product to ship new backend features weekly, collaborate closely with cross-functional stakeholders, and help set the bar for engineering excellence across the org. We're a team that values ownership, curiosity, and getting things done without a mountain of process. We have kombucha on tap, a dog-friendly office, and a culture of radical candor. If this sounds like you, we'd love to hear your story. Requirements: 0-1 years of relevant experience, hands-on expertise with Python, Django, REST APIs and PostgreSQL, and strong communication skills; experience working in a fast-paced startup environment is a plus.",
+      "requirements": [
+        "0-1 years of professional experience",
+        "Python",
+        "Django",
+        "REST APIs",
+        "PostgreSQL"
+      ],
+      "link": "https://remoteok.com/remote-jobs/3840901372-junior-backend-engineer-python-django-fjord-dynamics",
+      "sourcingPlatform": "RemoteOK",
+      "datePublished": "2026-06-30"
+    },
+    {
+      "id": 10,
+      "title": "Mid-Level Backend Engineer (Python/Django)",
+      "company": "Foundry Software",
+      "location": "Amsterdam, Netherlands (Hybrid)",
+      "description": "We're looking for a rare unicorn who combines deep technical chops with relentless product instinct. Foundry Software is looking for a mid-level-level Backend Engineer to join our team. We're a globally distributed team of world-class innovators obsessed with craftsmanship and impact. In this role you will extend our Django monolith's REST APIs, optimize slow ORM queries, and partner with product to ship new backend features weekly, collaborate closely with cross-functional stakeholders, and help set the bar for engineering excellence across the org. We're a team that values ownership, curiosity, and getting things done without a mountain of process. We have kombucha on tap, a dog-friendly office, and a culture of radical candor. We're building something special, and we think you could be a huge part of it. Requirements: 2-4 years of relevant experience, hands-on expertise with Python, Django, REST APIs and PostgreSQL, and strong communication skills; experience working in a fast-paced startup environment is a plus.",
+      "requirements": [
+        "2-4 years of professional experience",
+        "Python",
+        "Django",
+        "REST APIs",
+        "PostgreSQL"
+      ],
+      "link": "https://www.indeed.com/viewjob?jk=e6861f25",
+      "sourcingPlatform": "Indeed",
+      "datePublished": "2026-06-20"
+    },
+    {
+      "id": 11,
+      "title": "Senior Backend Engineer (Python/Django)",
+      "company": "Voyage Labs",
+      "location": "New York, NY (Hybrid)",
+      "description": "Ever wanted to build things that millions of people touch every single day? Voyage Labs is looking for a senior-level Backend Engineer to join our team. We're a fast-paced, mission-driven, synergy-fueled unicorn disrupting an industry that has been begging for disruption. In this role you will extend our Django monolith's REST APIs, optimize slow ORM queries, and partner with product to ship new backend features weekly, collaborate closely with cross-functional stakeholders, and help set the bar for engineering excellence across the org. We're a team that values ownership, curiosity, and getting things done without a mountain of process. We have kombucha on tap, a dog-friendly office, and a culture of radical candor. Join us and help write the next chapter of our story. Requirements: 5-8 years of relevant experience, hands-on expertise with Python, Django, REST APIs and PostgreSQL, and strong communication skills; experience working in a fast-paced startup environment is a plus.",
+      "requirements": [
+        "5+ years of professional experience",
+        "Python",
+        "Django",
+        "REST APIs",
+        "PostgreSQL"
+      ],
+      "link": "https://www.glassdoor.com/job-listing/senior-backend-engineer-python-django-voyage-labs-JV_IC3535534736.htm",
+      "sourcingPlatform": "Glassdoor",
+      "datePublished": "2026-06-27"
+    },
+    {
+      "id": 12,
+      "title": "Staff Backend Engineer (Python/Django)",
+      "company": "Harbor Robotics",
+      "location": "Austin, TX (On-site)",
+      "description": "We're looking for a rare unicorn who combines deep technical chops with relentless product instinct. Harbor Robotics is looking for a staff-level Backend Engineer to join our team. We're a globally distributed team of world-class innovators obsessed with craftsmanship and impact. In this role you will extend our Django monolith's REST APIs, optimize slow ORM queries, and partner with product to ship new backend features weekly, collaborate closely with cross-functional stakeholders, and help set the bar for engineering excellence across the org. We're a team that values ownership, curiosity, and getting things done without a mountain of process. You'll get equity that matters, a wellness stipend, and unlimited coffee (obviously). Join us and help write the next chapter of our story. Requirements: 8+ years of relevant experience, hands-on expertise with Python, Django, REST APIs and PostgreSQL, and strong communication skills; experience working in a fast-paced startup environment is a plus.",
+      "requirements": [
+        "8+ years of professional experience",
+        "Python",
+        "Django",
+        "REST APIs",
+        "PostgreSQL"
+      ],
+      "link": "https://www.indeed.com/viewjob?jk=d917a8fb",
+      "sourcingPlatform": "Indeed",
+      "datePublished": "2026-07-02"
+    },
+    {
+      "id": 13,
+      "title": "Junior Backend Engineer (Node.js/TypeScript)",
+      "company": "Kinetic Interactive",
+      "location": "Seattle, WA (Hybrid)",
+      "description": "We're on the hunt for a passionate, detail-obsessed engineer ready to make a real dent. Kinetic Interactive is looking for a junior-level Backend Engineer to join our team. We're a purpose-driven, values-first company on a mission to make a dent in the universe. In this role you will build resilient Node.js/TypeScript services, design clean REST and GraphQL contracts, and keep our MongoDB clusters healthy under growth, collaborate closely with cross-functional stakeholders, and help set the bar for engineering excellence across the org. We're a team that values ownership, curiosity, and getting things done without a mountain of process. We believe in work hard, play hard, with a rooftop bar and monthly team offsites. Join us and help write the next chapter of our story. Requirements: 0-1 years of relevant experience, hands-on expertise with Node.js, TypeScript, Express and MongoDB, and strong communication skills; experience working in a fast-paced startup environment is a plus.",
+      "requirements": [
+        "0-1 years of professional experience",
+        "Node.js",
+        "TypeScript",
+        "Express",
+        "MongoDB"
+      ],
+      "link": "https://remoteok.com/remote-jobs/3714426514-junior-backend-engineer-node-js-typescript-kinetic-interactive",
+      "sourcingPlatform": "RemoteOK",
+      "datePublished": "2026-06-17"
+    },
+    {
+      "id": 14,
+      "title": "Mid-Level Backend Engineer (Node.js/TypeScript)",
+      "company": "Juniper Health",
+      "location": "Denver, CO (Remote)",
+      "description": "Are you a rockstar 10x ninja engineer who breathes clean code and eats hard problems for breakfast?! Juniper Health is looking for a mid-level-level Backend Engineer to join our team. We're a globally distributed team of world-class innovators obsessed with craftsmanship and impact. In this role you will build resilient Node.js/TypeScript services, design clean REST and GraphQL contracts, and keep our MongoDB clusters healthy under growth, collaborate closely with cross-functional stakeholders, and help set the bar for engineering excellence across the org. We're a team that values ownership, curiosity, and getting things done without a mountain of process. We offer competitive compensation, full benefits, and a genuinely flexible remote-friendly culture. If this sounds like you, we'd love to hear your story. Requirements: 2-4 years of relevant experience, hands-on expertise with Node.js, TypeScript, Express and MongoDB, and strong communication skills; experience working in a fast-paced startup environment is a plus.",
+      "requirements": [
+        "2-4 years of professional experience",
+        "Node.js",
+        "TypeScript",
+        "Express",
+        "MongoDB"
+      ],
+      "link": "https://www.linkedin.com/jobs/view/3582056059",
+      "sourcingPlatform": "LinkedIn",
+      "datePublished": "2026-05-31"
+    },
+    {
+      "id": 15,
+      "title": "Senior Backend Engineer (Node.js/TypeScript)",
+      "company": "Fjord Ventures",
+      "location": "Remote (LatAm)",
+      "description": "We're looking for a rare unicorn who combines deep technical chops with relentless product instinct. Fjord Ventures is looking for a senior-level Backend Engineer to join our team. We're a hyper-growth, category-defining scale-up on a rocketship trajectory to change how the world works. In this role you will build resilient Node.js/TypeScript services, design clean REST and GraphQL contracts, and keep our MongoDB clusters healthy under growth, collaborate closely with cross-functional stakeholders, and help set the bar for engineering excellence across the org. We're a team that values ownership, curiosity, and getting things done without a mountain of process. Enjoy flexible hours, a home-office stipend, and quarterly hackathons that actually ship things. We're building something special, and we think you could be a huge part of it. Requirements: 5-8 years of relevant experience, hands-on expertise with Node.js, TypeScript, Express and MongoDB, and strong communication skills; experience working in a fast-paced startup environment is a plus.",
+      "requirements": [
+        "5+ years of professional experience",
+        "Node.js",
+        "TypeScript",
+        "Express",
+        "MongoDB"
+      ],
+      "link": "https://wellfound.com/jobs/3784066101-senior-backend-engineer-node-js-typescript-fjord-ventures",
+      "sourcingPlatform": "Wellfound",
+      "datePublished": "2026-06-24"
+    },
+    {
+      "id": 16,
+      "title": "Staff Backend Engineer (Node.js/TypeScript)",
+      "company": "Granite Corp",
+      "location": "Berlin, Germany (Hybrid)",
+      "description": "Ever wanted to build things that millions of people touch every single day? Granite Corp is looking for a staff-level Backend Engineer to join our team. We're a purpose-driven, values-first company on a mission to make a dent in the universe. In this role you will build resilient Node.js/TypeScript services, design clean REST and GraphQL contracts, and keep our MongoDB clusters healthy under growth, collaborate closely with cross-functional stakeholders, and help set the bar for engineering excellence across the org. We're a team that values ownership, curiosity, and getting things done without a mountain of process. You'll get equity that matters, a wellness stipend, and unlimited coffee (obviously). We move fast, care deeply, and would love to have you along for the ride. Requirements: 8+ years of relevant experience, hands-on expertise with Node.js, TypeScript, Express and MongoDB, and strong communication skills; experience working in a fast-paced startup environment is a plus.",
+      "requirements": [
+        "8+ years of professional experience",
+        "Node.js",
+        "TypeScript",
+        "Express",
+        "MongoDB"
+      ],
+      "link": "https://www.linkedin.com/jobs/view/3657571681",
+      "sourcingPlatform": "LinkedIn",
+      "datePublished": "2026-06-13"
+    },
+    {
+      "id": 17,
+      "title": "Junior Backend Engineer (Ruby on Rails)",
+      "company": "Fjord Group",
+      "location": "Remote (EU)",
+      "description": "If you get a thrill from shipping fast and owning your craft end-to-end, keep reading. Fjord Group is looking for a junior-level Backend Engineer to join our team. We're a purpose-driven, values-first company on a mission to make a dent in the universe. In this role you will ship features across our Rails monolith, tame background job queues with Sidekiq, and keep our test suite fast and trustworthy, collaborate closely with cross-functional stakeholders, and help set the bar for engineering excellence across the org. We're a team that values ownership, curiosity, and getting things done without a mountain of process. We offer competitive compensation, full benefits, and a genuinely flexible remote-friendly culture. Sound like your kind of challenge? We can't wait to meet you. Requirements: 0-1 years of relevant experience, hands-on expertise with Ruby, Rails, Sidekiq and PostgreSQL, and strong communication skills; experience working in a fast-paced startup environment is a plus.",
+      "requirements": [
+        "0-1 years of professional experience",
+        "Ruby",
+        "Rails",
+        "Sidekiq",
+        "PostgreSQL"
+      ],
+      "link": "https://remoteok.com/remote-jobs/3989963341-junior-backend-engineer-ruby-on-rails-fjord-group",
+      "sourcingPlatform": "RemoteOK",
+      "datePublished": "2026-07-04"
+    },
+    {
+      "id": 18,
+      "title": "Mid-Level Backend Engineer (Ruby on Rails)",
+      "company": "Marrow Networks",
+      "location": "Denver, CO (Remote)",
+      "description": "Do you dream in stack traces and wake up thinking about elegant abstractions? Marrow Networks is looking for a mid-level-level Backend Engineer to join our team. We're reimagining an entire industry with a small, scrappy team of A-players who move fast and never settle. In this role you will ship features across our Rails monolith, tame background job queues with Sidekiq, and keep our test suite fast and trustworthy, collaborate closely with cross-functional stakeholders, and help set the bar for engineering excellence across the org. We're a team that values ownership, curiosity, and getting things done without a mountain of process. We have kombucha on tap, a dog-friendly office, and a culture of radical candor. Sound like your kind of challenge? We can't wait to meet you. Requirements: 2-4 years of relevant experience, hands-on expertise with Ruby, Rails, Sidekiq and PostgreSQL, and strong communication skills; experience working in a fast-paced startup environment is a plus.",
+      "requirements": [
+        "2-4 years of professional experience",
+        "Ruby",
+        "Rails",
+        "Sidekiq",
+        "PostgreSQL"
+      ],
+      "link": "https://remoteok.com/remote-jobs/3918021905-mid-level-backend-engineer-ruby-on-rails-marrow-networks",
+      "sourcingPlatform": "RemoteOK",
+      "datePublished": "2026-05-12"
+    },
+    {
+      "id": 19,
+      "title": "Senior Backend Engineer (Ruby on Rails)",
+      "company": "Emberly Corp",
+      "location": "Remote (LatAm)",
+      "description": "We're looking for a rare unicorn who combines deep technical chops with relentless product instinct. Emberly Corp is looking for a senior-level Backend Engineer to join our team. We're a Series-B rocketship growing 300% year over year, and we're just getting started. In this role you will ship features across our Rails monolith, tame background job queues with Sidekiq, and keep our test suite fast and trustworthy, collaborate closely with cross-functional stakeholders, and help set the bar for engineering excellence across the org. We're a team that values ownership, curiosity, and getting things done without a mountain of process. We offer free snacks, a foosball table, and unlimited PTO (that nobody actually takes). If this sounds like you, we'd love to hear your story. Requirements: 5-8 years of relevant experience, hands-on expertise with Ruby, Rails, Sidekiq and PostgreSQL, and strong communication skills; experience working in a fast-paced startup environment is a plus.",
+      "requirements": [
+        "5+ years of professional experience",
+        "Ruby",
+        "Rails",
+        "Sidekiq",
+        "PostgreSQL"
+      ],
+      "link": "https://www.glassdoor.com/job-listing/senior-backend-engineer-ruby-on-rails-emberly-corp-JV_IC3971760214.htm",
+      "sourcingPlatform": "Glassdoor",
+      "datePublished": "2026-05-18"
+    },
+    {
+      "id": 20,
+      "title": "Staff Backend Engineer (Ruby on Rails)",
+      "company": "Oakhart Software",
+      "location": "Remote (US)",
+      "description": "If you get a thrill from shipping fast and owning your craft end-to-end, keep reading. Oakhart Software is looking for a staff-level Backend Engineer to join our team. We're reimagining an entire industry with a small, scrappy team of A-players who move fast and never settle. In this role you will ship features across our Rails monolith, tame background job queues with Sidekiq, and keep our test suite fast and trustworthy, collaborate closely with cross-functional stakeholders, and help set the bar for engineering excellence across the org. We're a team that values ownership, curiosity, and getting things done without a mountain of process. We offer free snacks, a foosball table, and unlimited PTO (that nobody actually takes). If this sounds like you, we'd love to hear your story. Requirements: 8+ years of relevant experience, hands-on expertise with Ruby, Rails, Sidekiq and PostgreSQL, and strong communication skills; experience working in a fast-paced startup environment is a plus.",
+      "requirements": [
+        "8+ years of professional experience",
+        "Ruby",
+        "Rails",
+        "Sidekiq",
+        "PostgreSQL"
+      ],
+      "link": "https://careers.oakhart-software.example.com/jobs/3760914140",
+      "sourcingPlatform": "Company Careers Page",
+      "datePublished": "2026-05-19"
+    },
+    {
+      "id": 21,
+      "title": "Junior Backend Engineer (C#/.NET)",
+      "company": "Lumen Interactive",
+      "location": "London, UK (On-site)",
+      "description": "We're on the hunt for a passionate, detail-obsessed engineer ready to make a real dent. Lumen Interactive is looking for a junior-level Backend Engineer to join our team. We're a bold, relentless, customer-obsessed team building the future, one sprint at a time. In this role you will modernize our .NET services, migrate legacy SOAP endpoints to clean REST APIs, and deploy confidently to Azure, collaborate closely with cross-functional stakeholders, and help set the bar for engineering excellence across the org. We're a team that values ownership, curiosity, and getting things done without a mountain of process. Enjoy flexible hours, a home-office stipend, and quarterly hackathons that actually ship things. We're building something special, and we think you could be a huge part of it. Requirements: 0-1 years of relevant experience, hands-on expertise with C#, .NET, SQL Server and Azure, and strong communication skills; experience working in a fast-paced startup environment is a plus.",
+      "requirements": [
+        "0-1 years of professional experience",
+        "C#",
+        ".NET",
+        "SQL Server",
+        "Azure"
+      ],
+      "link": "https://www.indeed.com/viewjob?jk=d9191b08",
+      "sourcingPlatform": "Indeed",
+      "datePublished": "2026-06-07"
+    },
+    {
+      "id": 22,
+      "title": "Mid-Level Backend Engineer (C#/.NET)",
+      "company": "Keystone Ventures",
+      "location": "Austin, TX (On-site)",
+      "description": "We're on the hunt for a passionate, detail-obsessed engineer ready to make a real dent. Keystone Ventures is looking for a mid-level-level Backend Engineer to join our team. We're reimagining an entire industry with a small, scrappy team of A-players who move fast and never settle. In this role you will modernize our .NET services, migrate legacy SOAP endpoints to clean REST APIs, and deploy confidently to Azure, collaborate closely with cross-functional stakeholders, and help set the bar for engineering excellence across the org. We're a team that values ownership, curiosity, and getting things done without a mountain of process. We have kombucha on tap, a dog-friendly office, and a culture of radical candor. Join us and help write the next chapter of our story. Requirements: 2-4 years of relevant experience, hands-on expertise with C#, .NET, SQL Server and Azure, and strong communication skills; experience working in a fast-paced startup environment is a plus.",
+      "requirements": [
+        "2-4 years of professional experience",
+        "C#",
+        ".NET",
+        "SQL Server",
+        "Azure"
+      ],
+      "link": "https://careers.keystone-ventures.example.com/jobs/3848900625",
+      "sourcingPlatform": "Company Careers Page",
+      "datePublished": "2026-06-17"
+    },
+    {
+      "id": 23,
+      "title": "Senior Backend Engineer (C#/.NET)",
+      "company": "Yonder Industries",
+      "location": "Krakow, Poland (On-site)",
+      "description": "Do you dream in stack traces and wake up thinking about elegant abstractions? Yonder Industries is looking for a senior-level Backend Engineer to join our team. We're a hyper-growth, category-defining scale-up on a rocketship trajectory to change how the world works. In this role you will modernize our .NET services, migrate legacy SOAP endpoints to clean REST APIs, and deploy confidently to Azure, collaborate closely with cross-functional stakeholders, and help set the bar for engineering excellence across the org. We're a team that values ownership, curiosity, and getting things done without a mountain of process. Perks include a generous learning budget, an annual company retreat, and top-of-the-line hardware. If this sounds like you, we'd love to hear your story. Requirements: 5-8 years of relevant experience, hands-on expertise with C#, .NET, SQL Server and Azure, and strong communication skills; experience working in a fast-paced startup environment is a plus.",
+      "requirements": [
+        "5+ years of professional experience",
+        "C#",
+        ".NET",
+        "SQL Server",
+        "Azure"
+      ],
+      "link": "https://www.glassdoor.com/job-listing/senior-backend-engineer-c-net-yonder-industries-JV_IC3511292683.htm",
+      "sourcingPlatform": "Glassdoor",
+      "datePublished": "2026-06-03"
+    },
+    {
+      "id": 24,
+      "title": "Staff Backend Engineer (C#/.NET)",
+      "company": "Granite Software",
+      "location": "Stockholm, Sweden (On-site)",
+      "description": "Are you a rockstar 10x ninja engineer who breathes clean code and eats hard problems for breakfast?! Granite Software is looking for a staff-level Backend Engineer to join our team. We're reimagining an entire industry with a small, scrappy team of A-players who move fast and never settle. In this role you will modernize our .NET services, migrate legacy SOAP endpoints to clean REST APIs, and deploy confidently to Azure, collaborate closely with cross-functional stakeholders, and help set the bar for engineering excellence across the org. We're a team that values ownership, curiosity, and getting things done without a mountain of process. We offer free snacks, a foosball table, and unlimited PTO (that nobody actually takes). If this sounds like you, we'd love to hear your story. Requirements: 8+ years of relevant experience, hands-on expertise with C#, .NET, SQL Server and Azure, and strong communication skills; experience working in a fast-paced startup environment is a plus.",
+      "requirements": [
+        "8+ years of professional experience",
+        "C#",
+        ".NET",
+        "SQL Server",
+        "Azure"
+      ],
+      "link": "https://www.indeed.com/viewjob?jk=d2c5e7b8",
+      "sourcingPlatform": "Indeed",
+      "datePublished": "2026-05-14"
+    },
+    {
+      "id": 25,
+      "title": "Junior Backend Engineer (PHP/Laravel)",
+      "company": "Nimbus Robotics",
+      "location": "Remote (Global)",
+      "description": "Calling all coding wizards, problem-solving unicorns, and quietly brilliant engineers! Nimbus Robotics is looking for a junior-level Backend Engineer to join our team. We're reimagining an entire industry with a small, scrappy team of A-players who move fast and never settle. In this role you will maintain and extend our Laravel platform, squeeze performance out of MySQL and Redis, and pay down years of accumulated technical debt, collaborate closely with cross-functional stakeholders, and help set the bar for engineering excellence across the org. We're a team that values ownership, curiosity, and getting things done without a mountain of process. You'll get equity that matters, a wellness stipend, and unlimited coffee (obviously). Join us and help write the next chapter of our story. Requirements: 0-1 years of relevant experience, hands-on expertise with PHP, Laravel, MySQL and Redis, and strong communication skills; experience working in a fast-paced startup environment is a plus.",
+      "requirements": [
+        "0-1 years of professional experience",
+        "PHP",
+        "Laravel",
+        "MySQL",
+        "Redis"
+      ],
+      "link": "https://www.indeed.com/viewjob?jk=e1df2a86",
+      "sourcingPlatform": "Indeed",
+      "datePublished": "2026-07-02"
+    },
+    {
+      "id": 26,
+      "title": "Mid-Level Backend Engineer (PHP/Laravel)",
+      "company": "Skyline Collective",
+      "location": "Stockholm, Sweden (On-site)",
+      "description": "Do you dream in stack traces and wake up thinking about elegant abstractions? Skyline Collective is looking for a mid-level-level Backend Engineer to join our team. We're a globally distributed team of world-class innovators obsessed with craftsmanship and impact. In this role you will maintain and extend our Laravel platform, squeeze performance out of MySQL and Redis, and pay down years of accumulated technical debt, collaborate closely with cross-functional stakeholders, and help set the bar for engineering excellence across the org. We're a team that values ownership, curiosity, and getting things done without a mountain of process. We offer competitive compensation, full benefits, and a genuinely flexible remote-friendly culture. Join us and help write the next chapter of our story. Requirements: 2-4 years of relevant experience, hands-on expertise with PHP, Laravel, MySQL and Redis, and strong communication skills; experience working in a fast-paced startup environment is a plus.",
+      "requirements": [
+        "2-4 years of professional experience",
+        "PHP",
+        "Laravel",
+        "MySQL",
+        "Redis"
+      ],
+      "link": "https://wellfound.com/jobs/3602225547-mid-level-backend-engineer-php-laravel-skyline-collective",
+      "sourcingPlatform": "Wellfound",
+      "datePublished": "2026-07-04"
+    },
+    {
+      "id": 27,
+      "title": "Senior Backend Engineer (PHP/Laravel)",
+      "company": "Orbit Ventures",
+      "location": "Warsaw, Poland (Remote)",
+      "description": "We're looking for a rare unicorn who combines deep technical chops with relentless product instinct. Orbit Ventures is looking for a senior-level Backend Engineer to join our team. We're building category-defining products for a market that didn't know it needed us yet, until it did. In this role you will maintain and extend our Laravel platform, squeeze performance out of MySQL and Redis, and pay down years of accumulated technical debt, collaborate closely with cross-functional stakeholders, and help set the bar for engineering excellence across the org. We're a team that values ownership, curiosity, and getting things done without a mountain of process. Enjoy flexible hours, a home-office stipend, and quarterly hackathons that actually ship things. If this sounds like you, we'd love to hear your story. Requirements: 5-8 years of relevant experience, hands-on expertise with PHP, Laravel, MySQL and Redis, and strong communication skills; experience working in a fast-paced startup environment is a plus.",
+      "requirements": [
+        "5+ years of professional experience",
+        "PHP",
+        "Laravel",
+        "MySQL",
+        "Redis"
+      ],
+      "link": "https://careers.orbit-ventures.example.com/jobs/3850821241",
+      "sourcingPlatform": "Company Careers Page",
+      "datePublished": "2026-05-30"
+    },
+    {
+      "id": 28,
+      "title": "Staff Backend Engineer (PHP/Laravel)",
+      "company": "Orbit Labs",
+      "location": "Dublin, Ireland (On-site)",
+      "description": "Ever wanted to build things that millions of people touch every single day? Orbit Labs is looking for a staff-level Backend Engineer to join our team. We're a Series-B rocketship growing 300% year over year, and we're just getting started. In this role you will maintain and extend our Laravel platform, squeeze performance out of MySQL and Redis, and pay down years of accumulated technical debt, collaborate closely with cross-functional stakeholders, and help set the bar for engineering excellence across the org. We're a team that values ownership, curiosity, and getting things done without a mountain of process. We offer competitive compensation, full benefits, and a genuinely flexible remote-friendly culture. If this sounds like you, we'd love to hear your story. Requirements: 8+ years of relevant experience, hands-on expertise with PHP, Laravel, MySQL and Redis, and strong communication skills; experience working in a fast-paced startup environment is a plus.",
+      "requirements": [
+        "8+ years of professional experience",
+        "PHP",
+        "Laravel",
+        "MySQL",
+        "Redis"
+      ],
+      "link": "https://www.indeed.com/viewjob?jk=d6bf4480",
+      "sourcingPlatform": "Indeed",
+      "datePublished": "2026-06-28"
+    },
+    {
+      "id": 29,
+      "title": "Junior Backend Engineer (Rust)",
+      "company": "Foundry Group",
+      "location": "London, UK (On-site)",
+      "description": "Do you dream in stack traces and wake up thinking about elegant abstractions? Foundry Group is looking for a junior-level Backend Engineer to join our team. We're building category-defining products for a market that didn't know it needed us yet, until it did. In this role you will write high-throughput, memory-safe services in Rust using Tokio, and obsess over latency budgets most teams never think about, collaborate closely with cross-functional stakeholders, and help set the bar for engineering excellence across the org. We're a team that values ownership, curiosity, and getting things done without a mountain of process. We have kombucha on tap, a dog-friendly office, and a culture of radical candor. Join us and help write the next chapter of our story. Requirements: 0-1 years of relevant experience, hands-on expertise with Rust, Tokio, systems programming and performance tuning, and strong communication skills; experience working in a fast-paced startup environment is a plus.",
+      "requirements": [
+        "0-1 years of professional experience",
+        "Rust",
+        "Tokio",
+        "systems programming",
+        "performance tuning"
+      ],
+      "link": "https://www.indeed.com/viewjob?jk=ec998cf7",
+      "sourcingPlatform": "Indeed",
+      "datePublished": "2026-05-12"
+    },
+    {
+      "id": 30,
+      "title": "Mid-Level Backend Engineer (Rust)",
+      "company": "Lumen Group",
+      "location": "Seattle, WA (Hybrid)",
+      "description": "Are you a rockstar 10x ninja engineer who breathes clean code and eats hard problems for breakfast?! Lumen Group is looking for a mid-level-level Backend Engineer to join our team. We're a hyper-growth, category-defining scale-up on a rocketship trajectory to change how the world works. In this role you will write high-throughput, memory-safe services in Rust using Tokio, and obsess over latency budgets most teams never think about, collaborate closely with cross-functional stakeholders, and help set the bar for engineering excellence across the org. We're a team that values ownership, curiosity, and getting things done without a mountain of process. You'll get equity that matters, a wellness stipend, and unlimited coffee (obviously). We're building something special, and we think you could be a huge part of it. Requirements: 2-4 years of relevant experience, hands-on expertise with Rust, Tokio, systems programming and performance tuning, and strong communication skills; experience working in a fast-paced startup environment is a plus.",
+      "requirements": [
+        "2-4 years of professional experience",
+        "Rust",
+        "Tokio",
+        "systems programming",
+        "performance tuning"
+      ],
+      "link": "https://www.linkedin.com/jobs/view/3550070070",
+      "sourcingPlatform": "LinkedIn",
+      "datePublished": "2026-05-12"
+    },
+    {
+      "id": 31,
+      "title": "Senior Backend Engineer (Rust)",
+      "company": "Upland Software",
+      "location": "Amsterdam, Netherlands (Hybrid)",
+      "description": "We're looking for a rare unicorn who combines deep technical chops with relentless product instinct. Upland Software is looking for a senior-level Backend Engineer to join our team. We're building category-defining products for a market that didn't know it needed us yet, until it did. In this role you will write high-throughput, memory-safe services in Rust using Tokio, and obsess over latency budgets most teams never think about, collaborate closely with cross-functional stakeholders, and help set the bar for engineering excellence across the org. We're a team that values ownership, curiosity, and getting things done without a mountain of process. Enjoy flexible hours, a home-office stipend, and quarterly hackathons that actually ship things. Sound like your kind of challenge? We can't wait to meet you. Requirements: 5-8 years of relevant experience, hands-on expertise with Rust, Tokio, systems programming and performance tuning, and strong communication skills; experience working in a fast-paced startup environment is a plus.",
+      "requirements": [
+        "5+ years of professional experience",
+        "Rust",
+        "Tokio",
+        "systems programming",
+        "performance tuning"
+      ],
+      "link": "https://wellfound.com/jobs/3984495326-senior-backend-engineer-rust-upland-software",
+      "sourcingPlatform": "Wellfound",
+      "datePublished": "2026-07-07"
+    },
+    {
+      "id": 32,
+      "title": "Staff Backend Engineer (Rust)",
+      "company": "Fjord Digital",
+      "location": "Remote (EU)",
+      "description": "Calling all coding wizards, problem-solving unicorns, and quietly brilliant engineers! Fjord Digital is looking for a staff-level Backend Engineer to join our team. We're building category-defining products for a market that didn't know it needed us yet, until it did. In this role you will write high-throughput, memory-safe services in Rust using Tokio, and obsess over latency budgets most teams never think about, collaborate closely with cross-functional stakeholders, and help set the bar for engineering excellence across the org. We're a team that values ownership, curiosity, and getting things done without a mountain of process. We offer competitive compensation, full benefits, and a genuinely flexible remote-friendly culture. Join us and help write the next chapter of our story. Requirements: 8+ years of relevant experience, hands-on expertise with Rust, Tokio, systems programming and performance tuning, and strong communication skills; experience working in a fast-paced startup environment is a plus.",
+      "requirements": [
+        "8+ years of professional experience",
+        "Rust",
+        "Tokio",
+        "systems programming",
+        "performance tuning"
+      ],
+      "link": "https://www.glassdoor.com/job-listing/staff-backend-engineer-rust-fjord-digital-JV_IC3727100413.htm",
+      "sourcingPlatform": "Glassdoor",
+      "datePublished": "2026-05-27"
+    },
+    {
+      "id": 33,
+      "title": "Junior Frontend Engineer (React)",
+      "company": "Skyline Interactive",
+      "location": "Barcelona, Spain (Hybrid)",
+      "description": "Do you dream in stack traces and wake up thinking about elegant abstractions? Skyline Interactive is looking for a junior-level Frontend Engineer to join our team. We're a bold, relentless, customer-obsessed team building the future, one sprint at a time. In this role you will build and maintain our React + TypeScript component library, champion accessibility, and make our app feel instant, collaborate closely with cross-functional stakeholders, and help set the bar for engineering excellence across the org. We're a team that values ownership, curiosity, and getting things done without a mountain of process. We have kombucha on tap, a dog-friendly office, and a culture of radical candor. Sound like your kind of challenge? We can't wait to meet you. Requirements: 0-1 years of relevant experience, hands-on expertise with React, TypeScript, CSS and accessibility, and strong communication skills; experience working in a fast-paced startup environment is a plus.",
+      "requirements": [
+        "0-1 years of professional experience",
+        "React",
+        "TypeScript",
+        "CSS",
+        "accessibility"
+      ],
+      "link": "https://www.linkedin.com/jobs/view/3810945048",
+      "sourcingPlatform": "LinkedIn",
+      "datePublished": "2026-05-24"
+    },
+    {
+      "id": 34,
+      "title": "Mid-Level Frontend Engineer (React)",
+      "company": "Foundry Labs",
+      "location": "Lisbon, Portugal (Hybrid)",
+      "description": "Are you a rockstar 10x ninja engineer who breathes clean code and eats hard problems for breakfast?! Foundry Labs is looking for a mid-level-level Frontend Engineer to join our team. We're a fast-paced, mission-driven, synergy-fueled unicorn disrupting an industry that has been begging for disruption. In this role you will build and maintain our React + TypeScript component library, champion accessibility, and make our app feel instant, collaborate closely with cross-functional stakeholders, and help set the bar for engineering excellence across the org. We're a team that values ownership, curiosity, and getting things done without a mountain of process. We believe in work hard, play hard, with a rooftop bar and monthly team offsites. Join us and help write the next chapter of our story. Requirements: 2-4 years of relevant experience, hands-on expertise with React, TypeScript, CSS and accessibility, and strong communication skills; experience working in a fast-paced startup environment is a plus.",
+      "requirements": [
+        "2-4 years of professional experience",
+        "React",
+        "TypeScript",
+        "CSS",
+        "accessibility"
+      ],
+      "link": "https://remoteok.com/remote-jobs/3993592204-mid-level-frontend-engineer-react-foundry-labs",
+      "sourcingPlatform": "RemoteOK",
+      "datePublished": "2026-05-17"
+    },
+    {
+      "id": 35,
+      "title": "Senior Frontend Engineer (React)",
+      "company": "Emberly Technologies",
+      "location": "Remote (US)",
+      "description": "Ever wanted to build things that millions of people touch every single day? Emberly Technologies is looking for a senior-level Frontend Engineer to join our team. We're a hyper-growth, category-defining scale-up on a rocketship trajectory to change how the world works. In this role you will build and maintain our React + TypeScript component library, champion accessibility, and make our app feel instant, collaborate closely with cross-functional stakeholders, and help set the bar for engineering excellence across the org. We're a team that values ownership, curiosity, and getting things done without a mountain of process. Perks include a generous learning budget, an annual company retreat, and top-of-the-line hardware. If this sounds like you, we'd love to hear your story. Requirements: 5-8 years of relevant experience, hands-on expertise with React, TypeScript, CSS and accessibility, and strong communication skills; experience working in a fast-paced startup environment is a plus.",
+      "requirements": [
+        "5+ years of professional experience",
+        "React",
+        "TypeScript",
+        "CSS",
+        "accessibility"
+      ],
+      "link": "https://remoteok.com/remote-jobs/3536486210-senior-frontend-engineer-react-emberly-technologies",
+      "sourcingPlatform": "RemoteOK",
+      "datePublished": "2026-05-28"
+    },
+    {
+      "id": 36,
+      "title": "Staff Frontend Engineer (React)",
+      "company": "Kinetic Digital",
+      "location": "Berlin, Germany (Hybrid)",
+      "description": "If you get a thrill from shipping fast and owning your craft end-to-end, keep reading. Kinetic Digital is looking for a staff-level Frontend Engineer to join our team. We're reimagining an entire industry with a small, scrappy team of A-players who move fast and never settle. In this role you will build and maintain our React + TypeScript component library, champion accessibility, and make our app feel instant, collaborate closely with cross-functional stakeholders, and help set the bar for engineering excellence across the org. We're a team that values ownership, curiosity, and getting things done without a mountain of process. We believe in work hard, play hard, with a rooftop bar and monthly team offsites. If this sounds like you, we'd love to hear your story. Requirements: 8+ years of relevant experience, hands-on expertise with React, TypeScript, CSS and accessibility, and strong communication skills; experience working in a fast-paced startup environment is a plus.",
+      "requirements": [
+        "8+ years of professional experience",
+        "React",
+        "TypeScript",
+        "CSS",
+        "accessibility"
+      ],
+      "link": "https://remoteok.com/remote-jobs/3544014506-staff-frontend-engineer-react-kinetic-digital",
+      "sourcingPlatform": "RemoteOK",
+      "datePublished": "2026-06-14"
+    },
+    {
+      "id": 37,
+      "title": "Junior Frontend Engineer (Vue)",
+      "company": "Outpost Collective",
+      "location": "Stockholm, Sweden (On-site)",
+      "description": "Calling all coding wizards, problem-solving unicorns, and quietly brilliant engineers! Outpost Collective is looking for a junior-level Frontend Engineer to join our team. We're a Series-B rocketship growing 300% year over year, and we're just getting started. In this role you will own large chunks of our Vue 3 single-page app, keep state management sane with Pinia, and collaborate closely with design, collaborate closely with cross-functional stakeholders, and help set the bar for engineering excellence across the org. We're a team that values ownership, curiosity, and getting things done without a mountain of process. Perks include a generous learning budget, an annual company retreat, and top-of-the-line hardware. We move fast, care deeply, and would love to have you along for the ride. Requirements: 0-1 years of relevant experience, hands-on expertise with Vue.js, TypeScript, Vuex/Pinia and CSS, and strong communication skills; experience working in a fast-paced startup environment is a plus.",
+      "requirements": [
+        "0-1 years of professional experience",
+        "Vue.js",
+        "TypeScript",
+        "Vuex/Pinia",
+        "CSS"
+      ],
+      "link": "https://www.indeed.com/viewjob?jk=d91dad02",
+      "sourcingPlatform": "Indeed",
+      "datePublished": "2026-06-15"
+    },
+    {
+      "id": 38,
+      "title": "Mid-Level Frontend Engineer (Vue)",
+      "company": "Zenith Networks",
+      "location": "Krakow, Poland (On-site)",
+      "description": "Ever wanted to build things that millions of people touch every single day? Zenith Networks is looking for a mid-level-level Frontend Engineer to join our team. We're a Series-B rocketship growing 300% year over year, and we're just getting started. In this role you will own large chunks of our Vue 3 single-page app, keep state management sane with Pinia, and collaborate closely with design, collaborate closely with cross-functional stakeholders, and help set the bar for engineering excellence across the org. We're a team that values ownership, curiosity, and getting things done without a mountain of process. We offer free snacks, a foosball table, and unlimited PTO (that nobody actually takes). If this sounds like you, we'd love to hear your story. Requirements: 2-4 years of relevant experience, hands-on expertise with Vue.js, TypeScript, Vuex/Pinia and CSS, and strong communication skills; experience working in a fast-paced startup environment is a plus.",
+      "requirements": [
+        "2-4 years of professional experience",
+        "Vue.js",
+        "TypeScript",
+        "Vuex/Pinia",
+        "CSS"
+      ],
+      "link": "https://wellfound.com/jobs/3833482333-mid-level-frontend-engineer-vue-zenith-networks",
+      "sourcingPlatform": "Wellfound",
+      "datePublished": "2026-06-04"
+    },
+    {
+      "id": 39,
+      "title": "Senior Frontend Engineer (Vue)",
+      "company": "Orbit Analytics",
+      "location": "Seattle, WA (Hybrid)",
+      "description": "If you get a thrill from shipping fast and owning your craft end-to-end, keep reading. Orbit Analytics is looking for a senior-level Frontend Engineer to join our team. We're reimagining an entire industry with a small, scrappy team of A-players who move fast and never settle. In this role you will own large chunks of our Vue 3 single-page app, keep state management sane with Pinia, and collaborate closely with design, collaborate closely with cross-functional stakeholders, and help set the bar for engineering excellence across the org. We're a team that values ownership, curiosity, and getting things done without a mountain of process. We have kombucha on tap, a dog-friendly office, and a culture of radical candor. Sound like your kind of challenge? We can't wait to meet you. Requirements: 5-8 years of relevant experience, hands-on expertise with Vue.js, TypeScript, Vuex/Pinia and CSS, and strong communication skills; experience working in a fast-paced startup environment is a plus.",
+      "requirements": [
+        "5+ years of professional experience",
+        "Vue.js",
+        "TypeScript",
+        "Vuex/Pinia",
+        "CSS"
+      ],
+      "link": "https://www.glassdoor.com/job-listing/senior-frontend-engineer-vue-orbit-analytics-JV_IC3972910352.htm",
+      "sourcingPlatform": "Glassdoor",
+      "datePublished": "2026-07-06"
+    },
+    {
+      "id": 40,
+      "title": "Staff Frontend Engineer (Vue)",
+      "company": "Kinetic Dynamics",
+      "location": "Toronto, Canada (Remote)",
+      "description": "We're looking for a rare unicorn who combines deep technical chops with relentless product instinct. Kinetic Dynamics is looking for a staff-level Frontend Engineer to join our team. We're a bold, relentless, customer-obsessed team building the future, one sprint at a time. In this role you will own large chunks of our Vue 3 single-page app, keep state management sane with Pinia, and collaborate closely with design, collaborate closely with cross-functional stakeholders, and help set the bar for engineering excellence across the org. We're a team that values ownership, curiosity, and getting things done without a mountain of process. We offer competitive compensation, full benefits, and a genuinely flexible remote-friendly culture. We're building something special, and we think you could be a huge part of it. Requirements: 8+ years of relevant experience, hands-on expertise with Vue.js, TypeScript, Vuex/Pinia and CSS, and strong communication skills; experience working in a fast-paced startup environment is a plus.",
+      "requirements": [
+        "8+ years of professional experience",
+        "Vue.js",
+        "TypeScript",
+        "Vuex/Pinia",
+        "CSS"
+      ],
+      "link": "https://careers.kinetic-dynamics.example.com/jobs/3662412652",
+      "sourcingPlatform": "Company Careers Page",
+      "datePublished": "2026-06-01"
+    },
+    {
+      "id": 41,
+      "title": "Junior Frontend Engineer (Angular)",
+      "company": "Northstar Industries",
+      "location": "Remote (EU)",
+      "description": "We're on the hunt for a passionate, detail-obsessed engineer ready to make a real dent. Northstar Industries is looking for a junior-level Frontend Engineer to join our team. We're a purpose-driven, values-first company on a mission to make a dent in the universe. In this role you will build enterprise-grade dashboards in Angular, tame complex RxJS data streams, and enforce consistent UI patterns across teams, collaborate closely with cross-functional stakeholders, and help set the bar for engineering excellence across the org. We're a team that values ownership, curiosity, and getting things done without a mountain of process. We offer free snacks, a foosball table, and unlimited PTO (that nobody actually takes). Sound like your kind of challenge? We can't wait to meet you. Requirements: 0-1 years of relevant experience, hands-on expertise with Angular, TypeScript, RxJS and CSS, and strong communication skills; experience working in a fast-paced startup environment is a plus.",
+      "requirements": [
+        "0-1 years of professional experience",
+        "Angular",
+        "TypeScript",
+        "RxJS",
+        "CSS"
+      ],
+      "link": "https://www.glassdoor.com/job-listing/junior-frontend-engineer-angular-northstar-industries-JV_IC3561970293.htm",
+      "sourcingPlatform": "Glassdoor",
+      "datePublished": "2026-05-15"
+    },
+    {
+      "id": 42,
+      "title": "Mid-Level Frontend Engineer (Angular)",
+      "company": "Orbit Interactive",
+      "location": "London, UK (On-site)",
+      "description": "Calling all coding wizards, problem-solving unicorns, and quietly brilliant engineers! Orbit Interactive is looking for a mid-level-level Frontend Engineer to join our team. We're a purpose-driven, values-first company on a mission to make a dent in the universe. In this role you will build enterprise-grade dashboards in Angular, tame complex RxJS data streams, and enforce consistent UI patterns across teams, collaborate closely with cross-functional stakeholders, and help set the bar for engineering excellence across the org. We're a team that values ownership, curiosity, and getting things done without a mountain of process. We believe in work hard, play hard, with a rooftop bar and monthly team offsites. Sound like your kind of challenge? We can't wait to meet you. Requirements: 2-4 years of relevant experience, hands-on expertise with Angular, TypeScript, RxJS and CSS, and strong communication skills; experience working in a fast-paced startup environment is a plus.",
+      "requirements": [
+        "2-4 years of professional experience",
+        "Angular",
+        "TypeScript",
+        "RxJS",
+        "CSS"
+      ],
+      "link": "https://careers.orbit-interactive.example.com/jobs/3684082453",
+      "sourcingPlatform": "Company Careers Page",
+      "datePublished": "2026-06-27"
+    },
+    {
+      "id": 43,
+      "title": "Senior Frontend Engineer (Angular)",
+      "company": "Pinnacle Studio",
+      "location": "Denver, CO (Remote)",
+      "description": "Calling all coding wizards, problem-solving unicorns, and quietly brilliant engineers! Pinnacle Studio is looking for a senior-level Frontend Engineer to join our team. We're a globally distributed team of world-class innovators obsessed with craftsmanship and impact. In this role you will build enterprise-grade dashboards in Angular, tame complex RxJS data streams, and enforce consistent UI patterns across teams, collaborate closely with cross-functional stakeholders, and help set the bar for engineering excellence across the org. We're a team that values ownership, curiosity, and getting things done without a mountain of process. We offer competitive compensation, full benefits, and a genuinely flexible remote-friendly culture. If this sounds like you, we'd love to hear your story. Requirements: 5-8 years of relevant experience, hands-on expertise with Angular, TypeScript, RxJS and CSS, and strong communication skills; experience working in a fast-paced startup environment is a plus.",
+      "requirements": [
+        "5+ years of professional experience",
+        "Angular",
+        "TypeScript",
+        "RxJS",
+        "CSS"
+      ],
+      "link": "https://www.linkedin.com/jobs/view/3840528868",
+      "sourcingPlatform": "LinkedIn",
+      "datePublished": "2026-06-13"
+    },
+    {
+      "id": 44,
+      "title": "Staff Frontend Engineer (Angular)",
+      "company": "Meridian Labs",
+      "location": "Remote (EU)",
+      "description": "Ever wanted to build things that millions of people touch every single day? Meridian Labs is looking for a staff-level Frontend Engineer to join our team. We're a Series-B rocketship growing 300% year over year, and we're just getting started. In this role you will build enterprise-grade dashboards in Angular, tame complex RxJS data streams, and enforce consistent UI patterns across teams, collaborate closely with cross-functional stakeholders, and help set the bar for engineering excellence across the org. We're a team that values ownership, curiosity, and getting things done without a mountain of process. Perks include a generous learning budget, an annual company retreat, and top-of-the-line hardware. We move fast, care deeply, and would love to have you along for the ride. Requirements: 8+ years of relevant experience, hands-on expertise with Angular, TypeScript, RxJS and CSS, and strong communication skills; experience working in a fast-paced startup environment is a plus.",
+      "requirements": [
+        "8+ years of professional experience",
+        "Angular",
+        "TypeScript",
+        "RxJS",
+        "CSS"
+      ],
+      "link": "https://www.indeed.com/viewjob?jk=e855ece3",
+      "sourcingPlatform": "Indeed",
+      "datePublished": "2026-06-12"
+    },
+    {
+      "id": 45,
+      "title": "Junior Full-Stack Engineer (JavaScript (MERN))",
+      "company": "Granite Ventures",
+      "location": "Seattle, WA (Hybrid)",
+      "description": "Are you a rockstar 10x ninja engineer who breathes clean code and eats hard problems for breakfast?! Granite Ventures is looking for a junior-level Full-Stack Engineer to join our team. We're a fast-paced, mission-driven, synergy-fueled unicorn disrupting an industry that has been begging for disruption. In this role you will ship features across our full MERN stack, from MongoDB schemas to React components, moving fast without breaking things (much), collaborate closely with cross-functional stakeholders, and help set the bar for engineering excellence across the org. We're a team that values ownership, curiosity, and getting things done without a mountain of process. We offer free snacks, a foosball table, and unlimited PTO (that nobody actually takes). Sound like your kind of challenge? We can't wait to meet you. Requirements: 0-1 years of relevant experience, hands-on expertise with React, Node.js, MongoDB and Express, and strong communication skills; experience working in a fast-paced startup environment is a plus.",
+      "requirements": [
+        "0-1 years of professional experience",
+        "React",
+        "Node.js",
+        "MongoDB",
+        "Express"
+      ],
+      "link": "https://remoteok.com/remote-jobs/3519342459-junior-full-stack-engineer-javascript-mern-granite-ventures",
+      "sourcingPlatform": "RemoteOK",
+      "datePublished": "2026-05-18"
+    },
+    {
+      "id": 46,
+      "title": "Mid-Level Full-Stack Engineer (JavaScript (MERN))",
+      "company": "Tanager Collective",
+      "location": "Seattle, WA (Hybrid)",
+      "description": "We're looking for a rare unicorn who combines deep technical chops with relentless product instinct. Tanager Collective is looking for a mid-level-level Full-Stack Engineer to join our team. We're a bold, relentless, customer-obsessed team building the future, one sprint at a time. In this role you will ship features across our full MERN stack, from MongoDB schemas to React components, moving fast without breaking things (much), collaborate closely with cross-functional stakeholders, and help set the bar for engineering excellence across the org. We're a team that values ownership, curiosity, and getting things done without a mountain of process. Perks include a generous learning budget, an annual company retreat, and top-of-the-line hardware. If this sounds like you, we'd love to hear your story. Requirements: 2-4 years of relevant experience, hands-on expertise with React, Node.js, MongoDB and Express, and strong communication skills; experience working in a fast-paced startup environment is a plus.",
+      "requirements": [
+        "2-4 years of professional experience",
+        "React",
+        "Node.js",
+        "MongoDB",
+        "Express"
+      ],
+      "link": "https://www.glassdoor.com/job-listing/mid-level-full-stack-engineer-javascript-mern-tanager-collective-JV_IC3695770789.htm",
+      "sourcingPlatform": "Glassdoor",
+      "datePublished": "2026-05-14"
+    },
+    {
+      "id": 47,
+      "title": "Senior Full-Stack Engineer (JavaScript (MERN))",
+      "company": "Nimbus Dynamics",
+      "location": "Austin, TX (On-site)",
+      "description": "We're on the hunt for a passionate, detail-obsessed engineer ready to make a real dent. Nimbus Dynamics is looking for a senior-level Full-Stack Engineer to join our team. We're reimagining an entire industry with a small, scrappy team of A-players who move fast and never settle. In this role you will ship features across our full MERN stack, from MongoDB schemas to React components, moving fast without breaking things (much), collaborate closely with cross-functional stakeholders, and help set the bar for engineering excellence across the org. We're a team that values ownership, curiosity, and getting things done without a mountain of process. We offer free snacks, a foosball table, and unlimited PTO (that nobody actually takes). We move fast, care deeply, and would love to have you along for the ride. Requirements: 5-8 years of relevant experience, hands-on expertise with React, Node.js, MongoDB and Express, and strong communication skills; experience working in a fast-paced startup environment is a plus.",
+      "requirements": [
+        "5+ years of professional experience",
+        "React",
+        "Node.js",
+        "MongoDB",
+        "Express"
+      ],
+      "link": "https://remoteok.com/remote-jobs/3974666203-senior-full-stack-engineer-javascript-mern-nimbus-dynamics",
+      "sourcingPlatform": "RemoteOK",
+      "datePublished": "2026-05-16"
+    },
+    {
+      "id": 48,
+      "title": "Staff Full-Stack Engineer (JavaScript (MERN))",
+      "company": "Wavefront AI",
+      "location": "London, UK (On-site)",
+      "description": "Ever wanted to build things that millions of people touch every single day? Wavefront AI is looking for a staff-level Full-Stack Engineer to join our team. We're reimagining an entire industry with a small, scrappy team of A-players who move fast and never settle. In this role you will ship features across our full MERN stack, from MongoDB schemas to React components, moving fast without breaking things (much), collaborate closely with cross-functional stakeholders, and help set the bar for engineering excellence across the org. We're a team that values ownership, curiosity, and getting things done without a mountain of process. Perks include a generous learning budget, an annual company retreat, and top-of-the-line hardware. Sound like your kind of challenge? We can't wait to meet you. Requirements: 8+ years of relevant experience, hands-on expertise with React, Node.js, MongoDB and Express, and strong communication skills; experience working in a fast-paced startup environment is a plus.",
+      "requirements": [
+        "8+ years of professional experience",
+        "React",
+        "Node.js",
+        "MongoDB",
+        "Express"
+      ],
+      "link": "https://wellfound.com/jobs/3513307079-staff-full-stack-engineer-javascript-mern-wavefront-ai",
+      "sourcingPlatform": "Wellfound",
+      "datePublished": "2026-06-29"
+    },
+    {
+      "id": 49,
+      "title": "Junior Full-Stack Engineer (Python/React)",
+      "company": "Torchlight Robotics",
+      "location": "Singapore (Hybrid)",
+      "description": "Calling all coding wizards, problem-solving unicorns, and quietly brilliant engineers! Torchlight Robotics is looking for a junior-level Full-Stack Engineer to join our team. We're reimagining an entire industry with a small, scrappy team of A-players who move fast and never settle. In this role you will work across our Django backend and React frontend to deliver full features end-to-end, from data model to pixel, collaborate closely with cross-functional stakeholders, and help set the bar for engineering excellence across the org. We're a team that values ownership, curiosity, and getting things done without a mountain of process. Perks include a generous learning budget, an annual company retreat, and top-of-the-line hardware. If this sounds like you, we'd love to hear your story. Requirements: 0-1 years of relevant experience, hands-on expertise with Python, Django, React and REST APIs, and strong communication skills; experience working in a fast-paced startup environment is a plus.",
+      "requirements": [
+        "0-1 years of professional experience",
+        "Python",
+        "Django",
+        "React",
+        "REST APIs"
+      ],
+      "link": "https://wellfound.com/jobs/3968240978-junior-full-stack-engineer-python-react-torchlight-robotics",
+      "sourcingPlatform": "Wellfound",
+      "datePublished": "2026-07-08"
+    },
+    {
+      "id": 50,
+      "title": "Mid-Level Full-Stack Engineer (Python/React)",
+      "company": "Beacon Software",
+      "location": "Austin, TX (On-site)",
+      "description": "Calling all coding wizards, problem-solving unicorns, and quietly brilliant engineers! Beacon Software is looking for a mid-level-level Full-Stack Engineer to join our team. We're a globally distributed team of world-class innovators obsessed with craftsmanship and impact. In this role you will work across our Django backend and React frontend to deliver full features end-to-end, from data model to pixel, collaborate closely with cross-functional stakeholders, and help set the bar for engineering excellence across the org. We're a team that values ownership, curiosity, and getting things done without a mountain of process. We have kombucha on tap, a dog-friendly office, and a culture of radical candor. Sound like your kind of challenge? We can't wait to meet you. Requirements: 2-4 years of relevant experience, hands-on expertise with Python, Django, React and REST APIs, and strong communication skills; experience working in a fast-paced startup environment is a plus.",
+      "requirements": [
+        "2-4 years of professional experience",
+        "Python",
+        "Django",
+        "React",
+        "REST APIs"
+      ],
+      "link": "https://www.indeed.com/viewjob?jk=d15f9eeb",
+      "sourcingPlatform": "Indeed",
+      "datePublished": "2026-05-29"
+    },
+    {
+      "id": 51,
+      "title": "Senior Full-Stack Engineer (Python/React)",
+      "company": "Halcyon Digital",
+      "location": "Lisbon, Portugal (Hybrid)",
+      "description": "Ever wanted to build things that millions of people touch every single day? Halcyon Digital is looking for a senior-level Full-Stack Engineer to join our team. We're a purpose-driven, values-first company on a mission to make a dent in the universe. In this role you will work across our Django backend and React frontend to deliver full features end-to-end, from data model to pixel, collaborate closely with cross-functional stakeholders, and help set the bar for engineering excellence across the org. We're a team that values ownership, curiosity, and getting things done without a mountain of process. We offer free snacks, a foosball table, and unlimited PTO (that nobody actually takes). We move fast, care deeply, and would love to have you along for the ride. Requirements: 5-8 years of relevant experience, hands-on expertise with Python, Django, React and REST APIs, and strong communication skills; experience working in a fast-paced startup environment is a plus.",
+      "requirements": [
+        "5+ years of professional experience",
+        "Python",
+        "Django",
+        "React",
+        "REST APIs"
+      ],
+      "link": "https://www.glassdoor.com/job-listing/senior-full-stack-engineer-python-react-halcyon-digital-JV_IC3844392886.htm",
+      "sourcingPlatform": "Glassdoor",
+      "datePublished": "2026-06-08"
+    },
+    {
+      "id": 52,
+      "title": "Staff Full-Stack Engineer (Python/React)",
+      "company": "Vantage Interactive",
+      "location": "Lisbon, Portugal (Hybrid)",
+      "description": "Are you a rockstar 10x ninja engineer who breathes clean code and eats hard problems for breakfast?! Vantage Interactive is looking for a staff-level Full-Stack Engineer to join our team. We're a fast-paced, mission-driven, synergy-fueled unicorn disrupting an industry that has been begging for disruption. In this role you will work across our Django backend and React frontend to deliver full features end-to-end, from data model to pixel, collaborate closely with cross-functional stakeholders, and help set the bar for engineering excellence across the org. We're a team that values ownership, curiosity, and getting things done without a mountain of process. We have kombucha on tap, a dog-friendly office, and a culture of radical candor. Sound like your kind of challenge? We can't wait to meet you. Requirements: 8+ years of relevant experience, hands-on expertise with Python, Django, React and REST APIs, and strong communication skills; experience working in a fast-paced startup environment is a plus.",
+      "requirements": [
+        "8+ years of professional experience",
+        "Python",
+        "Django",
+        "React",
+        "REST APIs"
+      ],
+      "link": "https://remoteok.com/remote-jobs/3642521168-staff-full-stack-engineer-python-react-vantage-interactive",
+      "sourcingPlatform": "RemoteOK",
+      "datePublished": "2026-07-08"
+    },
+    {
+      "id": 53,
+      "title": "Junior Mobile Engineer (iOS/Swift)",
+      "company": "Orbit AI",
+      "location": "Singapore (Hybrid)",
+      "description": "We're on the hunt for a passionate, detail-obsessed engineer ready to make a real dent. Orbit AI is looking for a junior-level Mobile Engineer to join our team. We're a Series-B rocketship growing 300% year over year, and we're just getting started. In this role you will craft delightful native iOS experiences in Swift and SwiftUI, and obsess over the tiny animation details our users notice, collaborate closely with cross-functional stakeholders, and help set the bar for engineering excellence across the org. We're a team that values ownership, curiosity, and getting things done without a mountain of process. We offer competitive compensation, full benefits, and a genuinely flexible remote-friendly culture. We move fast, care deeply, and would love to have you along for the ride. Requirements: 0-1 years of relevant experience, hands-on expertise with Swift, SwiftUI, iOS SDK and Xcode, and strong communication skills; experience working in a fast-paced startup environment is a plus.",
+      "requirements": [
+        "0-1 years of professional experience",
+        "Swift",
+        "SwiftUI",
+        "iOS SDK",
+        "Xcode"
+      ],
+      "link": "https://wellfound.com/jobs/3825455898-junior-mobile-engineer-ios-swift-orbit-ai",
+      "sourcingPlatform": "Wellfound",
+      "datePublished": "2026-06-08"
+    },
+    {
+      "id": 54,
+      "title": "Mid-Level Mobile Engineer (iOS/Swift)",
+      "company": "Pulse Digital",
+      "location": "Stockholm, Sweden (On-site)",
+      "description": "Calling all coding wizards, problem-solving unicorns, and quietly brilliant engineers! Pulse Digital is looking for a mid-level-level Mobile Engineer to join our team. We're reimagining an entire industry with a small, scrappy team of A-players who move fast and never settle. In this role you will craft delightful native iOS experiences in Swift and SwiftUI, and obsess over the tiny animation details our users notice, collaborate closely with cross-functional stakeholders, and help set the bar for engineering excellence across the org. We're a team that values ownership, curiosity, and getting things done without a mountain of process. We offer free snacks, a foosball table, and unlimited PTO (that nobody actually takes). Join us and help write the next chapter of our story. Requirements: 2-4 years of relevant experience, hands-on expertise with Swift, SwiftUI, iOS SDK and Xcode, and strong communication skills; experience working in a fast-paced startup environment is a plus.",
+      "requirements": [
+        "2-4 years of professional experience",
+        "Swift",
+        "SwiftUI",
+        "iOS SDK",
+        "Xcode"
+      ],
+      "link": "https://www.linkedin.com/jobs/view/3779130110",
+      "sourcingPlatform": "LinkedIn",
+      "datePublished": "2026-05-12"
+    },
+    {
+      "id": 55,
+      "title": "Senior Mobile Engineer (iOS/Swift)",
+      "company": "Foundry Works",
+      "location": "Warsaw, Poland (Remote)",
+      "description": "Are you a rockstar 10x ninja engineer who breathes clean code and eats hard problems for breakfast?! Foundry Works is looking for a senior-level Mobile Engineer to join our team. We're building category-defining products for a market that didn't know it needed us yet, until it did. In this role you will craft delightful native iOS experiences in Swift and SwiftUI, and obsess over the tiny animation details our users notice, collaborate closely with cross-functional stakeholders, and help set the bar for engineering excellence across the org. We're a team that values ownership, curiosity, and getting things done without a mountain of process. You'll get equity that matters, a wellness stipend, and unlimited coffee (obviously). We move fast, care deeply, and would love to have you along for the ride. Requirements: 5-8 years of relevant experience, hands-on expertise with Swift, SwiftUI, iOS SDK and Xcode, and strong communication skills; experience working in a fast-paced startup environment is a plus.",
+      "requirements": [
+        "5+ years of professional experience",
+        "Swift",
+        "SwiftUI",
+        "iOS SDK",
+        "Xcode"
+      ],
+      "link": "https://remoteok.com/remote-jobs/3668532176-senior-mobile-engineer-ios-swift-foundry-works",
+      "sourcingPlatform": "RemoteOK",
+      "datePublished": "2026-05-29"
+    },
+    {
+      "id": 56,
+      "title": "Staff Mobile Engineer (iOS/Swift)",
+      "company": "Pulse Networks",
+      "location": "Denver, CO (Remote)",
+      "description": "We're on the hunt for a passionate, detail-obsessed engineer ready to make a real dent. Pulse Networks is looking for a staff-level Mobile Engineer to join our team. We're a purpose-driven, values-first company on a mission to make a dent in the universe. In this role you will craft delightful native iOS experiences in Swift and SwiftUI, and obsess over the tiny animation details our users notice, collaborate closely with cross-functional stakeholders, and help set the bar for engineering excellence across the org. We're a team that values ownership, curiosity, and getting things done without a mountain of process. Enjoy flexible hours, a home-office stipend, and quarterly hackathons that actually ship things. We move fast, care deeply, and would love to have you along for the ride. Requirements: 8+ years of relevant experience, hands-on expertise with Swift, SwiftUI, iOS SDK and Xcode, and strong communication skills; experience working in a fast-paced startup environment is a plus.",
+      "requirements": [
+        "8+ years of professional experience",
+        "Swift",
+        "SwiftUI",
+        "iOS SDK",
+        "Xcode"
+      ],
+      "link": "https://wellfound.com/jobs/3874310916-staff-mobile-engineer-ios-swift-pulse-networks",
+      "sourcingPlatform": "Wellfound",
+      "datePublished": "2026-06-22"
+    },
+    {
+      "id": 57,
+      "title": "Junior Mobile Engineer (Android/Kotlin)",
+      "company": "Granite Health",
+      "location": "Austin, TX (On-site)",
+      "description": "We're on the hunt for a passionate, detail-obsessed engineer ready to make a real dent. Granite Health is looking for a junior-level Mobile Engineer to join our team. We're building category-defining products for a market that didn't know it needed us yet, until it did. In this role you will build our native Android app in Kotlin and Jetpack Compose, and keep our coroutine-based async code predictable at scale, collaborate closely with cross-functional stakeholders, and help set the bar for engineering excellence across the org. We're a team that values ownership, curiosity, and getting things done without a mountain of process. Enjoy flexible hours, a home-office stipend, and quarterly hackathons that actually ship things. Sound like your kind of challenge? We can't wait to meet you. Requirements: 0-1 years of relevant experience, hands-on expertise with Kotlin, Jetpack Compose, Android SDK and coroutines, and strong communication skills; experience working in a fast-paced startup environment is a plus.",
+      "requirements": [
+        "0-1 years of professional experience",
+        "Kotlin",
+        "Jetpack Compose",
+        "Android SDK",
+        "coroutines"
+      ],
+      "link": "https://remoteok.com/remote-jobs/3805536059-junior-mobile-engineer-android-kotlin-granite-health",
+      "sourcingPlatform": "RemoteOK",
+      "datePublished": "2026-06-21"
+    },
+    {
+      "id": 58,
+      "title": "Mid-Level Mobile Engineer (Android/Kotlin)",
+      "company": "Acme Networks",
+      "location": "Toronto, Canada (Remote)",
+      "description": "We're looking for a rare unicorn who combines deep technical chops with relentless product instinct. Acme Networks is looking for a mid-level-level Mobile Engineer to join our team. We're reimagining an entire industry with a small, scrappy team of A-players who move fast and never settle. In this role you will build our native Android app in Kotlin and Jetpack Compose, and keep our coroutine-based async code predictable at scale, collaborate closely with cross-functional stakeholders, and help set the bar for engineering excellence across the org. We're a team that values ownership, curiosity, and getting things done without a mountain of process. We offer competitive compensation, full benefits, and a genuinely flexible remote-friendly culture. We're building something special, and we think you could be a huge part of it. Requirements: 2-4 years of relevant experience, hands-on expertise with Kotlin, Jetpack Compose, Android SDK and coroutines, and strong communication skills; experience working in a fast-paced startup environment is a plus.",
+      "requirements": [
+        "2-4 years of professional experience",
+        "Kotlin",
+        "Jetpack Compose",
+        "Android SDK",
+        "coroutines"
+      ],
+      "link": "https://remoteok.com/remote-jobs/3851492405-mid-level-mobile-engineer-android-kotlin-acme-networks",
+      "sourcingPlatform": "RemoteOK",
+      "datePublished": "2026-06-20"
+    },
+    {
+      "id": 59,
+      "title": "Senior Mobile Engineer (Android/Kotlin)",
+      "company": "Cascade Group",
+      "location": "Krakow, Poland (On-site)",
+      "description": "If you get a thrill from shipping fast and owning your craft end-to-end, keep reading. Cascade Group is looking for a senior-level Mobile Engineer to join our team. We're reimagining an entire industry with a small, scrappy team of A-players who move fast and never settle. In this role you will build our native Android app in Kotlin and Jetpack Compose, and keep our coroutine-based async code predictable at scale, collaborate closely with cross-functional stakeholders, and help set the bar for engineering excellence across the org. We're a team that values ownership, curiosity, and getting things done without a mountain of process. Enjoy flexible hours, a home-office stipend, and quarterly hackathons that actually ship things. Sound like your kind of challenge? We can't wait to meet you. Requirements: 5-8 years of relevant experience, hands-on expertise with Kotlin, Jetpack Compose, Android SDK and coroutines, and strong communication skills; experience working in a fast-paced startup environment is a plus.",
+      "requirements": [
+        "5+ years of professional experience",
+        "Kotlin",
+        "Jetpack Compose",
+        "Android SDK",
+        "coroutines"
+      ],
+      "link": "https://careers.cascade-group.example.com/jobs/3545524257",
+      "sourcingPlatform": "Company Careers Page",
+      "datePublished": "2026-06-22"
+    },
+    {
+      "id": 60,
+      "title": "Staff Mobile Engineer (Android/Kotlin)",
+      "company": "Driftwood AI",
+      "location": "Lisbon, Portugal (Hybrid)",
+      "description": "Ever wanted to build things that millions of people touch every single day? Driftwood AI is looking for a staff-level Mobile Engineer to join our team. We're a hyper-growth, category-defining scale-up on a rocketship trajectory to change how the world works. In this role you will build our native Android app in Kotlin and Jetpack Compose, and keep our coroutine-based async code predictable at scale, collaborate closely with cross-functional stakeholders, and help set the bar for engineering excellence across the org. We're a team that values ownership, curiosity, and getting things done without a mountain of process. We offer competitive compensation, full benefits, and a genuinely flexible remote-friendly culture. Sound like your kind of challenge? We can't wait to meet you. Requirements: 8+ years of relevant experience, hands-on expertise with Kotlin, Jetpack Compose, Android SDK and coroutines, and strong communication skills; experience working in a fast-paced startup environment is a plus.",
+      "requirements": [
+        "8+ years of professional experience",
+        "Kotlin",
+        "Jetpack Compose",
+        "Android SDK",
+        "coroutines"
+      ],
+      "link": "https://careers.driftwood-ai.example.com/jobs/3666655180",
+      "sourcingPlatform": "Company Careers Page",
+      "datePublished": "2026-06-26"
+    },
+    {
+      "id": 61,
+      "title": "Junior Mobile Engineer (React Native)",
+      "company": "Halcyon Health",
+      "location": "Remote (EU)",
+      "description": "Do you dream in stack traces and wake up thinking about elegant abstractions? Halcyon Health is looking for a junior-level Mobile Engineer to join our team. We're a fast-paced, mission-driven, synergy-fueled unicorn disrupting an industry that has been begging for disruption. In this role you will ship a single React Native codebase to both iOS and Android, bridging native modules when the JS layer isn't enough, collaborate closely with cross-functional stakeholders, and help set the bar for engineering excellence across the org. We're a team that values ownership, curiosity, and getting things done without a mountain of process. Enjoy flexible hours, a home-office stipend, and quarterly hackathons that actually ship things. We're building something special, and we think you could be a huge part of it. Requirements: 0-1 years of relevant experience, hands-on expertise with React Native, TypeScript, iOS and Android, and strong communication skills; experience working in a fast-paced startup environment is a plus.",
+      "requirements": [
+        "0-1 years of professional experience",
+        "React Native",
+        "TypeScript",
+        "iOS",
+        "Android"
+      ],
+      "link": "https://www.linkedin.com/jobs/view/3744499692",
+      "sourcingPlatform": "LinkedIn",
+      "datePublished": "2026-06-14"
+    },
+    {
+      "id": 62,
+      "title": "Mid-Level Mobile Engineer (React Native)",
+      "company": "Marrow Collective",
+      "location": "Austin, TX (On-site)",
+      "description": "We're looking for a rare unicorn who combines deep technical chops with relentless product instinct. Marrow Collective is looking for a mid-level-level Mobile Engineer to join our team. We're building category-defining products for a market that didn't know it needed us yet, until it did. In this role you will ship a single React Native codebase to both iOS and Android, bridging native modules when the JS layer isn't enough, collaborate closely with cross-functional stakeholders, and help set the bar for engineering excellence across the org. We're a team that values ownership, curiosity, and getting things done without a mountain of process. Enjoy flexible hours, a home-office stipend, and quarterly hackathons that actually ship things. Sound like your kind of challenge? We can't wait to meet you. Requirements: 2-4 years of relevant experience, hands-on expertise with React Native, TypeScript, iOS and Android, and strong communication skills; experience working in a fast-paced startup environment is a plus.",
+      "requirements": [
+        "2-4 years of professional experience",
+        "React Native",
+        "TypeScript",
+        "iOS",
+        "Android"
+      ],
+      "link": "https://www.indeed.com/viewjob?jk=e59c305d",
+      "sourcingPlatform": "Indeed",
+      "datePublished": "2026-05-27"
+    },
+    {
+      "id": 63,
+      "title": "Senior Mobile Engineer (React Native)",
+      "company": "Acme Systems",
+      "location": "Singapore (Hybrid)",
+      "description": "Do you dream in stack traces and wake up thinking about elegant abstractions? Acme Systems is looking for a senior-level Mobile Engineer to join our team. We're reimagining an entire industry with a small, scrappy team of A-players who move fast and never settle. In this role you will ship a single React Native codebase to both iOS and Android, bridging native modules when the JS layer isn't enough, collaborate closely with cross-functional stakeholders, and help set the bar for engineering excellence across the org. We're a team that values ownership, curiosity, and getting things done without a mountain of process. We offer competitive compensation, full benefits, and a genuinely flexible remote-friendly culture. We're building something special, and we think you could be a huge part of it. Requirements: 5-8 years of relevant experience, hands-on expertise with React Native, TypeScript, iOS and Android, and strong communication skills; experience working in a fast-paced startup environment is a plus.",
+      "requirements": [
+        "5+ years of professional experience",
+        "React Native",
+        "TypeScript",
+        "iOS",
+        "Android"
+      ],
+      "link": "https://wellfound.com/jobs/3526960788-senior-mobile-engineer-react-native-acme-systems",
+      "sourcingPlatform": "Wellfound",
+      "datePublished": "2026-06-05"
+    },
+    {
+      "id": 64,
+      "title": "Staff Mobile Engineer (React Native)",
+      "company": "Kinetic Systems",
+      "location": "Krakow, Poland (On-site)",
+      "description": "Ever wanted to build things that millions of people touch every single day? Kinetic Systems is looking for a staff-level Mobile Engineer to join our team. We're a bold, relentless, customer-obsessed team building the future, one sprint at a time. In this role you will ship a single React Native codebase to both iOS and Android, bridging native modules when the JS layer isn't enough, collaborate closely with cross-functional stakeholders, and help set the bar for engineering excellence across the org. We're a team that values ownership, curiosity, and getting things done without a mountain of process. Enjoy flexible hours, a home-office stipend, and quarterly hackathons that actually ship things. We're building something special, and we think you could be a huge part of it. Requirements: 8+ years of relevant experience, hands-on expertise with React Native, TypeScript, iOS and Android, and strong communication skills; experience working in a fast-paced startup environment is a plus.",
+      "requirements": [
+        "8+ years of professional experience",
+        "React Native",
+        "TypeScript",
+        "iOS",
+        "Android"
+      ],
+      "link": "https://remoteok.com/remote-jobs/3819681028-staff-mobile-engineer-react-native-kinetic-systems",
+      "sourcingPlatform": "RemoteOK",
+      "datePublished": "2026-06-20"
+    },
+    {
+      "id": 65,
+      "title": "Junior Mobile Engineer (Flutter)",
+      "company": "Upland Group",
+      "location": "Remote (LatAm)",
+      "description": "Ever wanted to build things that millions of people touch every single day? Upland Group is looking for a junior-level Mobile Engineer to join our team. We're building category-defining products for a market that didn't know it needed us yet, until it did. In this role you will build beautiful cross-platform experiences in Flutter and Dart, sharing one codebase across iOS and Android without compromising on feel, collaborate closely with cross-functional stakeholders, and help set the bar for engineering excellence across the org. We're a team that values ownership, curiosity, and getting things done without a mountain of process. We believe in work hard, play hard, with a rooftop bar and monthly team offsites. Join us and help write the next chapter of our story. Requirements: 0-1 years of relevant experience, hands-on expertise with Flutter, Dart, iOS and Android, and strong communication skills; experience working in a fast-paced startup environment is a plus.",
+      "requirements": [
+        "0-1 years of professional experience",
+        "Flutter",
+        "Dart",
+        "iOS",
+        "Android"
+      ],
+      "link": "https://www.indeed.com/viewjob?jk=e869c97e",
+      "sourcingPlatform": "Indeed",
+      "datePublished": "2026-05-16"
+    },
+    {
+      "id": 66,
+      "title": "Mid-Level Mobile Engineer (Flutter)",
+      "company": "Beacon Group",
+      "location": "San Francisco, CA (On-site)",
+      "description": "Ever wanted to build things that millions of people touch every single day? Beacon Group is looking for a mid-level-level Mobile Engineer to join our team. We're reimagining an entire industry with a small, scrappy team of A-players who move fast and never settle. In this role you will build beautiful cross-platform experiences in Flutter and Dart, sharing one codebase across iOS and Android without compromising on feel, collaborate closely with cross-functional stakeholders, and help set the bar for engineering excellence across the org. We're a team that values ownership, curiosity, and getting things done without a mountain of process. You'll get equity that matters, a wellness stipend, and unlimited coffee (obviously). We move fast, care deeply, and would love to have you along for the ride. Requirements: 2-4 years of relevant experience, hands-on expertise with Flutter, Dart, iOS and Android, and strong communication skills; experience working in a fast-paced startup environment is a plus.",
+      "requirements": [
+        "2-4 years of professional experience",
+        "Flutter",
+        "Dart",
+        "iOS",
+        "Android"
+      ],
+      "link": "https://remoteok.com/remote-jobs/3760166043-mid-level-mobile-engineer-flutter-beacon-group",
+      "sourcingPlatform": "RemoteOK",
+      "datePublished": "2026-05-31"
+    },
+    {
+      "id": 67,
+      "title": "Senior Mobile Engineer (Flutter)",
+      "company": "Kinetic Studio",
+      "location": "Krakow, Poland (On-site)",
+      "description": "We're on the hunt for a passionate, detail-obsessed engineer ready to make a real dent. Kinetic Studio is looking for a senior-level Mobile Engineer to join our team. We're a hyper-growth, category-defining scale-up on a rocketship trajectory to change how the world works. In this role you will build beautiful cross-platform experiences in Flutter and Dart, sharing one codebase across iOS and Android without compromising on feel, collaborate closely with cross-functional stakeholders, and help set the bar for engineering excellence across the org. We're a team that values ownership, curiosity, and getting things done without a mountain of process. We have kombucha on tap, a dog-friendly office, and a culture of radical candor. Sound like your kind of challenge? We can't wait to meet you. Requirements: 5-8 years of relevant experience, hands-on expertise with Flutter, Dart, iOS and Android, and strong communication skills; experience working in a fast-paced startup environment is a plus.",
+      "requirements": [
+        "5+ years of professional experience",
+        "Flutter",
+        "Dart",
+        "iOS",
+        "Android"
+      ],
+      "link": "https://www.glassdoor.com/job-listing/senior-mobile-engineer-flutter-kinetic-studio-JV_IC3680306775.htm",
+      "sourcingPlatform": "Glassdoor",
+      "datePublished": "2026-06-20"
+    },
+    {
+      "id": 68,
+      "title": "Staff Mobile Engineer (Flutter)",
+      "company": "Foundry Analytics",
+      "location": "London, UK (On-site)",
+      "description": "Do you dream in stack traces and wake up thinking about elegant abstractions? Foundry Analytics is looking for a staff-level Mobile Engineer to join our team. We're a bold, relentless, customer-obsessed team building the future, one sprint at a time. In this role you will build beautiful cross-platform experiences in Flutter and Dart, sharing one codebase across iOS and Android without compromising on feel, collaborate closely with cross-functional stakeholders, and help set the bar for engineering excellence across the org. We're a team that values ownership, curiosity, and getting things done without a mountain of process. Enjoy flexible hours, a home-office stipend, and quarterly hackathons that actually ship things. Sound like your kind of challenge? We can't wait to meet you. Requirements: 8+ years of relevant experience, hands-on expertise with Flutter, Dart, iOS and Android, and strong communication skills; experience working in a fast-paced startup environment is a plus.",
+      "requirements": [
+        "8+ years of professional experience",
+        "Flutter",
+        "Dart",
+        "iOS",
+        "Android"
+      ],
+      "link": "https://careers.foundry-analytics.example.com/jobs/3614865077",
+      "sourcingPlatform": "Company Careers Page",
+      "datePublished": "2026-07-06"
+    },
+    {
+      "id": 69,
+      "title": "Junior Data Engineer (Spark/Airflow)",
+      "company": "Wavefront Ventures",
+      "location": "Lisbon, Portugal (Hybrid)",
+      "description": "We're looking for a rare unicorn who combines deep technical chops with relentless product instinct. Wavefront Ventures is looking for a junior-level Data Engineer to join our team. We're a globally distributed team of world-class innovators obsessed with craftsmanship and impact. In this role you will design and operate ETL pipelines on Spark and Airflow, and make sure the whole org can trust the numbers in the warehouse, collaborate closely with cross-functional stakeholders, and help set the bar for engineering excellence across the org. We're a team that values ownership, curiosity, and getting things done without a mountain of process. We offer free snacks, a foosball table, and unlimited PTO (that nobody actually takes). Sound like your kind of challenge? We can't wait to meet you. Requirements: 0-1 years of relevant experience, hands-on expertise with Python, Apache Spark, Airflow and SQL, and strong communication skills; experience working in a fast-paced startup environment is a plus.",
+      "requirements": [
+        "0-1 years of professional experience",
+        "Python",
+        "Apache Spark",
+        "Airflow",
+        "SQL"
+      ],
+      "link": "https://wellfound.com/jobs/3709098769-junior-data-engineer-spark-airflow-wavefront-ventures",
+      "sourcingPlatform": "Wellfound",
+      "datePublished": "2026-05-14"
+    },
+    {
+      "id": 70,
+      "title": "Mid-Level Data Engineer (Spark/Airflow)",
+      "company": "Voyage Collective",
+      "location": "Remote (EU)",
+      "description": "We're looking for a rare unicorn who combines deep technical chops with relentless product instinct. Voyage Collective is looking for a mid-level-level Data Engineer to join our team. We're building category-defining products for a market that didn't know it needed us yet, until it did. In this role you will design and operate ETL pipelines on Spark and Airflow, and make sure the whole org can trust the numbers in the warehouse, collaborate closely with cross-functional stakeholders, and help set the bar for engineering excellence across the org. We're a team that values ownership, curiosity, and getting things done without a mountain of process. We offer free snacks, a foosball table, and unlimited PTO (that nobody actually takes). We move fast, care deeply, and would love to have you along for the ride. Requirements: 2-4 years of relevant experience, hands-on expertise with Python, Apache Spark, Airflow and SQL, and strong communication skills; experience working in a fast-paced startup environment is a plus.",
+      "requirements": [
+        "2-4 years of professional experience",
+        "Python",
+        "Apache Spark",
+        "Airflow",
+        "SQL"
+      ],
+      "link": "https://www.glassdoor.com/job-listing/mid-level-data-engineer-spark-airflow-voyage-collective-JV_IC3904518879.htm",
+      "sourcingPlatform": "Glassdoor",
+      "datePublished": "2026-06-16"
+    },
+    {
+      "id": 71,
+      "title": "Senior Data Engineer (Spark/Airflow)",
+      "company": "Wavefront Interactive",
+      "location": "Seattle, WA (Hybrid)",
+      "description": "We're looking for a rare unicorn who combines deep technical chops with relentless product instinct. Wavefront Interactive is looking for a senior-level Data Engineer to join our team. We're reimagining an entire industry with a small, scrappy team of A-players who move fast and never settle. In this role you will design and operate ETL pipelines on Spark and Airflow, and make sure the whole org can trust the numbers in the warehouse, collaborate closely with cross-functional stakeholders, and help set the bar for engineering excellence across the org. We're a team that values ownership, curiosity, and getting things done without a mountain of process. Perks include a generous learning budget, an annual company retreat, and top-of-the-line hardware. We move fast, care deeply, and would love to have you along for the ride. Requirements: 5-8 years of relevant experience, hands-on expertise with Python, Apache Spark, Airflow and SQL, and strong communication skills; experience working in a fast-paced startup environment is a plus.",
+      "requirements": [
+        "5+ years of professional experience",
+        "Python",
+        "Apache Spark",
+        "Airflow",
+        "SQL"
+      ],
+      "link": "https://wellfound.com/jobs/3760727063-senior-data-engineer-spark-airflow-wavefront-interactive",
+      "sourcingPlatform": "Wellfound",
+      "datePublished": "2026-07-09"
+    },
+    {
+      "id": 72,
+      "title": "Staff Data Engineer (Spark/Airflow)",
+      "company": "Umbra Robotics",
+      "location": "Dublin, Ireland (On-site)",
+      "description": "Ever wanted to build things that millions of people touch every single day? Umbra Robotics is looking for a staff-level Data Engineer to join our team. We're a bold, relentless, customer-obsessed team building the future, one sprint at a time. In this role you will design and operate ETL pipelines on Spark and Airflow, and make sure the whole org can trust the numbers in the warehouse, collaborate closely with cross-functional stakeholders, and help set the bar for engineering excellence across the org. We're a team that values ownership, curiosity, and getting things done without a mountain of process. Enjoy flexible hours, a home-office stipend, and quarterly hackathons that actually ship things. Sound like your kind of challenge? We can't wait to meet you. Requirements: 8+ years of relevant experience, hands-on expertise with Python, Apache Spark, Airflow and SQL, and strong communication skills; experience working in a fast-paced startup environment is a plus.",
+      "requirements": [
+        "8+ years of professional experience",
+        "Python",
+        "Apache Spark",
+        "Airflow",
+        "SQL"
+      ],
+      "link": "https://remoteok.com/remote-jobs/3786755443-staff-data-engineer-spark-airflow-umbra-robotics",
+      "sourcingPlatform": "RemoteOK",
+      "datePublished": "2026-07-09"
+    },
+    {
+      "id": 73,
+      "title": "Junior Data Scientist (Machine Learning)",
+      "company": "Vantage Collective",
+      "location": "Stockholm, Sweden (On-site)",
+      "description": "Are you a rockstar 10x ninja engineer who breathes clean code and eats hard problems for breakfast?! Vantage Collective is looking for a junior-level Data Scientist to join our team. We're a fast-paced, mission-driven, synergy-fueled unicorn disrupting an industry that has been begging for disruption. In this role you will turn messy data into decisions, build predictive models, and partner with product to run experiments that actually move metrics, collaborate closely with cross-functional stakeholders, and help set the bar for engineering excellence across the org. We're a team that values ownership, curiosity, and getting things done without a mountain of process. You'll get equity that matters, a wellness stipend, and unlimited coffee (obviously). Join us and help write the next chapter of our story. Requirements: 0-1 years of relevant experience, hands-on expertise with Python, pandas, scikit-learn and statistics, and strong communication skills; experience working in a fast-paced startup environment is a plus.",
+      "requirements": [
+        "0-1 years of professional experience",
+        "Python",
+        "pandas",
+        "scikit-learn",
+        "statistics"
+      ],
+      "link": "https://www.indeed.com/viewjob?jk=ec5b020c",
+      "sourcingPlatform": "Indeed",
+      "datePublished": "2026-06-11"
+    },
+    {
+      "id": 74,
+      "title": "Mid-Level Data Scientist (Machine Learning)",
+      "company": "Delta Labs",
+      "location": "San Francisco, CA (On-site)",
+      "description": "Calling all coding wizards, problem-solving unicorns, and quietly brilliant engineers! Delta Labs is looking for a mid-level-level Data Scientist to join our team. We're building category-defining products for a market that didn't know it needed us yet, until it did. In this role you will turn messy data into decisions, build predictive models, and partner with product to run experiments that actually move metrics, collaborate closely with cross-functional stakeholders, and help set the bar for engineering excellence across the org. We're a team that values ownership, curiosity, and getting things done without a mountain of process. Perks include a generous learning budget, an annual company retreat, and top-of-the-line hardware. Join us and help write the next chapter of our story. Requirements: 2-4 years of relevant experience, hands-on expertise with Python, pandas, scikit-learn and statistics, and strong communication skills; experience working in a fast-paced startup environment is a plus.",
+      "requirements": [
+        "2-4 years of professional experience",
+        "Python",
+        "pandas",
+        "scikit-learn",
+        "statistics"
+      ],
+      "link": "https://www.glassdoor.com/job-listing/mid-level-data-scientist-machine-learning-delta-labs-JV_IC3681194227.htm",
+      "sourcingPlatform": "Glassdoor",
+      "datePublished": "2026-05-23"
+    },
+    {
+      "id": 75,
+      "title": "Senior Data Scientist (Machine Learning)",
+      "company": "Umbra Studio",
+      "location": "Singapore (Hybrid)",
+      "description": "Ever wanted to build things that millions of people touch every single day? Umbra Studio is looking for a senior-level Data Scientist to join our team. We're a purpose-driven, values-first company on a mission to make a dent in the universe. In this role you will turn messy data into decisions, build predictive models, and partner with product to run experiments that actually move metrics, collaborate closely with cross-functional stakeholders, and help set the bar for engineering excellence across the org. We're a team that values ownership, curiosity, and getting things done without a mountain of process. We offer free snacks, a foosball table, and unlimited PTO (that nobody actually takes). Join us and help write the next chapter of our story. Requirements: 5-8 years of relevant experience, hands-on expertise with Python, pandas, scikit-learn and statistics, and strong communication skills; experience working in a fast-paced startup environment is a plus.",
+      "requirements": [
+        "5+ years of professional experience",
+        "Python",
+        "pandas",
+        "scikit-learn",
+        "statistics"
+      ],
+      "link": "https://www.linkedin.com/jobs/view/3902129337",
+      "sourcingPlatform": "LinkedIn",
+      "datePublished": "2026-06-06"
+    },
+    {
+      "id": 76,
+      "title": "Staff Data Scientist (Machine Learning)",
+      "company": "Vertex Dynamics",
+      "location": "New York, NY (Hybrid)",
+      "description": "Ever wanted to build things that millions of people touch every single day? Vertex Dynamics is looking for a staff-level Data Scientist to join our team. We're a hyper-growth, category-defining scale-up on a rocketship trajectory to change how the world works. In this role you will turn messy data into decisions, build predictive models, and partner with product to run experiments that actually move metrics, collaborate closely with cross-functional stakeholders, and help set the bar for engineering excellence across the org. We're a team that values ownership, curiosity, and getting things done without a mountain of process. You'll get equity that matters, a wellness stipend, and unlimited coffee (obviously). If this sounds like you, we'd love to hear your story. Requirements: 8+ years of relevant experience, hands-on expertise with Python, pandas, scikit-learn and statistics, and strong communication skills; experience working in a fast-paced startup environment is a plus.",
+      "requirements": [
+        "8+ years of professional experience",
+        "Python",
+        "pandas",
+        "scikit-learn",
+        "statistics"
+      ],
+      "link": "https://www.linkedin.com/jobs/view/3632759212",
+      "sourcingPlatform": "LinkedIn",
+      "datePublished": "2026-06-28"
+    },
+    {
+      "id": 77,
+      "title": "Junior ML/MLOps Engineer (Machine Learning Infra)",
+      "company": "Bright AI",
+      "location": "London, UK (On-site)",
+      "description": "Do you dream in stack traces and wake up thinking about elegant abstractions? Bright AI is looking for a junior-level ML/MLOps Engineer to join our team. We're reimagining an entire industry with a small, scrappy team of A-players who move fast and never settle. In this role you will take models from notebook to production, build training and serving pipelines, and keep our ML infrastructure reliable and observable, collaborate closely with cross-functional stakeholders, and help set the bar for engineering excellence across the org. We're a team that values ownership, curiosity, and getting things done without a mountain of process. Enjoy flexible hours, a home-office stipend, and quarterly hackathons that actually ship things. If this sounds like you, we'd love to hear your story. Requirements: 0-1 years of relevant experience, hands-on expertise with Python, PyTorch, MLOps and model deployment, and strong communication skills; experience working in a fast-paced startup environment is a plus.",
+      "requirements": [
+        "0-1 years of professional experience",
+        "Python",
+        "PyTorch",
+        "MLOps",
+        "model deployment"
+      ],
+      "link": "https://remoteok.com/remote-jobs/3617018823-junior-ml-mlops-engineer-machine-learning-infra-bright-ai",
+      "sourcingPlatform": "RemoteOK",
+      "datePublished": "2026-06-11"
+    },
+    {
+      "id": 78,
+      "title": "Mid-Level ML/MLOps Engineer (Machine Learning Infra)",
+      "company": "Quartz Studio",
+      "location": "Warsaw, Poland (Remote)",
+      "description": "If you get a thrill from shipping fast and owning your craft end-to-end, keep reading. Quartz Studio is looking for a mid-level-level ML/MLOps Engineer to join our team. We're a bold, relentless, customer-obsessed team building the future, one sprint at a time. In this role you will take models from notebook to production, build training and serving pipelines, and keep our ML infrastructure reliable and observable, collaborate closely with cross-functional stakeholders, and help set the bar for engineering excellence across the org. We're a team that values ownership, curiosity, and getting things done without a mountain of process. We believe in work hard, play hard, with a rooftop bar and monthly team offsites. If this sounds like you, we'd love to hear your story. Requirements: 2-4 years of relevant experience, hands-on expertise with Python, PyTorch, MLOps and model deployment, and strong communication skills; experience working in a fast-paced startup environment is a plus.",
+      "requirements": [
+        "2-4 years of professional experience",
+        "Python",
+        "PyTorch",
+        "MLOps",
+        "model deployment"
+      ],
+      "link": "https://www.indeed.com/viewjob?jk=da91cae4",
+      "sourcingPlatform": "Indeed",
+      "datePublished": "2026-07-04"
+    },
+    {
+      "id": 79,
+      "title": "Senior ML/MLOps Engineer (Machine Learning Infra)",
+      "company": "Indigo Corp",
+      "location": "Toronto, Canada (Remote)",
+      "description": "We're looking for a rare unicorn who combines deep technical chops with relentless product instinct. Indigo Corp is looking for a senior-level ML/MLOps Engineer to join our team. We're building category-defining products for a market that didn't know it needed us yet, until it did. In this role you will take models from notebook to production, build training and serving pipelines, and keep our ML infrastructure reliable and observable, collaborate closely with cross-functional stakeholders, and help set the bar for engineering excellence across the org. We're a team that values ownership, curiosity, and getting things done without a mountain of process. You'll get equity that matters, a wellness stipend, and unlimited coffee (obviously). Sound like your kind of challenge? We can't wait to meet you. Requirements: 5-8 years of relevant experience, hands-on expertise with Python, PyTorch, MLOps and model deployment, and strong communication skills; experience working in a fast-paced startup environment is a plus.",
+      "requirements": [
+        "5+ years of professional experience",
+        "Python",
+        "PyTorch",
+        "MLOps",
+        "model deployment"
+      ],
+      "link": "https://www.linkedin.com/jobs/view/3817880118",
+      "sourcingPlatform": "LinkedIn",
+      "datePublished": "2026-05-27"
+    },
+    {
+      "id": 80,
+      "title": "Staff ML/MLOps Engineer (Machine Learning Infra)",
+      "company": "Marrow Software",
+      "location": "Berlin, Germany (Hybrid)",
+      "description": "Ever wanted to build things that millions of people touch every single day? Marrow Software is looking for a staff-level ML/MLOps Engineer to join our team. We're a purpose-driven, values-first company on a mission to make a dent in the universe. In this role you will take models from notebook to production, build training and serving pipelines, and keep our ML infrastructure reliable and observable, collaborate closely with cross-functional stakeholders, and help set the bar for engineering excellence across the org. We're a team that values ownership, curiosity, and getting things done without a mountain of process. You'll get equity that matters, a wellness stipend, and unlimited coffee (obviously). We're building something special, and we think you could be a huge part of it. Requirements: 8+ years of relevant experience, hands-on expertise with Python, PyTorch, MLOps and model deployment, and strong communication skills; experience working in a fast-paced startup environment is a plus.",
+      "requirements": [
+        "8+ years of professional experience",
+        "Python",
+        "PyTorch",
+        "MLOps",
+        "model deployment"
+      ],
+      "link": "https://www.linkedin.com/jobs/view/3927471230",
+      "sourcingPlatform": "LinkedIn",
+      "datePublished": "2026-06-04"
+    },
+    {
+      "id": 81,
+      "title": "Junior DevOps/Platform Engineer (Kubernetes)",
+      "company": "Foundry Ventures",
+      "location": "Warsaw, Poland (Remote)",
+      "description": "If you get a thrill from shipping fast and owning your craft end-to-end, keep reading. Foundry Ventures is looking for a junior-level DevOps/Platform Engineer to join our team. We're a hyper-growth, category-defining scale-up on a rocketship trajectory to change how the world works. In this role you will own our Kubernetes platform, codify infrastructure in Terraform, and build the CI/CD pipelines every other engineer relies on, collaborate closely with cross-functional stakeholders, and help set the bar for engineering excellence across the org. We're a team that values ownership, curiosity, and getting things done without a mountain of process. You'll get equity that matters, a wellness stipend, and unlimited coffee (obviously). We move fast, care deeply, and would love to have you along for the ride. Requirements: 0-1 years of relevant experience, hands-on expertise with Kubernetes, Terraform, CI/CD and AWS/GCP, and strong communication skills; experience working in a fast-paced startup environment is a plus.",
+      "requirements": [
+        "0-1 years of professional experience",
+        "Kubernetes",
+        "Terraform",
+        "CI/CD",
+        "AWS/GCP"
+      ],
+      "link": "https://www.linkedin.com/jobs/view/3956112441",
+      "sourcingPlatform": "LinkedIn",
+      "datePublished": "2026-06-14"
+    },
+    {
+      "id": 82,
+      "title": "Mid-Level DevOps/Platform Engineer (Kubernetes)",
+      "company": "Compass Systems",
+      "location": "Singapore (Hybrid)",
+      "description": "We're on the hunt for a passionate, detail-obsessed engineer ready to make a real dent. Compass Systems is looking for a mid-level-level DevOps/Platform Engineer to join our team. We're a Series-B rocketship growing 300% year over year, and we're just getting started. In this role you will own our Kubernetes platform, codify infrastructure in Terraform, and build the CI/CD pipelines every other engineer relies on, collaborate closely with cross-functional stakeholders, and help set the bar for engineering excellence across the org. We're a team that values ownership, curiosity, and getting things done without a mountain of process. We offer competitive compensation, full benefits, and a genuinely flexible remote-friendly culture. Join us and help write the next chapter of our story. Requirements: 2-4 years of relevant experience, hands-on expertise with Kubernetes, Terraform, CI/CD and AWS/GCP, and strong communication skills; experience working in a fast-paced startup environment is a plus.",
+      "requirements": [
+        "2-4 years of professional experience",
+        "Kubernetes",
+        "Terraform",
+        "CI/CD",
+        "AWS/GCP"
+      ],
+      "link": "https://careers.compass-systems.example.com/jobs/3582136497",
+      "sourcingPlatform": "Company Careers Page",
+      "datePublished": "2026-06-13"
+    },
+    {
+      "id": 83,
+      "title": "Senior DevOps/Platform Engineer (Kubernetes)",
+      "company": "Delta Industries",
+      "location": "San Francisco, CA (On-site)",
+      "description": "We're looking for a rare unicorn who combines deep technical chops with relentless product instinct. Delta Industries is looking for a senior-level DevOps/Platform Engineer to join our team. We're a globally distributed team of world-class innovators obsessed with craftsmanship and impact. In this role you will own our Kubernetes platform, codify infrastructure in Terraform, and build the CI/CD pipelines every other engineer relies on, collaborate closely with cross-functional stakeholders, and help set the bar for engineering excellence across the org. We're a team that values ownership, curiosity, and getting things done without a mountain of process. Enjoy flexible hours, a home-office stipend, and quarterly hackathons that actually ship things. We're building something special, and we think you could be a huge part of it. Requirements: 5-8 years of relevant experience, hands-on expertise with Kubernetes, Terraform, CI/CD and AWS/GCP, and strong communication skills; experience working in a fast-paced startup environment is a plus.",
+      "requirements": [
+        "5+ years of professional experience",
+        "Kubernetes",
+        "Terraform",
+        "CI/CD",
+        "AWS/GCP"
+      ],
+      "link": "https://www.glassdoor.com/job-listing/senior-devops-platform-engineer-kubernetes-delta-industries-JV_IC3673035952.htm",
+      "sourcingPlatform": "Glassdoor",
+      "datePublished": "2026-05-17"
+    },
+    {
+      "id": 84,
+      "title": "Staff DevOps/Platform Engineer (Kubernetes)",
+      "company": "Kinetic Analytics",
+      "location": "San Francisco, CA (On-site)",
+      "description": "Do you dream in stack traces and wake up thinking about elegant abstractions? Kinetic Analytics is looking for a staff-level DevOps/Platform Engineer to join our team. We're a globally distributed team of world-class innovators obsessed with craftsmanship and impact. In this role you will own our Kubernetes platform, codify infrastructure in Terraform, and build the CI/CD pipelines every other engineer relies on, collaborate closely with cross-functional stakeholders, and help set the bar for engineering excellence across the org. We're a team that values ownership, curiosity, and getting things done without a mountain of process. We offer competitive compensation, full benefits, and a genuinely flexible remote-friendly culture. Join us and help write the next chapter of our story. Requirements: 8+ years of relevant experience, hands-on expertise with Kubernetes, Terraform, CI/CD and AWS/GCP, and strong communication skills; experience working in a fast-paced startup environment is a plus.",
+      "requirements": [
+        "8+ years of professional experience",
+        "Kubernetes",
+        "Terraform",
+        "CI/CD",
+        "AWS/GCP"
+      ],
+      "link": "https://remoteok.com/remote-jobs/3827669338-staff-devops-platform-engineer-kubernetes-kinetic-analytics",
+      "sourcingPlatform": "RemoteOK",
+      "datePublished": "2026-05-29"
+    },
+    {
+      "id": 85,
+      "title": "Junior Site Reliability Engineer (Reliability)",
+      "company": "Bright Solutions",
+      "location": "Lisbon, Portugal (Hybrid)",
+      "description": "We're looking for a rare unicorn who combines deep technical chops with relentless product instinct. Bright Solutions is looking for a junior-level Site Reliability Engineer to join our team. We're a bold, relentless, customer-obsessed team building the future, one sprint at a time. In this role you will define and defend our SLOs, build observability into every service, and lead incident response when things inevitably go sideways, collaborate closely with cross-functional stakeholders, and help set the bar for engineering excellence across the org. We're a team that values ownership, curiosity, and getting things done without a mountain of process. Perks include a generous learning budget, an annual company retreat, and top-of-the-line hardware. We move fast, care deeply, and would love to have you along for the ride. Requirements: 0-1 years of relevant experience, hands-on expertise with SRE practices, monitoring/observability, incident response and Kubernetes, and strong communication skills; experience working in a fast-paced startup environment is a plus.",
+      "requirements": [
+        "0-1 years of professional experience",
+        "SRE practices",
+        "monitoring/observability",
+        "incident response",
+        "Kubernetes"
+      ],
+      "link": "https://www.glassdoor.com/job-listing/junior-site-reliability-engineer-reliability-bright-solutions-JV_IC3682718024.htm",
+      "sourcingPlatform": "Glassdoor",
+      "datePublished": "2026-06-23"
+    },
+    {
+      "id": 86,
+      "title": "Mid-Level Site Reliability Engineer (Reliability)",
+      "company": "Keystone Studio",
+      "location": "Seattle, WA (Hybrid)",
+      "description": "If you get a thrill from shipping fast and owning your craft end-to-end, keep reading. Keystone Studio is looking for a mid-level-level Site Reliability Engineer to join our team. We're a fast-paced, mission-driven, synergy-fueled unicorn disrupting an industry that has been begging for disruption. In this role you will define and defend our SLOs, build observability into every service, and lead incident response when things inevitably go sideways, collaborate closely with cross-functional stakeholders, and help set the bar for engineering excellence across the org. We're a team that values ownership, curiosity, and getting things done without a mountain of process. Perks include a generous learning budget, an annual company retreat, and top-of-the-line hardware. If this sounds like you, we'd love to hear your story. Requirements: 2-4 years of relevant experience, hands-on expertise with SRE practices, monitoring/observability, incident response and Kubernetes, and strong communication skills; experience working in a fast-paced startup environment is a plus.",
+      "requirements": [
+        "2-4 years of professional experience",
+        "SRE practices",
+        "monitoring/observability",
+        "incident response",
+        "Kubernetes"
+      ],
+      "link": "https://www.indeed.com/viewjob?jk=e7a89d06",
+      "sourcingPlatform": "Indeed",
+      "datePublished": "2026-06-14"
+    },
+    {
+      "id": 87,
+      "title": "Senior Site Reliability Engineer (Reliability)",
+      "company": "Compass Interactive",
+      "location": "New York, NY (Hybrid)",
+      "description": "We're on the hunt for a passionate, detail-obsessed engineer ready to make a real dent. Compass Interactive is looking for a senior-level Site Reliability Engineer to join our team. We're a globally distributed team of world-class innovators obsessed with craftsmanship and impact. In this role you will define and defend our SLOs, build observability into every service, and lead incident response when things inevitably go sideways, collaborate closely with cross-functional stakeholders, and help set the bar for engineering excellence across the org. We're a team that values ownership, curiosity, and getting things done without a mountain of process. You'll get equity that matters, a wellness stipend, and unlimited coffee (obviously). Join us and help write the next chapter of our story. Requirements: 5-8 years of relevant experience, hands-on expertise with SRE practices, monitoring/observability, incident response and Kubernetes, and strong communication skills; experience working in a fast-paced startup environment is a plus.",
+      "requirements": [
+        "5+ years of professional experience",
+        "SRE practices",
+        "monitoring/observability",
+        "incident response",
+        "Kubernetes"
+      ],
+      "link": "https://wellfound.com/jobs/3925702594-senior-site-reliability-engineer-reliability-compass-interactive",
+      "sourcingPlatform": "Wellfound",
+      "datePublished": "2026-07-09"
+    },
+    {
+      "id": 88,
+      "title": "Staff Site Reliability Engineer (Reliability)",
+      "company": "Quantum Networks",
+      "location": "New York, NY (Hybrid)",
+      "description": "We're on the hunt for a passionate, detail-obsessed engineer ready to make a real dent. Quantum Networks is looking for a staff-level Site Reliability Engineer to join our team. We're building category-defining products for a market that didn't know it needed us yet, until it did. In this role you will define and defend our SLOs, build observability into every service, and lead incident response when things inevitably go sideways, collaborate closely with cross-functional stakeholders, and help set the bar for engineering excellence across the org. We're a team that values ownership, curiosity, and getting things done without a mountain of process. Perks include a generous learning budget, an annual company retreat, and top-of-the-line hardware. We move fast, care deeply, and would love to have you along for the ride. Requirements: 8+ years of relevant experience, hands-on expertise with SRE practices, monitoring/observability, incident response and Kubernetes, and strong communication skills; experience working in a fast-paced startup environment is a plus.",
+      "requirements": [
+        "8+ years of professional experience",
+        "SRE practices",
+        "monitoring/observability",
+        "incident response",
+        "Kubernetes"
+      ],
+      "link": "https://careers.quantum-networks.example.com/jobs/3812220279",
+      "sourcingPlatform": "Company Careers Page",
+      "datePublished": "2026-06-17"
+    },
+    {
+      "id": 89,
+      "title": "Junior Security Engineer (AppSec)",
+      "company": "Beacon Interactive",
+      "location": "Denver, CO (Remote)",
+      "description": "We're looking for a rare unicorn who combines deep technical chops with relentless product instinct. Beacon Interactive is looking for a junior-level Security Engineer to join our team. We're a Series-B rocketship growing 300% year over year, and we're just getting started. In this role you will threat-model new features before they ship, run security reviews on pull requests, and help every engineer write safer code by default, collaborate closely with cross-functional stakeholders, and help set the bar for engineering excellence across the org. We're a team that values ownership, curiosity, and getting things done without a mountain of process. You'll get equity that matters, a wellness stipend, and unlimited coffee (obviously). We're building something special, and we think you could be a huge part of it. Requirements: 0-1 years of relevant experience, hands-on expertise with application security, threat modeling, penetration testing and secure code review, and strong communication skills; experience working in a fast-paced startup environment is a plus.",
+      "requirements": [
+        "0-1 years of professional experience",
+        "application security",
+        "threat modeling",
+        "penetration testing",
+        "secure code review"
+      ],
+      "link": "https://www.glassdoor.com/job-listing/junior-security-engineer-appsec-beacon-interactive-JV_IC3688876837.htm",
+      "sourcingPlatform": "Glassdoor",
+      "datePublished": "2026-05-27"
+    },
+    {
+      "id": 90,
+      "title": "Mid-Level Security Engineer (AppSec)",
+      "company": "Cascade Studio",
+      "location": "Toronto, Canada (Remote)",
+      "description": "Do you dream in stack traces and wake up thinking about elegant abstractions? Cascade Studio is looking for a mid-level-level Security Engineer to join our team. We're a purpose-driven, values-first company on a mission to make a dent in the universe. In this role you will threat-model new features before they ship, run security reviews on pull requests, and help every engineer write safer code by default, collaborate closely with cross-functional stakeholders, and help set the bar for engineering excellence across the org. We're a team that values ownership, curiosity, and getting things done without a mountain of process. We offer free snacks, a foosball table, and unlimited PTO (that nobody actually takes). Sound like your kind of challenge? We can't wait to meet you. Requirements: 2-4 years of relevant experience, hands-on expertise with application security, threat modeling, penetration testing and secure code review, and strong communication skills; experience working in a fast-paced startup environment is a plus.",
+      "requirements": [
+        "2-4 years of professional experience",
+        "application security",
+        "threat modeling",
+        "penetration testing",
+        "secure code review"
+      ],
+      "link": "https://www.glassdoor.com/job-listing/mid-level-security-engineer-appsec-cascade-studio-JV_IC3564185463.htm",
+      "sourcingPlatform": "Glassdoor",
+      "datePublished": "2026-05-24"
+    },
+    {
+      "id": 91,
+      "title": "Senior Security Engineer (AppSec)",
+      "company": "Foundry Technologies",
+      "location": "Austin, TX (On-site)",
+      "description": "We're on the hunt for a passionate, detail-obsessed engineer ready to make a real dent. Foundry Technologies is looking for a senior-level Security Engineer to join our team. We're reimagining an entire industry with a small, scrappy team of A-players who move fast and never settle. In this role you will threat-model new features before they ship, run security reviews on pull requests, and help every engineer write safer code by default, collaborate closely with cross-functional stakeholders, and help set the bar for engineering excellence across the org. We're a team that values ownership, curiosity, and getting things done without a mountain of process. Enjoy flexible hours, a home-office stipend, and quarterly hackathons that actually ship things. We move fast, care deeply, and would love to have you along for the ride. Requirements: 5-8 years of relevant experience, hands-on expertise with application security, threat modeling, penetration testing and secure code review, and strong communication skills; experience working in a fast-paced startup environment is a plus.",
+      "requirements": [
+        "5+ years of professional experience",
+        "application security",
+        "threat modeling",
+        "penetration testing",
+        "secure code review"
+      ],
+      "link": "https://careers.foundry-technologies.example.com/jobs/3816532058",
+      "sourcingPlatform": "Company Careers Page",
+      "datePublished": "2026-05-23"
+    },
+    {
+      "id": 92,
+      "title": "Staff Security Engineer (AppSec)",
+      "company": "Emberly AI",
+      "location": "Toronto, Canada (Remote)",
+      "description": "Ever wanted to build things that millions of people touch every single day? Emberly AI is looking for a staff-level Security Engineer to join our team. We're a hyper-growth, category-defining scale-up on a rocketship trajectory to change how the world works. In this role you will threat-model new features before they ship, run security reviews on pull requests, and help every engineer write safer code by default, collaborate closely with cross-functional stakeholders, and help set the bar for engineering excellence across the org. We're a team that values ownership, curiosity, and getting things done without a mountain of process. Perks include a generous learning budget, an annual company retreat, and top-of-the-line hardware. We move fast, care deeply, and would love to have you along for the ride. Requirements: 8+ years of relevant experience, hands-on expertise with application security, threat modeling, penetration testing and secure code review, and strong communication skills; experience working in a fast-paced startup environment is a plus.",
+      "requirements": [
+        "8+ years of professional experience",
+        "application security",
+        "threat modeling",
+        "penetration testing",
+        "secure code review"
+      ],
+      "link": "https://www.indeed.com/viewjob?jk=dc2a1974",
+      "sourcingPlatform": "Indeed",
+      "datePublished": "2026-06-29"
+    },
+    {
+      "id": 93,
+      "title": "Junior QA Automation Engineer (Test Automation)",
+      "company": "Oakhart Corp",
+      "location": "Seattle, WA (Hybrid)",
+      "description": "Calling all coding wizards, problem-solving unicorns, and quietly brilliant engineers! Oakhart Corp is looking for a junior-level QA Automation Engineer to join our team. We're a bold, relentless, customer-obsessed team building the future, one sprint at a time. In this role you will build and maintain our end-to-end test automation suite, wire it into CI/CD, and catch regressions long before customers do, collaborate closely with cross-functional stakeholders, and help set the bar for engineering excellence across the org. We're a team that values ownership, curiosity, and getting things done without a mountain of process. We offer free snacks, a foosball table, and unlimited PTO (that nobody actually takes). If this sounds like you, we'd love to hear your story. Requirements: 0-1 years of relevant experience, hands-on expertise with test automation, Selenium/Playwright, CI/CD and API testing, and strong communication skills; experience working in a fast-paced startup environment is a plus.",
+      "requirements": [
+        "0-1 years of professional experience",
+        "test automation",
+        "Selenium/Playwright",
+        "CI/CD",
+        "API testing"
+      ],
+      "link": "https://remoteok.com/remote-jobs/3656839665-junior-qa-automation-engineer-test-automation-oakhart-corp",
+      "sourcingPlatform": "RemoteOK",
+      "datePublished": "2026-05-27"
+    },
+    {
+      "id": 94,
+      "title": "Mid-Level QA Automation Engineer (Test Automation)",
+      "company": "Zenith Solutions",
+      "location": "Berlin, Germany (Hybrid)",
+      "description": "If you get a thrill from shipping fast and owning your craft end-to-end, keep reading. Zenith Solutions is looking for a mid-level-level QA Automation Engineer to join our team. We're a fast-paced, mission-driven, synergy-fueled unicorn disrupting an industry that has been begging for disruption. In this role you will build and maintain our end-to-end test automation suite, wire it into CI/CD, and catch regressions long before customers do, collaborate closely with cross-functional stakeholders, and help set the bar for engineering excellence across the org. We're a team that values ownership, curiosity, and getting things done without a mountain of process. We have kombucha on tap, a dog-friendly office, and a culture of radical candor. Join us and help write the next chapter of our story. Requirements: 2-4 years of relevant experience, hands-on expertise with test automation, Selenium/Playwright, CI/CD and API testing, and strong communication skills; experience working in a fast-paced startup environment is a plus.",
+      "requirements": [
+        "2-4 years of professional experience",
+        "test automation",
+        "Selenium/Playwright",
+        "CI/CD",
+        "API testing"
+      ],
+      "link": "https://wellfound.com/jobs/3736474887-mid-level-qa-automation-engineer-test-automation-zenith-solutions",
+      "sourcingPlatform": "Wellfound",
+      "datePublished": "2026-06-19"
+    },
+    {
+      "id": 95,
+      "title": "Senior QA Automation Engineer (Test Automation)",
+      "company": "Lattice Solutions",
+      "location": "Berlin, Germany (Hybrid)",
+      "description": "We're looking for a rare unicorn who combines deep technical chops with relentless product instinct. Lattice Solutions is looking for a senior-level QA Automation Engineer to join our team. We're a hyper-growth, category-defining scale-up on a rocketship trajectory to change how the world works. In this role you will build and maintain our end-to-end test automation suite, wire it into CI/CD, and catch regressions long before customers do, collaborate closely with cross-functional stakeholders, and help set the bar for engineering excellence across the org. We're a team that values ownership, curiosity, and getting things done without a mountain of process. Enjoy flexible hours, a home-office stipend, and quarterly hackathons that actually ship things. If this sounds like you, we'd love to hear your story. Requirements: 5-8 years of relevant experience, hands-on expertise with test automation, Selenium/Playwright, CI/CD and API testing, and strong communication skills; experience working in a fast-paced startup environment is a plus.",
+      "requirements": [
+        "5+ years of professional experience",
+        "test automation",
+        "Selenium/Playwright",
+        "CI/CD",
+        "API testing"
+      ],
+      "link": "https://remoteok.com/remote-jobs/3837931089-senior-qa-automation-engineer-test-automation-lattice-solutions",
+      "sourcingPlatform": "RemoteOK",
+      "datePublished": "2026-05-28"
+    },
+    {
+      "id": 96,
+      "title": "Staff QA Automation Engineer (Test Automation)",
+      "company": "Vertex Health",
+      "location": "London, UK (On-site)",
+      "description": "Are you a rockstar 10x ninja engineer who breathes clean code and eats hard problems for breakfast?! Vertex Health is looking for a staff-level QA Automation Engineer to join our team. We're a purpose-driven, values-first company on a mission to make a dent in the universe. In this role you will build and maintain our end-to-end test automation suite, wire it into CI/CD, and catch regressions long before customers do, collaborate closely with cross-functional stakeholders, and help set the bar for engineering excellence across the org. We're a team that values ownership, curiosity, and getting things done without a mountain of process. Perks include a generous learning budget, an annual company retreat, and top-of-the-line hardware. If this sounds like you, we'd love to hear your story. Requirements: 8+ years of relevant experience, hands-on expertise with test automation, Selenium/Playwright, CI/CD and API testing, and strong communication skills; experience working in a fast-paced startup environment is a plus.",
+      "requirements": [
+        "8+ years of professional experience",
+        "test automation",
+        "Selenium/Playwright",
+        "CI/CD",
+        "API testing"
+      ],
+      "link": "https://remoteok.com/remote-jobs/3910407450-staff-qa-automation-engineer-test-automation-vertex-health",
+      "sourcingPlatform": "RemoteOK",
+      "datePublished": "2026-06-14"
+    },
+    {
+      "id": 97,
+      "title": "Junior Game Developer (Unity/C#)",
+      "company": "Keystone AI",
+      "location": "Remote (LatAm)",
+      "description": "Ever wanted to build things that millions of people touch every single day? Keystone AI is looking for a junior-level Game Developer to join our team. We're reimagining an entire industry with a small, scrappy team of A-players who move fast and never settle. In this role you will build gameplay systems in Unity and C#, profile and squash frame-rate hitches, and turn design docs into things people actually enjoy playing, collaborate closely with cross-functional stakeholders, and help set the bar for engineering excellence across the org. We're a team that values ownership, curiosity, and getting things done without a mountain of process. We believe in work hard, play hard, with a rooftop bar and monthly team offsites. Join us and help write the next chapter of our story. Requirements: 0-1 years of relevant experience, hands-on expertise with Unity, C#, gameplay programming and performance profiling, and strong communication skills; experience working in a fast-paced startup environment is a plus.",
+      "requirements": [
+        "0-1 years of professional experience",
+        "Unity",
+        "C#",
+        "gameplay programming",
+        "performance profiling"
+      ],
+      "link": "https://wellfound.com/jobs/3987749575-junior-game-developer-unity-c-keystone-ai",
+      "sourcingPlatform": "Wellfound",
+      "datePublished": "2026-06-12"
+    },
+    {
+      "id": 98,
+      "title": "Mid-Level Game Developer (Unity/C#)",
+      "company": "Oakhart Collective",
+      "location": "Singapore (Hybrid)",
+      "description": "If you get a thrill from shipping fast and owning your craft end-to-end, keep reading. Oakhart Collective is looking for a mid-level-level Game Developer to join our team. We're a purpose-driven, values-first company on a mission to make a dent in the universe. In this role you will build gameplay systems in Unity and C#, profile and squash frame-rate hitches, and turn design docs into things people actually enjoy playing, collaborate closely with cross-functional stakeholders, and help set the bar for engineering excellence across the org. We're a team that values ownership, curiosity, and getting things done without a mountain of process. We believe in work hard, play hard, with a rooftop bar and monthly team offsites. If this sounds like you, we'd love to hear your story. Requirements: 2-4 years of relevant experience, hands-on expertise with Unity, C#, gameplay programming and performance profiling, and strong communication skills; experience working in a fast-paced startup environment is a plus.",
+      "requirements": [
+        "2-4 years of professional experience",
+        "Unity",
+        "C#",
+        "gameplay programming",
+        "performance profiling"
+      ],
+      "link": "https://remoteok.com/remote-jobs/3897332422-mid-level-game-developer-unity-c-oakhart-collective",
+      "sourcingPlatform": "RemoteOK",
+      "datePublished": "2026-07-04"
+    },
+    {
+      "id": 99,
+      "title": "Senior Game Developer (Unity/C#)",
+      "company": "Upland Works",
+      "location": "Austin, TX (On-site)",
+      "description": "We're on the hunt for a passionate, detail-obsessed engineer ready to make a real dent. Upland Works is looking for a senior-level Game Developer to join our team. We're a purpose-driven, values-first company on a mission to make a dent in the universe. In this role you will build gameplay systems in Unity and C#, profile and squash frame-rate hitches, and turn design docs into things people actually enjoy playing, collaborate closely with cross-functional stakeholders, and help set the bar for engineering excellence across the org. We're a team that values ownership, curiosity, and getting things done without a mountain of process. We offer free snacks, a foosball table, and unlimited PTO (that nobody actually takes). Sound like your kind of challenge? We can't wait to meet you. Requirements: 5-8 years of relevant experience, hands-on expertise with Unity, C#, gameplay programming and performance profiling, and strong communication skills; experience working in a fast-paced startup environment is a plus.",
+      "requirements": [
+        "5+ years of professional experience",
+        "Unity",
+        "C#",
+        "gameplay programming",
+        "performance profiling"
+      ],
+      "link": "https://www.indeed.com/viewjob?jk=d62da46f",
+      "sourcingPlatform": "Indeed",
+      "datePublished": "2026-06-05"
+    },
+    {
+      "id": 100,
+      "title": "Staff Game Developer (Unity/C#)",
+      "company": "Lumen Technologies",
+      "location": "Remote (EU)",
+      "description": "We're looking for a rare unicorn who combines deep technical chops with relentless product instinct. Lumen Technologies is looking for a staff-level Game Developer to join our team. We're building category-defining products for a market that didn't know it needed us yet, until it did. In this role you will build gameplay systems in Unity and C#, profile and squash frame-rate hitches, and turn design docs into things people actually enjoy playing, collaborate closely with cross-functional stakeholders, and help set the bar for engineering excellence across the org. We're a team that values ownership, curiosity, and getting things done without a mountain of process. You'll get equity that matters, a wellness stipend, and unlimited coffee (obviously). We're building something special, and we think you could be a huge part of it. Requirements: 8+ years of relevant experience, hands-on expertise with Unity, C#, gameplay programming and performance profiling, and strong communication skills; experience working in a fast-paced startup environment is a plus.",
+      "requirements": [
+        "8+ years of professional experience",
+        "Unity",
+        "C#",
+        "gameplay programming",
+        "performance profiling"
+      ],
+      "link": "https://wellfound.com/jobs/3656368642-staff-game-developer-unity-c-lumen-technologies",
+      "sourcingPlatform": "Wellfound",
+      "datePublished": "2026-07-08"
+    }
+  ]
+}
