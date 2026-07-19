@@ -1,0 +1,41 @@
+# JobsProviderApi
+
+A minimal ASP.NET Core Web API that serves job postings, meant to back an MCP tool. Data is served from a
+static mock dataset (`JobsProviderApi/Data/mock-jobs.json`, 100 postings) split across two "sources":
+
+- `GET /api/indeed/jobs` — first 50 postings
+- `GET /api/stepstone/jobs` — remaining 50 postings
+
+Both endpoints accept the same query parameters:
+
+| Param             | Required | Description                                                                 |
+|--------------------|----------|-------------------------------------------------------------------------------|
+| `search`           | yes      | Regex matched case-insensitively against a job's title or description.       |
+| `mustHaveSkills`   | no       | Repeatable. ALL listed skills must appear in the job's requirements.          |
+| `preferredSkills`  | no       | Repeatable. At least ONE listed skill must appear in the job's requirements.  |
+| `take`             | no       | Max number of jobs to return, applied after filtering. Defaults to 10.        |
+
+An invalid `search` regex is rejected with a `400` before any handler code runs, via ASP.NET Core's built-in
+minimal API validation (`JobSearchQuery` implements `IValidatableObject`).
+
+## Project layout
+
+- `Endpoints/<Source>/` — route mapping + request handler per job source.
+- `Services/<Source>/` — per-source service (dataset slice + delegates filtering).
+- `Services/JobSearchFilter.cs` — shared filtering logic (search/skills/take), used by both sources.
+- `Providers/MockJobsProvider.cs` — reads `Data/mock-jobs.json`.
+- `Models/` — `Job`, `JobSearchQuery`.
+
+## Running
+
+```bash
+dotnet run --project JobsProviderApi
+```
+
+Swagger UI is available at `/swagger` in development.
+
+## Testing
+
+```bash
+dotnet test
+```
