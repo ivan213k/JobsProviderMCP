@@ -11,7 +11,7 @@ public class JobSearchFilter : IJobSearchFilter
     public IReadOnlyList<Job> Apply(IEnumerable<Job> jobs, JobSearchQuery query)
     {
         var regex = new Regex(query.Search, RegexOptions.IgnoreCase | RegexOptions.CultureInvariant);
-        var result = jobs.Where(job => regex.IsMatch(job.Title) || regex.IsMatch(job.Description));
+        IEnumerable<Job> result = jobs.Where(job => regex.IsMatch(job.Title) || regex.IsMatch(job.Description));
 
         if (query.MustHaveSkills is { Length: > 0 })
         {
@@ -26,6 +26,13 @@ public class JobSearchFilter : IJobSearchFilter
         return result.Take(query.Take).ToList();
     }
 
-    private static bool HasSkill(Job job, string skill) =>
-        job.Requirements.Any(requirement => string.Equals(requirement.Trim(), skill.Trim(), StringComparison.OrdinalIgnoreCase));
+    private static bool HasSkill(Job job, string skill)
+    {
+        if(job.Requirements is null)
+        {
+            return false;
+        }
+
+        return job.Requirements.Any(requirement => string.Equals(requirement.Trim(), skill.Trim(), StringComparison.OrdinalIgnoreCase));
+    }
 }

@@ -13,7 +13,7 @@ public class StepstoneJobsService(IJobsProvider jobsProvider, IJobSearchFilter j
 
     public async Task<IReadOnlyList<Job>> SearchAsync(JobSearchQuery query, CancellationToken cancellationToken = default)
     {
-        var jobs = await jobsProvider.GetJobsAsync(cancellationToken);
+        IReadOnlyList<Job> jobs = await jobsProvider.GetJobsAsync(cancellationToken);
         return jobSearchFilter.Apply(jobs.Skip(Skip), query);
     }
 }
