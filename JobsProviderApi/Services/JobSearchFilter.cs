@@ -28,7 +28,7 @@ public class JobSearchFilter : IJobSearchFilter
 
     private static bool HasSkill(Job job, string skill)
     {
-        if(job.Requirements is null || job.Requirements.Count == 0)
+        if(job.Requirements is null)
         {
             return false;
         }

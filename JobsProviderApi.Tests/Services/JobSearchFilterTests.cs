@@ -114,7 +114,7 @@ public class JobSearchFilterTests
     }
 
     [Fact]
-    public void Apply_WithUnparsedRequirements_MustHaveSkills()
+    public void Apply_WithMustHaveSkills_ExcludesJobsWithNullRequirements()
     {
         var jobs = new[]
         {
@@ -128,7 +128,7 @@ public class JobSearchFilterTests
     }
 
     [Fact]
-    public void Apply_WithUnparsedRequirements_PreferredSkills()
+    public void Apply_WithPreferredSkills_ExcludesJobsWithNullRequirements()
     {
         var jobs = new[]
         {
