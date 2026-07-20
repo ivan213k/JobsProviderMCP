@@ -7,7 +7,16 @@ using JobsProviderApi.Services.Stepstone;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddOpenApi();
+var semanticVersion = Environment.GetEnvironmentVariable("SemanticVersion") ?? "dev";
+
+builder.Services.AddOpenApi(options =>
+{
+    options.AddDocumentTransformer((document, _, _) =>
+    {
+        document.Info.Version = semanticVersion;
+        return Task.CompletedTask;
+    });
+});
 builder.Services.AddValidation();
 builder.Services.AddSingleton<IJobsProvider, MockJobsProvider>();
 builder.Services.AddScoped<IJobSearchFilter, JobSearchFilter>();
@@ -21,7 +30,7 @@ if (app.Environment.IsDevelopment())
     app.MapOpenApi();
     app.UseSwaggerUI(options =>
     {
-        options.SwaggerEndpoint("/openapi/v1.json", "JobsProviderApi v1");
+        options.SwaggerEndpoint("/openapi/v1.json", $"JobsProviderApi {semanticVersion}");
     });
 }
 

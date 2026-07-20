@@ -1,0 +1,8 @@
+**/bin/
+**/obj/
+.git/
+.github/
+.vscode/
+.idea/
+JobsProviderApi.Tests/
+*.md
