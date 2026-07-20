@@ -18,9 +18,9 @@ public record JobSearchQuery(
     [property: Description("Skills where at least ONE must be present among a job's requirements for it to be included.")]
     string[]? PreferredSkills,
 
-    [property: FromQuery(Name = "preferredLocations")]
+    [property: FromQuery(Name = "locations")]
     [property: Description("Locations where at least ONE must match a job's location for it to be included.")]
-    string[]? PreferredLocations,
+    string[]? Locations,
 
     [property: FromQuery(Name = "countryCode")]
     [property: Description("ISO 3166-1 alpha-2 country code (e.g. `DE`) identifying which regional job board to search.")]

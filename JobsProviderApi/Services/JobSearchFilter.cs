@@ -16,21 +16,21 @@ public class JobSearchFilter : IJobSearchFilter
 
         string[] mustHaveSkills = NormalizeForComparing(query.MustHaveSkills);
         string[] preferredSkills = NormalizeForComparing(query.PreferredSkills);
-        string[] preferredLocations = NormalizeForComparing(query.PreferredLocations);
+        string[] locations = NormalizeForComparing(query.Locations);
 
-        if (mustHaveSkills.Length > 0)
+        if (mustHaveSkills.Any())
         {
             result = result.Where(job => mustHaveSkills.All(skill => HasSkill(job, skill)));
         }
 
-        if (preferredSkills.Length > 0)
+        if (preferredSkills.Any())
         {
             result = result.Where(job => preferredSkills.Any(skill => HasSkill(job, skill)));
         }
 
-        if (preferredLocations.Length > 0)
+        if (locations.Any())
         {
-            result = result.Where(job => preferredLocations.Any(location => IsInLocation(job, location)));
+            result = result.Where(job => locations.Any(location => IsInLocation(job, location)));
         }
 
         return result.Take(query.Take).ToList();

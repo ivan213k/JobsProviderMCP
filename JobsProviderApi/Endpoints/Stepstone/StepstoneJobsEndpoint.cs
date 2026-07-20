@@ -14,7 +14,7 @@ public static class StepstoneJobsEndpoint
                 Returns Stepstone job postings.
 
                 Intended for use as an MCP tool by an agent searching for jobs matching a candidate profile.
-                `search` and `countryCode` are required; the rest are optional and combine with them using AND.
+                `search` and `countryCode` are required; the rest are optional and combined using AND.
 
                 - `search` (required): a regular expression matched case-insensitively against each job's title or
                   description.
@@ -22,8 +22,8 @@ public static class StepstoneJobsEndpoint
                   ALL listed skills must appear in the job's requirements list for the job to be returned.
                 - `preferredSkills`: repeat the parameter for each skill. At least ONE listed skill must appear in
                   the job's requirements list for the job to be returned.
-                - `preferredLocations`: repeat the parameter for each location (e.g.
-                  `?preferredLocations=Berlin&preferredLocations=Leipzig`). At least ONE listed location must appear
+                - `locations`: repeat the parameter for each location (e.g.
+                  `?locations=Berlin&locations=Leipzig`). At least ONE listed location must appear
                   in the job's location for the job to be returned. Matching is a case-insensitive substring, so
                   `Berlin` matches `Berlin, Germany (Hybrid)`.
                 - `countryCode` (required): ISO 3166-1 alpha-2 code (e.g. `DE`) identifying which regional job
