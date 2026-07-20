@@ -8,12 +8,20 @@ static mock dataset (`JobsProviderApi/Data/mock-jobs.json`, 100 postings) split 
 
 Both endpoints accept the same query parameters:
 
-| Param             | Required | Description                                                                 |
-|--------------------|----------|-------------------------------------------------------------------------------|
-| `search`           | yes      | Regex matched case-insensitively against a job's title or description.       |
-| `mustHaveSkills`   | no       | Repeatable. ALL listed skills must appear in the job's requirements.          |
-| `preferredSkills`  | no       | Repeatable. At least ONE listed skill must appear in the job's requirements.  |
-| `take`             | no       | Max number of jobs to return, applied after filtering. Defaults to 10.        |
+| Param                | Required | Description                                                                     |
+|----------------------|----------|---------------------------------------------------------------------------------|
+| `search`             | yes      | Regex matched case-insensitively against a job's title or description.          |
+| `countryCode`        | yes      | ISO 3166-1 alpha-2 code (e.g. `DE`) selecting which regional job board to search. |
+| `mustHaveSkills`     | no       | Repeatable. ALL listed skills must appear in the job's requirements.            |
+| `preferredSkills`    | no       | Repeatable. At least ONE listed skill must appear in the job's requirements.    |
+| `preferredLocations` | no       | Repeatable. At least ONE listed location must be in the job's location.         |
+| `take`               | no       | Max number of jobs to return, applied after filtering. Defaults to 10.          |
+
+Skills match on exact equality (case-insensitive), so `Go` does not match `Golang`. Locations match on
+substring, because a job's location is a composite string — `Berlin` matches `Berlin, Germany (Hybrid)`.
+
+`countryCode` is currently accepted and validated but not yet applied to the results; the mock dataset has no
+per-market split.
 
 An invalid `search` regex is rejected with a `400` before any handler code runs, via ASP.NET Core's built-in
 minimal API validation (`JobSearchQuery` implements `IValidatableObject`).
@@ -22,7 +30,7 @@ minimal API validation (`JobSearchQuery` implements `IValidatableObject`).
 
 - `Endpoints/<Source>/` — route mapping + request handler per job source.
 - `Services/<Source>/` — per-source service (dataset slice + delegates filtering).
-- `Services/JobSearchFilter.cs` — shared filtering logic (search/skills/take), used by both sources.
+- `Services/JobSearchFilter.cs` — shared filtering logic (search/skills/locations/take), used by both sources.
 - `Providers/MockJobsProvider.cs` — reads `Data/mock-jobs.json`.
 - `Models/` — `Job`, `JobSearchQuery`.
 

@@ -5,7 +5,14 @@ namespace JobsProviderApi.Tests.Services;
 
 public class JobSearchFilterTests
 {
-    private static readonly JobSearchQuery MatchAllQuery = new(".*", null, null, Take: 1000);
+    private static readonly JobSearchQuery MatchAllQuery = new(
+        Search: ".*",
+        MustHaveSkills: null,
+        PreferredSkills: null,
+        Locations: null,
+        CountryCode: "DE",
+        Take: 1000);
+
     private readonly JobSearchFilter _sut = new();
 
     [Fact]
@@ -78,16 +85,59 @@ public class JobSearchFilterTests
     }
 
     [Fact]
+    public void Apply_LocationMatching_ReturnsJobsMatchingAnyRequestedLocation()
+    {
+        var jobs = new[]
+        {
+            TestJobs.Create(1) with { Location = "Berlin, Germany (Hybrid)" },
+            TestJobs.Create(2) with { Location = "Remote (EU)" },
+            TestJobs.Create(3) with { Location = "Austin, TX (On-site)" },
+        };
+
+        IReadOnlyList<Job> result = _sut.Apply(jobs, MatchAllQuery with { Locations = ["Berlin", "Remote"] });
+
+        Assert.Equal([1, 2], result.Select(j => j.Id));
+    }
+
+    [Fact]
+    public void Apply_LocationMatching_IsSubstringNotExactlyLocation()
+    {
+        var jobs = new[]
+        {
+            TestJobs.Create(1) with { Location = "Berlin, Germany (Hybrid)" },
+            TestJobs.Create(2) with { Location = "Austin, TX (On-site)" },
+        };
+
+        IReadOnlyList<Job> result = _sut.Apply(jobs, MatchAllQuery with { Locations = ["germany"] });
+
+        Assert.Equal([1], result.Select(j => j.Id));
+    }
+
+    [Fact]
     public void Apply_CombinesFiltersWithAnd()
     {
         var jobs = new[]
         {
-            TestJobs.Create(1, title: "Senior Go Engineer", requirements: ["Go", "gRPC"]),
-            TestJobs.Create(2, title: "Senior Go Engineer", requirements: ["Go"]),
-            TestJobs.Create(3, title: "Java Engineer", requirements: ["Go", "gRPC"]),
+            TestJobs.Create(1, title: "Senior Go Engineer", requirements: ["Go", "gRPC", "Kubernetes"])
+                with { Location = "Berlin, Germany (Hybrid)" },
+            TestJobs.Create(2, title: "Java Engineer", requirements: ["Go", "gRPC", "Kubernetes"])
+                with { Location = "Berlin, Germany (Hybrid)" },
+            TestJobs.Create(3, title: "Senior Go Engineer", requirements: ["Go", "Kubernetes"])
+                with { Location = "Berlin, Germany (Hybrid)" },
+            TestJobs.Create(4, title: "Senior Go Engineer", requirements: ["Go", "gRPC"])
+                with { Location = "Berlin, Germany (Hybrid)" },
+            TestJobs.Create(5, title: "Senior Go Engineer", requirements: ["Go", "gRPC", "Kubernetes"])
+                with { Location = "Austin, TX (On-site)" },
         };
 
-        IReadOnlyList<Job> result = _sut.Apply(jobs, new JobSearchQuery("Go Engineer", ["Go", "gRPC"], null));
+        IReadOnlyList<Job> result = _sut.Apply(
+            jobs,
+            new JobSearchQuery(
+                Search: "Go Engineer",
+                MustHaveSkills: ["Go", "gRPC"],
+                PreferredSkills: ["Kubernetes", "Terraform"],
+                Locations: ["Berlin"],
+                CountryCode: "DE"));
 
         Assert.Equal([1], result.Select(j => j.Id));
     }
@@ -97,7 +147,14 @@ public class JobSearchFilterTests
     {
         List<Job> jobs = Enumerable.Range(1, 20).Select(id => TestJobs.Create(id)).ToList();
 
-        IReadOnlyList<Job> result = _sut.Apply(jobs, new JobSearchQuery(".*", null, null));
+        IReadOnlyList<Job> result = _sut.Apply(
+            jobs,
+            new JobSearchQuery(
+                Search: ".*",
+                MustHaveSkills: null,
+                PreferredSkills: null,
+                Locations: null,
+                CountryCode: "DE"));
 
         Assert.Equal(10, result.Count);
         Assert.Equal(Enumerable.Range(1, 10), result.Select(j => j.Id));

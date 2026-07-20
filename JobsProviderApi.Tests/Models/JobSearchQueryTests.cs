@@ -8,7 +8,12 @@ public class JobSearchQueryTests
     [Fact]
     public void Validate_WithValidRegex_ReturnsNoErrors()
     {
-        var query = new JobSearchQuery("Go|Java", null, null);
+        var query = new JobSearchQuery(
+            Search: "Go|Java", 
+            MustHaveSkills: null, 
+            PreferredSkills: null, 
+            Locations: null, 
+            CountryCode: "DE");
 
         IEnumerable<ValidationResult> results = query.Validate(new ValidationContext(query));
 
@@ -18,7 +23,12 @@ public class JobSearchQueryTests
     [Fact]
     public void Validate_WithInvalidRegex_ReturnsErrorForSearch()
     {
-        var query = new JobSearchQuery("[", null, null);
+        var query = new JobSearchQuery(
+            Search: "[", 
+            MustHaveSkills: null, 
+            PreferredSkills: null, 
+            Locations: null, 
+            CountryCode: "DE");
 
         List<ValidationResult> results = query.Validate(new ValidationContext(query)).ToList();
 
