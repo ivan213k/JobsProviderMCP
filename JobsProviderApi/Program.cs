@@ -25,14 +25,11 @@ builder.Services.AddScoped<IStepstoneJobsService, StepstoneJobsService>();
 
 var app = builder.Build();
 
-if (app.Environment.IsDevelopment())
+app.MapOpenApi();
+app.UseSwaggerUI(options =>
 {
-    app.MapOpenApi();
-    app.UseSwaggerUI(options =>
-    {
-        options.SwaggerEndpoint("/openapi/v1.json", $"JobsProviderApi {semanticVersion}");
-    });
-}
+    options.SwaggerEndpoint("/openapi/v1.json", $"JobsProviderApi {semanticVersion}");
+});
 
 app.UseHttpsRedirection();
 
