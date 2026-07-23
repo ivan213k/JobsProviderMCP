@@ -1,6 +1,6 @@
 # JobsProviderApi
 
-A minimal ASP.NET Core Web API that serves job postings, meant to back an MCP tool. Data is served from a
+A minimal ASP.NET Core Web API that serves job postings over both REST and MCP. Data is served from a
 static mock dataset (`JobsProviderApi/Data/mock-jobs.json`, 100 postings) split across two "sources":
 
 - `GET /api/indeed/jobs` — first 50 postings
@@ -26,6 +26,17 @@ per-market split.
 An invalid `search` regex is rejected with a `400` before any handler code runs, via ASP.NET Core's built-in
 minimal API validation (`JobSearchQuery` implements `IValidatableObject`).
 
+## MCP
+
+The same search functionality is also exposed as an MCP server, mounted at `/mcp` (Streamable HTTP), with one
+tool per source:
+
+- `search_indeed_jobs`
+- `search_stepstone_jobs`
+
+Both tools take the same parameters as the REST endpoints above and delegate to the same underlying services,
+so results are identical either way.
+
 ## Project layout
 
 - `Endpoints/<Source>/` — route mapping + request handler per job source.
@@ -33,6 +44,7 @@ minimal API validation (`JobSearchQuery` implements `IValidatableObject`).
 - `Services/JobSearchFilter.cs` — shared filtering logic (search/skills/locations/take), used by both sources.
 - `Providers/MockJobsProvider.cs` — reads `Data/mock-jobs.json`.
 - `Models/` — `Job`, `JobSearchQuery`.
+- `Mcp/` — MCP tool definitions wrapping the REST services (`search_indeed_jobs`, `search_stepstone_jobs`).
 
 ## Running
 
