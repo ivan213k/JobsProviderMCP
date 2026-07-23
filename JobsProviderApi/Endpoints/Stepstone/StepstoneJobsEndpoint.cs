@@ -18,7 +18,7 @@ public static class StepstoneJobsEndpoint
                 `search` and `countryCode` are required; the rest are optional and combined using AND.
 
                 """)
-            .Produces<IReadOnlyList<Job>>()
+            .Produces<ListResponse<Job>>()
             .ProducesValidationProblem();
 
         return app;

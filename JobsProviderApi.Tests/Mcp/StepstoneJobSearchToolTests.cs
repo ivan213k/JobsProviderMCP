@@ -3,7 +3,6 @@ using JobsProviderApi.Models;
 using JobsProviderApi.Services;
 using JobsProviderApi.Services.Stepstone;
 using JobsProviderApi.Tests.Fakes;
-using ModelContextProtocol;
 
 namespace JobsProviderApi.Tests.Mcp;
 
@@ -19,28 +18,43 @@ public class StepstoneJobSearchToolTests
         jobs.Add(TestJobs.Create(52, title: "Java Engineer"));
         IStepstoneJobsService service = new StepstoneJobsService(new FakeJobsProvider(jobs), new JobSearchFilter());
 
-        IReadOnlyList<Job> result = await StepstoneJobSearchTool.SearchStepstoneJobsAsync(
+        ListResponse<Job> result = await StepstoneJobSearchTool.SearchStepstoneJobsAsync(
             service,
             search: "Go",
-            mustHaveSkills: null,
-            preferredSkills: null,
-            locations: null,
             countryCode: "DE");
 
-        Assert.Equal([51], result.Select(j => j.Id));
+        Assert.Equal(1, result.TotalCount);
+        Assert.Equal([51], result.Items.Select(j => j.Id));
     }
 
     [Fact]
-    public async Task SearchStepstoneJobsAsync_WithInvalidRegex_ThrowsMcpException()
+    public async Task SearchStepstoneJobsAsync_WithSpecialCharacters_MatchesAsPlainText()
     {
-        IStepstoneJobsService service = new StepstoneJobsService(new FakeJobsProvider([]), new JobSearchFilter());
+        List<Job> jobs = Enumerable.Range(1, 50).Select(id => TestJobs.Create(id)).ToList();
+        jobs.Add(TestJobs.Create(51, title: "Backend Engineer (C++/Go)"));
+        IStepstoneJobsService service = new StepstoneJobsService(new FakeJobsProvider(jobs), new JobSearchFilter());
 
-        await Assert.ThrowsAsync<McpException>(() => StepstoneJobSearchTool.SearchStepstoneJobsAsync(
+        ListResponse<Job> result = await StepstoneJobSearchTool.SearchStepstoneJobsAsync(
             service,
-            search: "[",
-            mustHaveSkills: null,
-            preferredSkills: null,
-            locations: null,
-            countryCode: "DE"));
+            search: "(C++/Go)",
+            countryCode: "DE");
+
+        Assert.Equal([51], result.Items.Select(j => j.Id));
+    }
+
+    [Fact]
+    public async Task SearchStepstoneJobsAsync_WithSkip_SkipsResults()
+    {
+        List<Job> jobs = Enumerable.Range(1, 55).Select(id => TestJobs.Create(id)).ToList();
+        IStepstoneJobsService service = new StepstoneJobsService(new FakeJobsProvider(jobs), new JobSearchFilter());
+
+        ListResponse<Job> result = await StepstoneJobSearchTool.SearchStepstoneJobsAsync(
+            service,
+            search: "",
+            countryCode: "DE",
+            skip: 3);
+
+        Assert.Equal(5, result.TotalCount);
+        Assert.Equal([54, 55], result.Items.Select(j => j.Id));
     }
 }
