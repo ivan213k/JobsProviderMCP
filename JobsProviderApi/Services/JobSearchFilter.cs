@@ -3,18 +3,16 @@ using JobsProviderApi.Models;
 namespace JobsProviderApi.Services;
 
 /// <summary>
-/// Filtering shared by the per-source job services: keyword search plus must-have/preferred skill and
-/// preferred-location matching.
+/// Filtering shared by the per-source job services: plain-text search plus must-have/preferred skill and
+/// preferred-location matching, with skip/take pagination applied last.
 /// </summary>
 public class JobSearchFilter : IJobSearchFilter
 {
-    public IReadOnlyList<Job> Apply(IEnumerable<Job> jobs, JobSearchQuery query)
+    public ListResponse<Job> Apply(IEnumerable<Job> jobs, JobSearchQuery query)
     {
-        string search = query.Search.Trim();
-
         IEnumerable<Job> result = jobs.Where(job =>
-            job.Title.Contains(search, StringComparison.OrdinalIgnoreCase)
-            || job.Description.Contains(search, StringComparison.OrdinalIgnoreCase));
+            job.Title.Contains(query.Search, StringComparison.OrdinalIgnoreCase) ||
+            job.Description.Contains(query.Search, StringComparison.OrdinalIgnoreCase));
 
         string[] mustHaveSkills = NormalizeForComparing(query.MustHaveSkills);
         string[] preferredSkills = NormalizeForComparing(query.PreferredSkills);
@@ -35,7 +33,9 @@ public class JobSearchFilter : IJobSearchFilter
             result = result.Where(job => locations.Any(location => IsInLocation(job, location)));
         }
 
-        return result.Take(query.Take).ToList();
+        List<Job> matched = result.ToList();
+        List<Job> page = matched.Skip(query.Skip).Take(query.Take).ToList();
+        return new ListResponse<Job>(matched.Count, page);
     }
 
     private static bool HasSkill(Job job, string normalizedSkill)

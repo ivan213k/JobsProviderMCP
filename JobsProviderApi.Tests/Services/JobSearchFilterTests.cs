@@ -25,9 +25,9 @@ public class JobSearchFilterTests
             TestJobs.Create(3, title: "Java Engineer", description: "No relevant tech."),
         };
 
-        IReadOnlyList<Job> result = _sut.Apply(jobs, MatchAllQuery with { Search = "Go" });
+        ListResponse<Job> result = _sut.Apply(jobs, MatchAllQuery with { Search = "Go" });
 
-        Assert.Equal([1, 2], result.Select(j => j.Id));
+        Assert.Equal([1, 2], result.Items.Select(j => j.Id));
     }
 
     [Fact]
@@ -35,9 +35,9 @@ public class JobSearchFilterTests
     {
         var jobs = new[] { TestJobs.Create(1, title: "Senior GO Engineer") };
 
-        IReadOnlyList<Job> result = _sut.Apply(jobs, MatchAllQuery with { Search = "go" });
+        ListResponse<Job> result = _sut.Apply(jobs, MatchAllQuery with { Search = "go" });
 
-        Assert.Equal([1], result.Select(j => j.Id));
+        Assert.Equal([1], result.Items.Select(j => j.Id));
     }
 
     [Fact]
@@ -50,9 +50,9 @@ public class JobSearchFilterTests
             TestJobs.Create(3, requirements: ["Java"]),
         };
 
-        IReadOnlyList<Job> result = _sut.Apply(jobs, MatchAllQuery with { MustHaveSkills = ["Go", "gRPC"] });
+        ListResponse<Job> result = _sut.Apply(jobs, MatchAllQuery with { MustHaveSkills = ["Go", "gRPC"] });
 
-        Assert.Equal([1], result.Select(j => j.Id));
+        Assert.Equal([1], result.Items.Select(j => j.Id));
     }
 
     [Fact]
@@ -65,9 +65,9 @@ public class JobSearchFilterTests
             TestJobs.Create(3, requirements: ["Java"]),
         };
 
-        IReadOnlyList<Job> result = _sut.Apply(jobs, MatchAllQuery with { PreferredSkills = ["Rust", "Ruby"] });
+        ListResponse<Job> result = _sut.Apply(jobs, MatchAllQuery with { PreferredSkills = ["Rust", "Ruby"] });
 
-        Assert.Equal([1, 2], result.Select(j => j.Id));
+        Assert.Equal([1, 2], result.Items.Select(j => j.Id));
     }
 
     [Fact]
@@ -79,9 +79,9 @@ public class JobSearchFilterTests
             TestJobs.Create(2, requirements: ["MongoDB"]),
         };
 
-        IReadOnlyList<Job> result = _sut.Apply(jobs, MatchAllQuery with { MustHaveSkills = ["Go"] });
+        ListResponse<Job> result = _sut.Apply(jobs, MatchAllQuery with { MustHaveSkills = ["Go"] });
 
-        Assert.Equal([1], result.Select(j => j.Id));
+        Assert.Equal([1], result.Items.Select(j => j.Id));
     }
 
     [Fact]
@@ -89,9 +89,9 @@ public class JobSearchFilterTests
     {
         var jobs = new[] { TestJobs.Create(1, requirements: ["Go"]) };
 
-        IReadOnlyList<Job> result = _sut.Apply(jobs, MatchAllQuery with { MustHaveSkills = ["go"] });
+        ListResponse<Job> result = _sut.Apply(jobs, MatchAllQuery with { MustHaveSkills = ["go"] });
 
-        Assert.Equal([1], result.Select(j => j.Id));
+        Assert.Equal([1], result.Items.Select(j => j.Id));
     }
 
     [Fact]
@@ -104,9 +104,9 @@ public class JobSearchFilterTests
             TestJobs.Create(3) with { Location = "Austin, TX (On-site)" },
         };
 
-        IReadOnlyList<Job> result = _sut.Apply(jobs, MatchAllQuery with { Locations = ["Berlin", "Remote"] });
+        ListResponse<Job> result = _sut.Apply(jobs, MatchAllQuery with { Locations = ["Berlin", "Remote"] });
 
-        Assert.Equal([1, 2], result.Select(j => j.Id));
+        Assert.Equal([1, 2], result.Items.Select(j => j.Id));
     }
 
     [Fact]
@@ -118,9 +118,9 @@ public class JobSearchFilterTests
             TestJobs.Create(2) with { Location = "Austin, TX (On-site)" },
         };
 
-        IReadOnlyList<Job> result = _sut.Apply(jobs, MatchAllQuery with { Locations = ["germany"] });
+        ListResponse<Job> result = _sut.Apply(jobs, MatchAllQuery with { Locations = ["germany"] });
 
-        Assert.Equal([1], result.Select(j => j.Id));
+        Assert.Equal([1], result.Items.Select(j => j.Id));
     }
 
     [Fact]
@@ -140,7 +140,7 @@ public class JobSearchFilterTests
                 with { Location = "Austin, TX (On-site)" },
         };
 
-        IReadOnlyList<Job> result = _sut.Apply(
+        ListResponse<Job> result = _sut.Apply(
             jobs,
             new JobSearchQuery(
                 Search: "Go Engineer",
@@ -149,7 +149,7 @@ public class JobSearchFilterTests
                 Locations: ["Berlin"],
                 CountryCode: "DE"));
 
-        Assert.Equal([1], result.Select(j => j.Id));
+        Assert.Equal([1], result.Items.Select(j => j.Id));
     }
 
     [Fact]
@@ -157,7 +157,7 @@ public class JobSearchFilterTests
     {
         List<Job> jobs = Enumerable.Range(1, 150).Select(id => TestJobs.Create(id)).ToList();
 
-        IReadOnlyList<Job> result = _sut.Apply(
+        ListResponse<Job> result = _sut.Apply(
             jobs,
             new JobSearchQuery(
                 Search: "",
@@ -166,8 +166,8 @@ public class JobSearchFilterTests
                 Locations: null,
                 CountryCode: "DE"));
 
-        Assert.Equal(100, result.Count);
-        Assert.Equal(Enumerable.Range(1, 100), result.Select(j => j.Id));
+        Assert.Equal(100, result.Items.Count);
+        Assert.Equal(Enumerable.Range(1, 100), result.Items.Select(j => j.Id));
     }
 
     [Fact]
@@ -175,9 +175,9 @@ public class JobSearchFilterTests
     {
         List<Job> jobs = Enumerable.Range(1, 20).Select(id => TestJobs.Create(id)).ToList();
 
-        IReadOnlyList<Job> result = _sut.Apply(jobs, MatchAllQuery with { Take = 3 });
+        ListResponse<Job> result = _sut.Apply(jobs, MatchAllQuery with { Take = 3 });
 
-        Assert.Equal([1, 2, 3], result.Select(j => j.Id));
+        Assert.Equal([1, 2, 3], result.Items.Select(j => j.Id));
     }
 
     [Fact]
@@ -189,9 +189,9 @@ public class JobSearchFilterTests
             TestJobs.Create(2, requirements: ["Go"]),
         };
 
-        IReadOnlyList<Job> result = _sut.Apply(jobs, MatchAllQuery with { MustHaveSkills = ["Go"] });
+        ListResponse<Job> result = _sut.Apply(jobs, MatchAllQuery with { MustHaveSkills = ["Go"] });
 
-        Assert.Equal([2], result.Select(j => j.Id));
+        Assert.Equal([2], result.Items.Select(j => j.Id));
     }
 
     [Fact]
@@ -203,8 +203,8 @@ public class JobSearchFilterTests
             TestJobs.Create(2, requirements: ["Go"]),
         };
 
-        IReadOnlyList<Job> result = _sut.Apply(jobs, MatchAllQuery with { PreferredSkills = ["Go"] });
+        ListResponse<Job> result = _sut.Apply(jobs, MatchAllQuery with { PreferredSkills = ["Go"] });
 
-        Assert.Equal([2], result.Select(j => j.Id));
+        Assert.Equal([2], result.Items.Select(j => j.Id));
     }
 }
