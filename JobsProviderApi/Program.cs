@@ -4,6 +4,7 @@ using JobsProviderApi.Providers;
 using JobsProviderApi.Services;
 using JobsProviderApi.Services.Indeed;
 using JobsProviderApi.Services.Stepstone;
+using ModelContextProtocol.Protocol;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -22,6 +23,10 @@ builder.Services.AddSingleton<IJobsProvider, MockJobsProvider>();
 builder.Services.AddScoped<IJobSearchFilter, JobSearchFilter>();
 builder.Services.AddScoped<IIndeedJobsService, IndeedJobsService>();
 builder.Services.AddScoped<IStepstoneJobsService, StepstoneJobsService>();
+builder.Services.AddMcpServer(options =>
+{
+    options.ServerInfo = new Implementation { Name = "JobsProviderApi", Version = semanticVersion };
+}).WithHttpTransport(options => options.Stateless = true).WithToolsFromAssembly();
 
 var app = builder.Build();
 
@@ -35,5 +40,6 @@ app.UseHttpsRedirection();
 
 app.MapIndeedJobsEndpoint();
 app.MapStepstoneJobsEndpoint();
+app.MapMcp("/mcp");
 
 app.Run();

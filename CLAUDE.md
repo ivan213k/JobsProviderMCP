@@ -17,8 +17,8 @@ No lint/format command is configured.
 ## Architecture
 
 ASP.NET Core minimal API (net10.0) that serves job postings from a static mock dataset
-(`JobsProviderApi/Data/mock-jobs.json`, 100 entries), meant to back an MCP tool. There are two "sources," which
-are really just two slices of the same dataset:
+(`JobsProviderApi/Data/mock-jobs.json`, 100 entries), exposed both as REST endpoints and as an in-process MCP
+server. There are two "sources," which are really just two slices of the same dataset:
 
 - `GET /api/indeed/jobs` — first 50 entries
 - `GET /api/stepstone/jobs` — remaining 50 entries
@@ -47,3 +47,14 @@ deliberate simplification, not an oversight.
 All per-source services are registered in DI behind interfaces (`IIndeedJobsService`, `IStepstoneJobsService`,
 `IJobSearchFilter`, `IJobsProvider`), which is what makes them mockable/fakeable in `JobsProviderApi.Tests`
 (see `Tests/Fakes/FakeJobsProvider.cs` and `Tests/TestJobs.cs` for the test data builder).
+
+**MCP server**: `Mcp/IndeedJobSearchTool.cs` and `Mcp/StepstoneJobSearchTool.cs` expose `search_indeed_jobs` and
+`search_stepstone_jobs` as MCP tools, each a thin wrapper that builds a `JobSearchQuery` from flat parameters
+and delegates to the same `IIndeedJobsService`/`IStepstoneJobsService` the REST endpoints use — no filtering
+logic is duplicated. `Program.cs` registers the server with
+`builder.Services.AddMcpServer().WithHttpTransport(...).WithToolsFromAssembly()` and mounts it at `/mcp` via
+`app.MapMcp("/mcp")`, using Streamable HTTP in stateless mode (no per-session state, consistent with
+`MockJobsProvider`'s no-caching design). Because `AddValidation()` only wires into the HTTP minimal-API
+pipeline, MCP tool methods validate the constructed `JobSearchQuery` themselves via
+`Validator.TryValidateObject` (see `Mcp/McpValidation.cs`) and throw `McpException` on failure, replicating the
+same regex-validation behavior the REST endpoints get for free.

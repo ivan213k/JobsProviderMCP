@@ -1,0 +1,30 @@
+using System.ComponentModel;
+using JobsProviderApi.Models;
+using JobsProviderApi.Services.Indeed;
+using ModelContextProtocol.Server;
+
+namespace JobsProviderApi.Mcp;
+
+[McpServerToolType]
+public static class IndeedJobSearchTool
+{
+    [McpServerTool(Name = "search_indeed_jobs")]
+    [Description("""
+        Search Indeed job postings. `search` and `countryCode` are required; the rest are optional and combined
+        using AND.
+        """)]
+    public static async Task<IReadOnlyList<Job>> SearchIndeedJobsAsync(
+        IIndeedJobsService jobsService,
+        [Description(JobSearchQueryDescriptions.Search)] string search,
+        [Description(JobSearchQueryDescriptions.CountryCode)] string countryCode,
+        [Description(JobSearchQueryDescriptions.MustHaveSkills)] string[]? mustHaveSkills = null,
+        [Description(JobSearchQueryDescriptions.PreferredSkills)] string[]? preferredSkills = null,
+        [Description(JobSearchQueryDescriptions.Locations)] string[]? locations = null,
+        [Description(JobSearchQueryDescriptions.Take)] int take = 10,
+        CancellationToken cancellationToken = default)
+    {
+        var query = new JobSearchQuery(search, mustHaveSkills, preferredSkills, locations, countryCode, take);
+        McpValidation.ValidateOrThrow(query);
+        return await jobsService.SearchAsync(query, cancellationToken);
+    }
+}
