@@ -1,18 +1,20 @@
-using System.Text.RegularExpressions;
 using JobsProviderApi.Models;
 
 namespace JobsProviderApi.Services;
 
 /// <summary>
-/// Filtering shared by the per-source job services: free-text/regex search plus must-have/preferred skill and
+/// Filtering shared by the per-source job services: keyword search plus must-have/preferred skill and
 /// preferred-location matching.
 /// </summary>
 public class JobSearchFilter : IJobSearchFilter
 {
     public IReadOnlyList<Job> Apply(IEnumerable<Job> jobs, JobSearchQuery query)
     {
-        var regex = new Regex(query.Search, RegexOptions.IgnoreCase | RegexOptions.CultureInvariant);
-        IEnumerable<Job> result = jobs.Where(job => regex.IsMatch(job.Title) || regex.IsMatch(job.Description));
+        string search = query.Search.Trim();
+
+        IEnumerable<Job> result = jobs.Where(job =>
+            job.Title.Contains(search, StringComparison.OrdinalIgnoreCase)
+            || job.Description.Contains(search, StringComparison.OrdinalIgnoreCase));
 
         string[] mustHaveSkills = NormalizeForComparing(query.MustHaveSkills);
         string[] preferredSkills = NormalizeForComparing(query.PreferredSkills);

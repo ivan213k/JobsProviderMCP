@@ -3,11 +3,12 @@ using JobsProviderApi.Models;
 
 namespace JobsProviderApi.Providers;
 
-public class MockJobsProvider(IWebHostEnvironment environment) : IJobsProvider
+public class MockJobsProvider<TSource>(IWebHostEnvironment environment) : IJobsProvider<TSource>
+    where TSource : IJobSource
 {
     private static readonly JsonSerializerOptions JsonOptions = new(JsonSerializerDefaults.Web);
 
-    public async Task<IReadOnlyList<Job>> GetJobsAsync(CancellationToken cancellationToken = default)
+    public async Task<IReadOnlyList<Job>> GetJobsAsync(JobSearchQuery query, CancellationToken cancellationToken = default)
     {
         string dataFilePath = Path.Combine(environment.ContentRootPath, "Data", "mock-jobs.json");
         await using FileStream stream = File.OpenRead(dataFilePath);

@@ -6,7 +6,7 @@ namespace JobsProviderApi.Tests.Services;
 public class JobSearchFilterTests
 {
     private static readonly JobSearchQuery MatchAllQuery = new(
-        Search: ".*",
+        Search: "",
         MustHaveSkills: null,
         PreferredSkills: null,
         Locations: null,
@@ -28,6 +28,16 @@ public class JobSearchFilterTests
         IReadOnlyList<Job> result = _sut.Apply(jobs, MatchAllQuery with { Search = "Go" });
 
         Assert.Equal([1, 2], result.Select(j => j.Id));
+    }
+
+    [Fact]
+    public void Apply_SearchMatching_IsCaseInsensitive()
+    {
+        var jobs = new[] { TestJobs.Create(1, title: "Senior GO Engineer") };
+
+        IReadOnlyList<Job> result = _sut.Apply(jobs, MatchAllQuery with { Search = "go" });
+
+        Assert.Equal([1], result.Select(j => j.Id));
     }
 
     [Fact]
@@ -143,21 +153,21 @@ public class JobSearchFilterTests
     }
 
     [Fact]
-    public void Apply_WithoutTake_DefaultsToTen()
+    public void Apply_WithoutTake_DefaultsToOneHundred()
     {
-        List<Job> jobs = Enumerable.Range(1, 20).Select(id => TestJobs.Create(id)).ToList();
+        List<Job> jobs = Enumerable.Range(1, 150).Select(id => TestJobs.Create(id)).ToList();
 
         IReadOnlyList<Job> result = _sut.Apply(
             jobs,
             new JobSearchQuery(
-                Search: ".*",
+                Search: "",
                 MustHaveSkills: null,
                 PreferredSkills: null,
                 Locations: null,
                 CountryCode: "DE"));
 
-        Assert.Equal(10, result.Count);
-        Assert.Equal(Enumerable.Range(1, 10), result.Select(j => j.Id));
+        Assert.Equal(100, result.Count);
+        Assert.Equal(Enumerable.Range(1, 100), result.Select(j => j.Id));
     }
 
     [Fact]

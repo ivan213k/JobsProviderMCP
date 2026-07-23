@@ -1,4 +1,5 @@
 <Solution>
   <Project Path="JobsProviderApi/JobsProviderApi.csproj" />
+  <Project Path="ApifySdk/ApifySdk.csproj" />
   <Project Path="JobsProviderApi.Tests/JobsProviderApi.Tests.csproj" />
 </Solution>

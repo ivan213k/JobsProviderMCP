@@ -4,16 +4,16 @@ using JobsProviderApi.Providers;
 namespace JobsProviderApi.Services.Stepstone;
 
 /// <summary>
-/// Serves everything after the first 50 jobs from <see cref="IJobsProvider"/> as the Stepstone-sourced slice,
-/// filtered by <see cref="JobSearchQuery"/>.
+/// Serves everything after the first 50 jobs from the Stepstone <see cref="IJobsProvider{TSource}"/>, filtered
+/// by <see cref="JobSearchQuery"/>.
 /// </summary>
-public class StepstoneJobsService(IJobsProvider jobsProvider, IJobSearchFilter jobSearchFilter) : IStepstoneJobsService
+public class StepstoneJobsService(IJobsProvider<StepstoneSource> jobsProvider, IJobSearchFilter jobSearchFilter) : IStepstoneJobsService
 {
     private const int Skip = 50;
 
     public async Task<IReadOnlyList<Job>> SearchAsync(JobSearchQuery query, CancellationToken cancellationToken = default)
     {
-        IReadOnlyList<Job> jobs = await jobsProvider.GetJobsAsync(cancellationToken);
+        IReadOnlyList<Job> jobs = await jobsProvider.GetJobsAsync(query, cancellationToken);
         return jobSearchFilter.Apply(jobs.Skip(Skip), query);
     }
 }

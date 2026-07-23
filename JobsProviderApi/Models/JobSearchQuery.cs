@@ -1,13 +1,12 @@
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-using System.Text.RegularExpressions;
 using Microsoft.AspNetCore.Mvc;
 
 namespace JobsProviderApi.Models;
 
 public record JobSearchQuery(
     [property: FromQuery(Name = "search")]
-    [property: Description("Regular expression matched (case-insensitive) against each job's title or description.")]
+    [property: Description("Plain text matched (case-insensitively) as a substring of a job's title or description.")]
     string Search,
 
     [property: FromQuery(Name = "mustHaveSkills")]
@@ -27,24 +26,14 @@ public record JobSearchQuery(
     string CountryCode,
 
     [property: FromQuery(Name = "take")]
-    [property: Description("Maximum number of jobs to return. Defaults to 10.")]
-    int Take = 10) : IValidatableObject
+    [property: Description("Maximum number of jobs to return. Defaults to 100.")]
+    int Take = 100) : IValidatableObject
 {
     public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
     {
-        string? error = null;
-        try
+        if (string.IsNullOrWhiteSpace(Search))
         {
-            _ = new Regex(Search);
-        }
-        catch (ArgumentException ex)
-        {
-            error = $"'{Search}' is not a valid regular expression: {ex.Message}";
-        }
-
-        if (error is not null)
-        {
-            yield return new ValidationResult(error, [nameof(Search)]);
+            yield return new ValidationResult("'search' must not be blank.", [nameof(Search)]);
         }
     }
 }
