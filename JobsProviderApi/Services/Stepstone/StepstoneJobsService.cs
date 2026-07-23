@@ -11,7 +11,7 @@ public class StepstoneJobsService(IJobsProvider jobsProvider, IJobSearchFilter j
 {
     private const int Skip = 50;
 
-    public async Task<IReadOnlyList<Job>> SearchAsync(JobSearchQuery query, CancellationToken cancellationToken = default)
+    public async Task<ListResponse<Job>> SearchAsync(JobSearchQuery query, CancellationToken cancellationToken = default)
     {
         IReadOnlyList<Job> jobs = await jobsProvider.GetJobsAsync(cancellationToken);
         return jobSearchFilter.Apply(jobs.Skip(Skip), query);

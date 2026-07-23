@@ -4,5 +4,5 @@ namespace JobsProviderApi.Services;
 
 public interface IJobSearchFilter
 {
-    IReadOnlyList<Job> Apply(IEnumerable<Job> jobs, JobSearchQuery query);
+    ListResponse<Job> Apply(IEnumerable<Job> jobs, JobSearchQuery query);
 }

@@ -13,18 +13,18 @@ public static class StepstoneJobSearchTool
         Search Stepstone job postings. `search` and `countryCode` are required; the rest are optional and combined
         using AND.
         """)]
-    public static async Task<IReadOnlyList<Job>> SearchStepstoneJobsAsync(
+    public static async Task<ListResponse<Job>> SearchStepstoneJobsAsync(
         IStepstoneJobsService jobsService,
         [Description(JobSearchQueryDescriptions.Search)] string search,
         [Description(JobSearchQueryDescriptions.CountryCode)] string countryCode,
         [Description(JobSearchQueryDescriptions.MustHaveSkills)] string[]? mustHaveSkills = null,
         [Description(JobSearchQueryDescriptions.PreferredSkills)] string[]? preferredSkills = null,
         [Description(JobSearchQueryDescriptions.Locations)] string[]? locations = null,
+        [Description(JobSearchQueryDescriptions.Skip)] int skip = 0,
         [Description(JobSearchQueryDescriptions.Take)] int take = 10,
         CancellationToken cancellationToken = default)
     {
-        var query = new JobSearchQuery(search, mustHaveSkills, preferredSkills, locations, countryCode, take);
-        McpValidation.ValidateOrThrow(query);
+        var query = new JobSearchQuery(search, mustHaveSkills, preferredSkills, locations, countryCode, skip, take);
         return await jobsService.SearchAsync(query, cancellationToken);
     }
 }

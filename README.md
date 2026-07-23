@@ -10,21 +10,23 @@ Both endpoints accept the same query parameters:
 
 | Param                | Required | Description                                                                     |
 |----------------------|----------|---------------------------------------------------------------------------------|
-| `search`             | yes      | Regex matched case-insensitively against a job's title or description.          |
+| `search`             | yes      | Case-insensitive plain-text match against a job's title or description.        |
 | `countryCode`        | yes      | ISO 3166-1 alpha-2 code (e.g. `DE`) selecting which regional job board to search. |
 | `mustHaveSkills`     | no       | Repeatable. ALL listed skills must appear in the job's requirements.            |
 | `preferredSkills`    | no       | Repeatable. At least ONE listed skill must appear in the job's requirements.    |
 | `preferredLocations` | no       | Repeatable. At least ONE listed location must be in the job's location.         |
-| `take`               | no       | Max number of jobs to return, applied after filtering. Defaults to 10.          |
+| `skip`               | no       | Number of matching jobs to skip before applying `take`. Defaults to 0.         |
+| `take`               | no       | Max number of jobs to return after `skip` is applied. Defaults to 10.          |
 
 Skills match on exact equality (case-insensitive), so `Go` does not match `Golang`. Locations match on
 substring, because a job's location is a composite string — `Berlin` matches `Berlin, Germany (Hybrid)`.
+`search` is plain text, not a regex — special characters like `(` or `+` are matched literally.
 
-`countryCode` is currently accepted and validated but not yet applied to the results; the mock dataset has no
-per-market split.
+`countryCode` is currently accepted but not yet applied to the results; the mock dataset has no per-market
+split.
 
-An invalid `search` regex is rejected with a `400` before any handler code runs, via ASP.NET Core's built-in
-minimal API validation (`JobSearchQuery` implements `IValidatableObject`).
+Both endpoints return `{ "totalCount": <jobs matching all filters, ignoring skip/take>, "items": [...] }`
+instead of a bare array, so callers can page through results using `skip`/`take` and `totalCount`.
 
 ## MCP
 
@@ -43,7 +45,7 @@ so results are identical either way.
 - `Services/<Source>/` — per-source service (dataset slice + delegates filtering).
 - `Services/JobSearchFilter.cs` — shared filtering logic (search/skills/locations/take), used by both sources.
 - `Providers/MockJobsProvider.cs` — reads `Data/mock-jobs.json`.
-- `Models/` — `Job`, `JobSearchQuery`.
+- `Models/` — `Job`, `JobSearchQuery`, `ListResponse<T>`.
 - `Mcp/` — MCP tool definitions wrapping the REST services (`search_indeed_jobs`, `search_stepstone_jobs`).
 
 ## Running

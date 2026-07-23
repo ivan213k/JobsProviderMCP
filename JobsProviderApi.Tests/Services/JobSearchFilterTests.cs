@@ -6,7 +6,7 @@ namespace JobsProviderApi.Tests.Services;
 public class JobSearchFilterTests
 {
     private static readonly JobSearchQuery MatchAllQuery = new(
-        Search: ".*",
+        Search: "",
         MustHaveSkills: null,
         PreferredSkills: null,
         Locations: null,
@@ -25,9 +25,23 @@ public class JobSearchFilterTests
             TestJobs.Create(3, title: "Java Engineer", description: "No relevant tech."),
         };
 
-        IReadOnlyList<Job> result = _sut.Apply(jobs, MatchAllQuery with { Search = "Go" });
+        ListResponse<Job> result = _sut.Apply(jobs, MatchAllQuery with { Search = "Go" });
 
-        Assert.Equal([1, 2], result.Select(j => j.Id));
+        Assert.Equal([1, 2], result.Items.Select(j => j.Id));
+    }
+
+    [Fact]
+    public void Apply_Search_IsPlainTextNotRegex()
+    {
+        var jobs = new[]
+        {
+            TestJobs.Create(1, title: "Backend Engineer (C++/Go)"),
+            TestJobs.Create(2, title: "Backend Engineer (Go)"),
+        };
+
+        ListResponse<Job> result = _sut.Apply(jobs, MatchAllQuery with { Search = "(C++/Go)" });
+
+        Assert.Equal([1], result.Items.Select(j => j.Id));
     }
 
     [Fact]
@@ -40,9 +54,9 @@ public class JobSearchFilterTests
             TestJobs.Create(3, requirements: ["Java"]),
         };
 
-        IReadOnlyList<Job> result = _sut.Apply(jobs, MatchAllQuery with { MustHaveSkills = ["Go", "gRPC"] });
+        ListResponse<Job> result = _sut.Apply(jobs, MatchAllQuery with { MustHaveSkills = ["Go", "gRPC"] });
 
-        Assert.Equal([1], result.Select(j => j.Id));
+        Assert.Equal([1], result.Items.Select(j => j.Id));
     }
 
     [Fact]
@@ -55,9 +69,9 @@ public class JobSearchFilterTests
             TestJobs.Create(3, requirements: ["Java"]),
         };
 
-        IReadOnlyList<Job> result = _sut.Apply(jobs, MatchAllQuery with { PreferredSkills = ["Rust", "Ruby"] });
+        ListResponse<Job> result = _sut.Apply(jobs, MatchAllQuery with { PreferredSkills = ["Rust", "Ruby"] });
 
-        Assert.Equal([1, 2], result.Select(j => j.Id));
+        Assert.Equal([1, 2], result.Items.Select(j => j.Id));
     }
 
     [Fact]
@@ -69,9 +83,9 @@ public class JobSearchFilterTests
             TestJobs.Create(2, requirements: ["MongoDB"]),
         };
 
-        IReadOnlyList<Job> result = _sut.Apply(jobs, MatchAllQuery with { MustHaveSkills = ["Go"] });
+        ListResponse<Job> result = _sut.Apply(jobs, MatchAllQuery with { MustHaveSkills = ["Go"] });
 
-        Assert.Equal([1], result.Select(j => j.Id));
+        Assert.Equal([1], result.Items.Select(j => j.Id));
     }
 
     [Fact]
@@ -79,9 +93,9 @@ public class JobSearchFilterTests
     {
         var jobs = new[] { TestJobs.Create(1, requirements: ["Go"]) };
 
-        IReadOnlyList<Job> result = _sut.Apply(jobs, MatchAllQuery with { MustHaveSkills = ["go"] });
+        ListResponse<Job> result = _sut.Apply(jobs, MatchAllQuery with { MustHaveSkills = ["go"] });
 
-        Assert.Equal([1], result.Select(j => j.Id));
+        Assert.Equal([1], result.Items.Select(j => j.Id));
     }
 
     [Fact]
@@ -94,9 +108,9 @@ public class JobSearchFilterTests
             TestJobs.Create(3) with { Location = "Austin, TX (On-site)" },
         };
 
-        IReadOnlyList<Job> result = _sut.Apply(jobs, MatchAllQuery with { Locations = ["Berlin", "Remote"] });
+        ListResponse<Job> result = _sut.Apply(jobs, MatchAllQuery with { Locations = ["Berlin", "Remote"] });
 
-        Assert.Equal([1, 2], result.Select(j => j.Id));
+        Assert.Equal([1, 2], result.Items.Select(j => j.Id));
     }
 
     [Fact]
@@ -108,9 +122,9 @@ public class JobSearchFilterTests
             TestJobs.Create(2) with { Location = "Austin, TX (On-site)" },
         };
 
-        IReadOnlyList<Job> result = _sut.Apply(jobs, MatchAllQuery with { Locations = ["germany"] });
+        ListResponse<Job> result = _sut.Apply(jobs, MatchAllQuery with { Locations = ["germany"] });
 
-        Assert.Equal([1], result.Select(j => j.Id));
+        Assert.Equal([1], result.Items.Select(j => j.Id));
     }
 
     [Fact]
@@ -130,7 +144,7 @@ public class JobSearchFilterTests
                 with { Location = "Austin, TX (On-site)" },
         };
 
-        IReadOnlyList<Job> result = _sut.Apply(
+        ListResponse<Job> result = _sut.Apply(
             jobs,
             new JobSearchQuery(
                 Search: "Go Engineer",
@@ -139,7 +153,7 @@ public class JobSearchFilterTests
                 Locations: ["Berlin"],
                 CountryCode: "DE"));
 
-        Assert.Equal([1], result.Select(j => j.Id));
+        Assert.Equal([1], result.Items.Select(j => j.Id));
     }
 
     [Fact]
@@ -147,17 +161,17 @@ public class JobSearchFilterTests
     {
         List<Job> jobs = Enumerable.Range(1, 20).Select(id => TestJobs.Create(id)).ToList();
 
-        IReadOnlyList<Job> result = _sut.Apply(
+        ListResponse<Job> result = _sut.Apply(
             jobs,
             new JobSearchQuery(
-                Search: ".*",
+                Search: "",
                 MustHaveSkills: null,
                 PreferredSkills: null,
                 Locations: null,
                 CountryCode: "DE"));
 
-        Assert.Equal(10, result.Count);
-        Assert.Equal(Enumerable.Range(1, 10), result.Select(j => j.Id));
+        Assert.Equal(10, result.Items.Count);
+        Assert.Equal(Enumerable.Range(1, 10), result.Items.Select(j => j.Id));
     }
 
     [Fact]
@@ -165,9 +179,55 @@ public class JobSearchFilterTests
     {
         List<Job> jobs = Enumerable.Range(1, 20).Select(id => TestJobs.Create(id)).ToList();
 
-        IReadOnlyList<Job> result = _sut.Apply(jobs, MatchAllQuery with { Take = 3 });
+        ListResponse<Job> result = _sut.Apply(jobs, MatchAllQuery with { Take = 3 });
 
-        Assert.Equal([1, 2, 3], result.Select(j => j.Id));
+        Assert.Equal([1, 2, 3], result.Items.Select(j => j.Id));
+    }
+
+    [Fact]
+    public void Apply_WithoutSkip_DefaultsToZero()
+    {
+        List<Job> jobs = Enumerable.Range(1, 5).Select(id => TestJobs.Create(id)).ToList();
+
+        ListResponse<Job> result = _sut.Apply(jobs, MatchAllQuery with { Take = 5 });
+
+        Assert.Equal([1, 2, 3, 4, 5], result.Items.Select(j => j.Id));
+    }
+
+    [Fact]
+    public void Apply_WithSkip_SkipsResultsAfterFiltering()
+    {
+        List<Job> jobs = Enumerable.Range(1, 5).Select(id => TestJobs.Create(id)).ToList();
+
+        ListResponse<Job> result = _sut.Apply(jobs, MatchAllQuery with { Skip = 2, Take = 5 });
+
+        Assert.Equal([3, 4, 5], result.Items.Select(j => j.Id));
+    }
+
+    [Fact]
+    public void Apply_TotalCount_ReflectsMatchesBeforeSkipAndTake()
+    {
+        List<Job> jobs = Enumerable.Range(1, 20).Select(id => TestJobs.Create(id)).ToList();
+
+        ListResponse<Job> result = _sut.Apply(jobs, MatchAllQuery with { Skip = 5, Take = 3 });
+
+        Assert.Equal(20, result.TotalCount);
+        Assert.Equal(3, result.Items.Count);
+    }
+
+    [Fact]
+    public void Apply_TotalCount_ReflectsOnlyFilterMatches()
+    {
+        var jobs = new[]
+        {
+            TestJobs.Create(1, requirements: ["Go"]),
+            TestJobs.Create(2, requirements: ["Java"]),
+            TestJobs.Create(3, requirements: ["Go"]),
+        };
+
+        ListResponse<Job> result = _sut.Apply(jobs, MatchAllQuery with { MustHaveSkills = ["Go"] });
+
+        Assert.Equal(2, result.TotalCount);
     }
 
     [Fact]
@@ -179,9 +239,9 @@ public class JobSearchFilterTests
             TestJobs.Create(2, requirements: ["Go"]),
         };
 
-        IReadOnlyList<Job> result = _sut.Apply(jobs, MatchAllQuery with { MustHaveSkills = ["Go"] });
+        ListResponse<Job> result = _sut.Apply(jobs, MatchAllQuery with { MustHaveSkills = ["Go"] });
 
-        Assert.Equal([2], result.Select(j => j.Id));
+        Assert.Equal([2], result.Items.Select(j => j.Id));
     }
 
     [Fact]
@@ -193,8 +253,8 @@ public class JobSearchFilterTests
             TestJobs.Create(2, requirements: ["Go"]),
         };
 
-        IReadOnlyList<Job> result = _sut.Apply(jobs, MatchAllQuery with { PreferredSkills = ["Go"] });
+        ListResponse<Job> result = _sut.Apply(jobs, MatchAllQuery with { PreferredSkills = ["Go"] });
 
-        Assert.Equal([2], result.Select(j => j.Id));
+        Assert.Equal([2], result.Items.Select(j => j.Id));
     }
 }

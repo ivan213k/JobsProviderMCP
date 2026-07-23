@@ -11,7 +11,7 @@ internal static class IndeedJobsHandler
         IIndeedJobsService jobsService,
         CancellationToken cancellationToken)
     {
-        IReadOnlyList<Job> jobs = await jobsService.SearchAsync(query, cancellationToken);
-        return Results.Ok(jobs);
+        ListResponse<Job> result = await jobsService.SearchAsync(query, cancellationToken);
+        return Results.Ok(result);
     }
 }
