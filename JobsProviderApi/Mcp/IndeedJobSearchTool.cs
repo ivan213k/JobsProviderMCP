@@ -11,7 +11,7 @@ public static class IndeedJobSearchTool
     [McpServerTool(Name = "search_indeed_jobs")]
     [Description("""
         Search Indeed job postings. `search` and `countryCode` are required; the rest are optional and combined
-        using AND.
+        using AND. Results are sorted newest-first by date published.
         """)]
     public static async Task<ListResponse<Job>> SearchIndeedJobsAsync(
         IIndeedJobsService jobsService,

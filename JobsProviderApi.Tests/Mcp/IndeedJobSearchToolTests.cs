@@ -16,7 +16,7 @@ public class IndeedJobSearchToolTests
             TestJobs.Create(1, title: "Senior Go Engineer"),
             TestJobs.Create(2, title: "Java Engineer"),
         };
-        IIndeedJobsService service = new IndeedJobsService(new FakeJobsProvider(jobs), new JobSearchFilter());
+        IIndeedJobsService service = new IndeedJobsService(new FakeJobsProvider(jobs), new JobSearchFilter(), TestFusionCache.Create(), TestCachingOptions.Default());
 
         ListResponse<Job> result = await IndeedJobSearchTool.SearchIndeedJobsAsync(
             service,
@@ -32,7 +32,8 @@ public class IndeedJobSearchToolTests
     {
         IIndeedJobsService service = new IndeedJobsService(
             new FakeJobsProvider([TestJobs.Create(1, title: "Backend Engineer (C++/Go)")]),
-            new JobSearchFilter());
+            new JobSearchFilter(),
+            TestFusionCache.Create(), TestCachingOptions.Default());
 
         ListResponse<Job> result = await IndeedJobSearchTool.SearchIndeedJobsAsync(
             service,
@@ -46,7 +47,7 @@ public class IndeedJobSearchToolTests
     public async Task SearchIndeedJobsAsync_WithSkip_SkipsResults()
     {
         List<Job> jobs = Enumerable.Range(1, 5).Select(id => TestJobs.Create(id)).ToList();
-        IIndeedJobsService service = new IndeedJobsService(new FakeJobsProvider(jobs), new JobSearchFilter());
+        IIndeedJobsService service = new IndeedJobsService(new FakeJobsProvider(jobs), new JobSearchFilter(), TestFusionCache.Create(), TestCachingOptions.Default());
 
         ListResponse<Job> result = await IndeedJobSearchTool.SearchIndeedJobsAsync(
             service,

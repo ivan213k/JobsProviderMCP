@@ -1,3 +1,5 @@
+using JobsProviderApi.Configuration;
+using JobsProviderApi.Endpoints.Cache;
 using JobsProviderApi.Endpoints.Indeed;
 using JobsProviderApi.Endpoints.Stepstone;
 using JobsProviderApi.Providers;
@@ -5,6 +7,8 @@ using JobsProviderApi.Services;
 using JobsProviderApi.Services.Indeed;
 using JobsProviderApi.Services.Stepstone;
 using ModelContextProtocol.Protocol;
+using ZiggyCreatures.Caching.Fusion;
+using ZiggyCreatures.Caching.Fusion.Serialization.SystemTextJson;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,6 +22,27 @@ builder.Services.AddOpenApi(options =>
         return Task.CompletedTask;
     });
 });
+
+var cachingOptions = builder.Configuration.GetSection(CachingOptions.SectionName).Get<CachingOptions>() ?? new CachingOptions();
+
+builder.Services.AddMemoryCache();
+builder.Services.Configure<CachingOptions>(builder.Configuration.GetSection(CachingOptions.SectionName));
+var fusionCacheBuilder = builder.Services.AddFusionCache()
+    .WithDefaultEntryOptions(new FusionCacheEntryOptions
+    {
+        Duration = cachingOptions.SearchResultsDuration,
+        DistributedCacheHardTimeout = TimeSpan.FromSeconds(5),
+        AllowBackgroundDistributedCacheOperations = true,
+    });
+
+var redisConnectionString = builder.Configuration.GetConnectionString("Redis");
+if (!string.IsNullOrWhiteSpace(redisConnectionString))
+{
+    builder.Services.AddStackExchangeRedisCache(options => options.Configuration = redisConnectionString);
+    fusionCacheBuilder
+        .WithRegisteredDistributedCache()
+        .WithSerializer(new FusionCacheSystemTextJsonSerializer());
+}
 builder.Services.AddValidation();
 builder.Services.AddSingleton<IJobsProvider, MockJobsProvider>();
 builder.Services.AddScoped<IJobSearchFilter, JobSearchFilter>();
@@ -40,6 +65,7 @@ app.UseHttpsRedirection();
 
 app.MapIndeedJobsEndpoint();
 app.MapStepstoneJobsEndpoint();
+app.MapClearCacheEndpoint();
 app.MapMcp("/mcp");
 
 app.Run();

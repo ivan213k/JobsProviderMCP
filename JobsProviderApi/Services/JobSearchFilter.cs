@@ -4,7 +4,8 @@ namespace JobsProviderApi.Services;
 
 /// <summary>
 /// Filtering shared by the per-source job services: plain-text search plus must-have/preferred skill and
-/// preferred-location matching, with skip/take pagination applied last.
+/// preferred-location matching, sorted newest-first by <see cref="Job.DatePublished"/>, with skip/take
+/// pagination applied last.
 /// </summary>
 public class JobSearchFilter : IJobSearchFilter
 {
@@ -33,10 +34,13 @@ public class JobSearchFilter : IJobSearchFilter
             result = result.Where(job => locations.Any(location => IsInLocation(job, location)));
         }
 
-        List<Job> matched = result.ToList();
+        List<Job> matched = result.OrderByDescending(ParseDatePublished).ToList();
         List<Job> page = matched.Skip(query.Skip).Take(query.Take).ToList();
         return new ListResponse<Job>(matched.Count, page);
     }
+
+    private static DateOnly ParseDatePublished(Job job) =>
+        DateOnly.TryParse(job.DatePublished, out DateOnly datePublished) ? datePublished : DateOnly.MinValue;
 
     private static bool HasSkill(Job job, string normalizedSkill)
     {

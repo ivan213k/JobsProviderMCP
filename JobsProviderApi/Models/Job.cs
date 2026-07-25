@@ -9,4 +9,7 @@ public record Job(
     IReadOnlyList<string>? Requirements,
     string Link,
     string SourcingPlatform,
-    string DatePublished);
+    string DatePublished)
+{
+    public static string ToCacheKey(string source, int id) => $"{source}:job:{id}";
+}
