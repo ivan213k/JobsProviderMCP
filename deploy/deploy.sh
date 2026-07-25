@@ -13,6 +13,7 @@ fi
 
 IMAGE="ivan213k/jobsproviderapi"
 CONTAINER_NAME="jobsproviderapi"
+NETWORK_NAME="jobsprovider-net"
 HOST_PORT="${HOST_PORT:-8080}"
 REDIS_CONNECTION_STRING="${REDIS_CONNECTION_STRING:-}"
 
@@ -33,9 +34,12 @@ docker pull "$IMAGE:$VERSION"
 
 docker rm -f "$CONTAINER_NAME" >/dev/null 2>&1 || true
 
+docker network create "$NETWORK_NAME" >/dev/null 2>&1 || true
+
 docker run -d \
     --name "$CONTAINER_NAME" \
     --restart unless-stopped \
+    --network "$NETWORK_NAME" \
     -p "${HOST_PORT}:8080" \
     ${REDIS_CONNECTION_STRING:+-e "ConnectionStrings__Redis=$REDIS_CONNECTION_STRING"} \
     "$IMAGE:$VERSION"
