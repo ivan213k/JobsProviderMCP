@@ -87,6 +87,28 @@ volume, so data survives a restart):
 REDIS_PASSWORD="<a strong password>" deploy/redis/deploy-redis.sh
 ```
 
+## Secrets
+
+Secrets must never be committed. Locally they're stored outside the repo via [.NET user
+secrets](https://learn.microsoft.com/aspnet/core/security/app-secrets). The project already declares a
+`UserSecretsId`, so there's nothing to initialize — just set values:
+
+```bash
+# Required: Apify API token, used to fetch real Indeed jobs.
+dotnet user-secrets set "Apify:Token" "<your-apify-token>" --project JobsProviderApi
+
+# Optional: Redis L2 cache connection string (omit to run without Redis).
+dotnet user-secrets set "ConnectionStrings:Redis" "<host>:<port>,password=<password>,abortConnect=false" --project JobsProviderApi
+```
+
+Useful commands: `dotnet user-secrets list --project JobsProviderApi` to see what's set,
+`dotnet user-secrets remove "Apify:Token" --project JobsProviderApi` to delete one, `dotnet user-secrets clear
+--project JobsProviderApi` to wipe all.
+
+The app fails fast at startup if `Apify:Token` is missing. In production, supply secrets as environment
+variables instead of user secrets — ASP.NET Core maps `__` to `:`, so `Apify__Token` and
+`ConnectionStrings__Redis` bind to the same keys (see `deploy/deploy.sh`).
+
 ## Running
 
 ```bash
