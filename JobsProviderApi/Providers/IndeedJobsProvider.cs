@@ -7,9 +7,9 @@ namespace JobsProviderApi.Providers.Indeed;
 
 public class IndeedJobsProvider(IIndeedActor indeedActor) : IJobsProvider<IndeedSource>
 {
-    private const string PostedWithinLastDays = "7";
+    private const string MaxAgeOfPostingInDays = "7";
 
-    private const int Limit = 100;
+    private const int Limit = 10;
 
     public async Task<IReadOnlyList<Job>> GetJobsAsync(JobSearchQuery query, CancellationToken cancellationToken = default)
     {
@@ -25,10 +25,10 @@ public class IndeedJobsProvider(IIndeedActor indeedActor) : IJobsProvider<Indeed
     private static IndeedSearchRequest ToSearchRequest(JobSearchQuery query) =>
         new()
         {
-            Title = ToKeywords(query.Search, query.MustHaveSkills),
+            Keywords = ToKeywords(query.Search, query.MustHaveSkills),
             Location = query.Locations is [var location] ? location : string.Empty,
             Country = query.CountryCode.ToLowerInvariant(),
-            DatePosted = PostedWithinLastDays,
+            MaxAgeOfPostingInDays = MaxAgeOfPostingInDays,
             Limit = Limit
         };
 
@@ -52,7 +52,6 @@ public class IndeedJobsProvider(IIndeedActor indeedActor) : IJobsProvider<Indeed
 
     private static Job ToJob(IndeedJobResult result, int index)
     {
-        // Attribute keys are Indeed's opaque taxonomy ids ("X62BT"); only the values are human-readable.
         IReadOnlyList<string>? requirements = result.Attributes?.Values.ToImmutableList();
 
         return new Job(

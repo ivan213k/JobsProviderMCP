@@ -24,8 +24,8 @@ builder.Services.AddOpenApi(options =>
 });
 builder.Services.AddValidation();
 
-ApifyOptions apifyOptions = builder.Configuration.GetSection("Apify").Get<ApifyOptions>()
-    ?? throw new InvalidOperationException("Missing 'Apify' configuration section.");
+ApifyOptions apifyOptions = builder.Configuration.GetSection(ApifyOptions.SectionName).Get<ApifyOptions>()
+    ?? throw new InvalidOperationException($"Missing {ApifyOptions.SectionName} configuration section.");
 if (string.IsNullOrWhiteSpace(apifyOptions.Token))
 {
     throw new InvalidOperationException("Missing 'Apify:Token'. Set it via user-secrets or the Apify__Token environment variable.");
@@ -33,7 +33,7 @@ if (string.IsNullOrWhiteSpace(apifyOptions.Token))
 
 builder.Services.AddSingleton(apifyOptions);
 builder.Services
-    .AddHttpClient<IApifyApiClient, ApifyApiClient>(client => client.Timeout = apifyOptions.RequestTimeout)
+    .AddHttpClient<IApifyApiClient, ApifyApiClient>(client => client.Timeout = TimeSpan.FromSeconds(apifyOptions.TimeoutInSeconds))
     .AddApifyResilience();
 
 builder.Services.AddScoped<IIndeedActor, IndeedActor>();

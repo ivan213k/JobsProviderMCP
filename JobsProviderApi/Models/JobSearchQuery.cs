@@ -40,5 +40,5 @@ public record JobSearchQuery(
     int Skip = 0,
 
     [property: FromQuery(Name = "take")]
-    [property: Description("Maximum number of jobs to return. Defaults to 100.")]
+    [property: Description(JobSearchQueryDescriptions.Take)]
     int Take = 100); 
