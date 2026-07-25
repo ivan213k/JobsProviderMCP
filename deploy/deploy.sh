@@ -7,6 +7,7 @@ state_file="$script_dir/.current-version"
 IMAGE="ivan213k/jobsproviderapi"
 CONTAINER_NAME="jobsproviderapi"
 HOST_PORT="${HOST_PORT:-8080}"
+REDIS_CONNECTION_STRING="${REDIS_CONNECTION_STRING:-}"
 
 latest_version_tag() {
     curl -fsSL "https://hub.docker.com/v2/repositories/${IMAGE}/tags?page_size=100" \
@@ -29,6 +30,7 @@ docker run -d \
     --name "$CONTAINER_NAME" \
     --restart unless-stopped \
     -p "${HOST_PORT}:8080" \
+    ${REDIS_CONNECTION_STRING:+-e "ConnectionStrings__Redis=$REDIS_CONNECTION_STRING"} \
     "$IMAGE:$VERSION"
 
 echo "$VERSION" > "$state_file"

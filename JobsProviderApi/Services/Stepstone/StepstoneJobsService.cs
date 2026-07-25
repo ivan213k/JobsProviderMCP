@@ -41,7 +41,7 @@ public class StepstoneJobsService(
 
     private async Task CacheJobsByIdAsync(IReadOnlyList<Job> jobs, CancellationToken cancellationToken)
     {
-        var jobEntryOptions = new FusionCacheEntryOptions { Duration = cachingOptions.Value.JobDuration };
+        FusionCacheEntryOptions jobEntryOptions = cache.DefaultEntryOptions.Duplicate(cachingOptions.Value.JobDuration);
         foreach (Job job in jobs)
         {
             await cache.SetAsync(Job.ToCacheKey(CacheKeySource, job.Id), job, jobEntryOptions, token: cancellationToken);

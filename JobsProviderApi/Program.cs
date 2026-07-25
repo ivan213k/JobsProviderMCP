@@ -8,6 +8,7 @@ using JobsProviderApi.Services.Indeed;
 using JobsProviderApi.Services.Stepstone;
 using ModelContextProtocol.Protocol;
 using ZiggyCreatures.Caching.Fusion;
+using ZiggyCreatures.Caching.Fusion.Serialization.SystemTextJson;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -26,8 +27,22 @@ var cachingOptions = builder.Configuration.GetSection(CachingOptions.SectionName
 
 builder.Services.AddMemoryCache();
 builder.Services.Configure<CachingOptions>(builder.Configuration.GetSection(CachingOptions.SectionName));
-builder.Services.AddFusionCache()
-    .WithDefaultEntryOptions(new FusionCacheEntryOptions { Duration = cachingOptions.SearchResultsDuration });
+var fusionCacheBuilder = builder.Services.AddFusionCache()
+    .WithDefaultEntryOptions(new FusionCacheEntryOptions
+    {
+        Duration = cachingOptions.SearchResultsDuration,
+        DistributedCacheHardTimeout = TimeSpan.FromSeconds(5),
+        AllowBackgroundDistributedCacheOperations = true,
+    });
+
+var redisConnectionString = builder.Configuration.GetConnectionString("Redis");
+if (!string.IsNullOrWhiteSpace(redisConnectionString))
+{
+    builder.Services.AddStackExchangeRedisCache(options => options.Configuration = redisConnectionString);
+    fusionCacheBuilder
+        .WithRegisteredDistributedCache()
+        .WithSerializer(new FusionCacheSystemTextJsonSerializer());
+}
 builder.Services.AddValidation();
 builder.Services.AddSingleton<IJobsProvider, MockJobsProvider>();
 builder.Services.AddScoped<IJobSearchFilter, JobSearchFilter>();
