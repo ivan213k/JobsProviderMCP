@@ -181,6 +181,47 @@ public class JobSearchFilterTests
     }
 
     [Fact]
+    public void Apply_WithoutSkip_DefaultsToZero()
+    {
+        List<Job> jobs = Enumerable.Range(1, 5).Select(id => TestJobs.Create(id)).ToList();
+        ListResponse<Job> result = _sut.Apply(jobs, MatchAllQuery with { Take = 5 });
+        Assert.Equal(["1", "2", "3", "4", "5"], result.Items.Select(j => j.Id));
+    }
+
+    [Fact]
+    public void Apply_WithSkip_SkipsResultsAfterFiltering()
+    {
+        List<Job> jobs = Enumerable.Range(1, 5).Select(id => TestJobs.Create(id)).ToList();
+        ListResponse<Job> result = _sut.Apply(jobs, MatchAllQuery with { Skip = 2, Take = 5 });
+        Assert.Equal(["3", "4", "5"], result.Items.Select(j => j.Id));
+    }
+
+    [Fact]
+    public void Apply_TotalCount_ReflectsMatchesBeforeSkipAndTake()
+    {
+        List<Job> jobs = Enumerable.Range(1, 20).Select(id => TestJobs.Create(id)).ToList();
+        ListResponse<Job> result = _sut.Apply(jobs, MatchAllQuery with { Skip = 5, Take = 3 });
+
+        Assert.Equal(20, result.TotalCount);
+        Assert.Equal(3, result.Items.Count);
+    }
+
+    [Fact]
+    public void Apply_TotalCount_ReflectsOnlyFilterMatches()
+    {
+        var jobs = new[]
+        {
+            TestJobs.Create(1, requirements: ["Go"]),
+            TestJobs.Create(2, requirements: ["Java"]),
+            TestJobs.Create(3, requirements: ["Go"]),
+        };
+
+        ListResponse<Job> result = _sut.Apply(jobs, MatchAllQuery with { MustHaveSkills = ["Go"] });
+
+        Assert.Equal(2, result.TotalCount);
+    }
+
+    [Fact]
     public void Apply_WithMustHaveSkills_ExcludesJobsWithNullRequirements()
     {
         var jobs = new[]

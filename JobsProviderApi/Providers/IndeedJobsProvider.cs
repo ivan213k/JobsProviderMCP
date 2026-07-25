@@ -22,7 +22,7 @@ public class IndeedJobsProvider(IIndeedActor indeedActor) : IIndeedJobsProvider
             .ToImmutableList();
     }
 
-    private static IndeedSearchRequest ToSearchRequest(JobSearchQuery query) =>
+    private IndeedSearchRequest ToSearchRequest(JobSearchQuery query) =>
         new()
         {
             Keywords = ToKeywords(query.Search, query.MustHaveSkills),
@@ -32,7 +32,7 @@ public class IndeedJobsProvider(IIndeedActor indeedActor) : IIndeedJobsProvider
             Limit = Limit
         };
 
-    private static string ToKeywords(string search, IReadOnlyList<string>? requirements)
+    private string ToKeywords(string search, IReadOnlyList<string>? requirements)
     {
         if (requirements is null)
             return search;
@@ -50,7 +50,7 @@ public class IndeedJobsProvider(IIndeedActor indeedActor) : IIndeedJobsProvider
         return string.Join(' ', keywords);
     }
 
-    private static Job ToJob(IndeedJobResult result)
+    private Job ToJob(IndeedJobResult result)
     {
         IReadOnlyList<string>? requirements = result.Attributes?.Values.ToImmutableList();
 
@@ -66,7 +66,7 @@ public class IndeedJobsProvider(IIndeedActor indeedActor) : IIndeedJobsProvider
             DatePublished: result.DatePublished);
     }
 
-    private static string? FormatLocation(JobLocation? location)
+    private string? FormatLocation(JobLocation? location)
     {
         string?[] locationParts = [location?.City, location?.CountryName];
         string joinedLocation = string.Join(", ", locationParts.Where(part => !string.IsNullOrWhiteSpace(part)));
