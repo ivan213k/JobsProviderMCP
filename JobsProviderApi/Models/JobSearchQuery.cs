@@ -1,4 +1,5 @@
 using System.ComponentModel;
+using System.Text.Json;
 using Microsoft.AspNetCore.Mvc;
 
 namespace JobsProviderApi.Models;
@@ -41,4 +42,7 @@ public record JobSearchQuery(
 
     [property: FromQuery(Name = "take")]
     [property: Description(JobSearchQueryDescriptions.Take)]
-    int Take = 100); 
+    int Take = 100)
+{
+    public string ToCacheKey(string source) => $"{source}:{JsonSerializer.Serialize(this)}";
+}

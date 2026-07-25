@@ -181,6 +181,37 @@ public class JobSearchFilterTests
     }
 
     [Fact]
+    public void Apply_SortsByDatePublishedNewestFirst()
+    {
+        var jobs = new[]
+        {
+            TestJobs.Create(1) with { DatePublished = "2026-01-15" },
+            TestJobs.Create(2) with { DatePublished = "2026-03-01" },
+            TestJobs.Create(3) with { DatePublished = "2026-02-10" },
+        };
+
+        ListResponse<Job> result = _sut.Apply(jobs, MatchAllQuery with { Take = 3 });
+
+        Assert.Equal(["2", "3", "1"], result.Items.Select(j => j.Id));
+    }
+
+    [Fact]
+    public void Apply_WithMissingOrUnparseableDatePublished_SortsThemLastInsteadOfThrowing()
+    {
+        var jobs = new[]
+        {
+            TestJobs.Create(1) with { DatePublished = "not-a-date" },
+            TestJobs.Create(2) with { DatePublished = "2026-03-01" },
+            TestJobs.Create(3) with { DatePublished = "" },
+            TestJobs.Create(4) with { DatePublished = null! },
+        };
+
+        ListResponse<Job> result = _sut.Apply(jobs, MatchAllQuery with { Take = 4 });
+
+        Assert.Equal("2", result.Items[0].Id);
+    }
+
+    [Fact]
     public void Apply_WithoutSkip_DefaultsToZero()
     {
         List<Job> jobs = Enumerable.Range(1, 5).Select(id => TestJobs.Create(id)).ToList();

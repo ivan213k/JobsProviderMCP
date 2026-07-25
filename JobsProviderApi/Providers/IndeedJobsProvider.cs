@@ -2,6 +2,7 @@ using System.Collections.Immutable;
 using ApifySdk.Actors.Indeed;
 using ApifySdk.Actors.Indeed.Models;
 using JobsProviderApi.Models;
+using System.Globalization;
 
 namespace JobsProviderApi.Providers;
 
@@ -63,7 +64,7 @@ public class IndeedJobsProvider(IIndeedActor indeedActor) : IIndeedJobsProvider
             Requirements: requirements,
             Link: result.Url,
             SourcingPlatform: "Indeed",
-            DatePublished: result.DatePublished);
+            DatePublished: result.DatePublished.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture));
     }
 
     private string? FormatLocation(JobLocation? location)

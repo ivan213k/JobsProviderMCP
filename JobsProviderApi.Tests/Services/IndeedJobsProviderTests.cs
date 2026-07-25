@@ -52,7 +52,7 @@ public class IndeedJobsProviderTests
         Assert.Equal(["Go", "gRPC"], job.Requirements);
         Assert.Equal("https://indeed.com/jobs/abc123", job.Link);
         Assert.Equal("Indeed", job.SourcingPlatform);
-        Assert.Equal(new DateTime(2026, 1, 15), job.DatePublished);
+        Assert.Equal("2026-01-15", job.DatePublished);
     }
 
     [Fact]
