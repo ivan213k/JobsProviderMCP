@@ -33,8 +33,8 @@ plus `items` (the requested page) — rather than a bare array, so callers can p
 `Endpoints/Indeed/IndeedJobsEndpoint.cs` (route + OpenAPI metadata) → `Endpoints/Indeed/IndeedJobsHandler.cs`
 (binds `JobSearchQuery` via `[AsParameters]`, calls the service) → `Services/Indeed/IndeedJobsService.cs`
 (fetches all jobs from `IJobsProvider`, takes/skips the 50-item slice, delegates filtering) →
-`Services/JobSearchFilter.cs` (shared plain-text search + must-have/preferred-skill/location filtering, then
-`skip`/`take` pagination, used by both sources).
+`Services/JobSearchFilter.cs` (shared plain-text search + must-have/preferred-skill/location filtering, sorted
+newest-first by `DatePublished`, then `skip`/`take` pagination, used by both sources).
 
 The Endpoints/ and Services/ trees both mirror the two-source split (`Indeed/`, `Stepstone/`), while anything
 source-agnostic (`JobSearchFilter`, `IJobsProvider`/`MockJobsProvider`) stays at the top level of its folder.

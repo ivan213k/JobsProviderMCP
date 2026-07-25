@@ -11,7 +11,7 @@ public static class StepstoneJobSearchTool
     [McpServerTool(Name = "search_stepstone_jobs")]
     [Description("""
         Search Stepstone job postings. `search` and `countryCode` are required; the rest are optional and combined
-        using AND.
+        using AND. Results are sorted newest-first by date published.
         """)]
     public static async Task<ListResponse<Job>> SearchStepstoneJobsAsync(
         IStepstoneJobsService jobsService,

@@ -16,6 +16,7 @@ public static class IndeedJobsEndpoint
                 Also available as the `search_indeed_jobs` MCP tool (mounted at `/mcp`), which takes the same
                 parameters and delegates to the same search logic.
                 `search` and `countryCode` are required; the rest are optional and combined using AND.
+                Results are sorted newest-first by date published.
 
                 """)
             .Produces<ListResponse<Job>>()
