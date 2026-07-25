@@ -1,3 +1,4 @@
+using JobsProviderApi.Endpoints.Cache;
 using JobsProviderApi.Endpoints.Indeed;
 using JobsProviderApi.Endpoints.Stepstone;
 using JobsProviderApi.Providers;
@@ -5,6 +6,7 @@ using JobsProviderApi.Services;
 using JobsProviderApi.Services.Indeed;
 using JobsProviderApi.Services.Stepstone;
 using ModelContextProtocol.Protocol;
+using ZiggyCreatures.Caching.Fusion;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,6 +20,10 @@ builder.Services.AddOpenApi(options =>
         return Task.CompletedTask;
     });
 });
+
+builder.Services.AddMemoryCache();
+builder.Services.AddFusionCache()
+    .WithDefaultEntryOptions(new FusionCacheEntryOptions { Duration = TimeSpan.FromHours(3) });
 builder.Services.AddValidation();
 builder.Services.AddSingleton<IJobsProvider, MockJobsProvider>();
 builder.Services.AddScoped<IJobSearchFilter, JobSearchFilter>();
@@ -40,6 +46,7 @@ app.UseHttpsRedirection();
 
 app.MapIndeedJobsEndpoint();
 app.MapStepstoneJobsEndpoint();
+app.MapClearCacheEndpoint();
 app.MapMcp("/mcp");
 
 app.Run();
