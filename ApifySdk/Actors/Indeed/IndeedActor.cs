@@ -15,7 +15,6 @@ public class IndeedActor : IIndeedActor
 
     public async Task<IEnumerable<IndeedJobResult>> SearchAsync(IndeedSearchRequest searchRequest, CancellationToken cancellationToken)
     {
-        var jobs = await _apifyApiClient.RunActorAsync<IndeedJobResult>(ActorId, searchRequest, cancellationToken);
-        return jobs;
+        return await _apifyApiClient.PostAsync<IndeedJobResult>(ActorId, searchRequest, cancellationToken);
     }
 }

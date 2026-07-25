@@ -15,9 +15,8 @@ public class ApifyApiClient : IApifyApiClient
         _options = options;
     }
     
-    public async Task<IEnumerable<T>> RunActorAsync<T>(string actorId, object input, CancellationToken cancellationToken = default)
+    public async Task<IEnumerable<T>> PostAsync<T>(string actorId, object input, CancellationToken cancellationToken = default)
     {
-        // run-sync-get-dataset-items starts the run, waits for it, and returns the dataset items.
         using var request = new HttpRequestMessage(
             HttpMethod.Post,
             $"{_options.BaseUrl}/acts/{actorId}/run-sync-get-dataset-items")

@@ -2,9 +2,9 @@ namespace ApifySdk.Actors.Indeed.Models;
 
 public class IndeedJobResult
 {
-    public string Title { get; set; } = default!;
+    public string Title { get; set; } = null!;
 
-    public string Url { get; set; } = default!;
+    public string Url { get; set; } = null!;
 
     public DateTime? DatePublished { get; set; }
 
@@ -14,11 +14,11 @@ public class IndeedJobResult
 
     public JobSalary? BaseSalary { get; set; }
 
-    public JobDescription Description { get; set; } = default!;
+    public JobDescription Description { get; set; } = null!;
 
-    // Keys are Indeed's internal taxonomy IDs (e.g. "X62BT" -> "Python") and
-    // aren't stable/named, so a Dictionary is the right shape here rather
-    // than fixed properties.
+    /// <summary>
+    /// Only the values are human-readable 'requirements'.<c>Attributes?.Values</c> yields <c>["C#", "Python", "C"]</c>.
+    /// </summary>
     public Dictionary<string, string>? Attributes { get; set; }
 }
 
@@ -47,5 +47,5 @@ public class JobSalary
 
 public class JobDescription
 {
-    public string Text { get; set; } = default!;
+    public string Text { get; set; } = null!;
 }
