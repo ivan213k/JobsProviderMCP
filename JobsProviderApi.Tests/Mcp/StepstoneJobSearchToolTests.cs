@@ -24,7 +24,7 @@ public class StepstoneJobSearchToolTests
             countryCode: "DE");
 
         Assert.Equal(1, result.TotalCount);
-        Assert.Equal([51], result.Items.Select(j => j.Id));
+        Assert.Equal(["51"], result.Items.Select(j => j.Id));
     }
 
     [Fact]
@@ -39,7 +39,7 @@ public class StepstoneJobSearchToolTests
             search: "(C++/Go)",
             countryCode: "DE");
 
-        Assert.Equal([51], result.Items.Select(j => j.Id));
+        Assert.Equal(["51"], result.Items.Select(j => j.Id));
     }
 
     [Fact]
@@ -55,6 +55,6 @@ public class StepstoneJobSearchToolTests
             skip: 3);
 
         Assert.Equal(5, result.TotalCount);
-        Assert.Equal([54, 55], result.Items.Select(j => j.Id));
+        Assert.Equal(["54", "55"], result.Items.Select(j => j.Id));
     }
 }

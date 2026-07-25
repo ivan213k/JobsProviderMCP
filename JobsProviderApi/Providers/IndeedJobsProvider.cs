@@ -18,7 +18,7 @@ public class IndeedJobsProvider(IIndeedActor indeedActor) : IIndeedJobsProvider
         IEnumerable<IndeedJobResult> results = await indeedActor.SearchAsync(request, cancellationToken);
 
         return results
-            .Select((result, index) => ToJob(result, index))
+            .Select(result => ToJob(result))
             .ToImmutableList();
     }
 
@@ -50,12 +50,12 @@ public class IndeedJobsProvider(IIndeedActor indeedActor) : IIndeedJobsProvider
         return string.Join(' ', keywords);
     }
 
-    private static Job ToJob(IndeedJobResult result, int index)
+    private static Job ToJob(IndeedJobResult result)
     {
         IReadOnlyList<string>? requirements = result.Attributes?.Values.ToImmutableList();
 
         return new Job(
-            Id: index,
+            Id: result.Key,
             Title: result.Title,
             Company: result.Employer?.Name,
             Location: FormatLocation(result.Location),

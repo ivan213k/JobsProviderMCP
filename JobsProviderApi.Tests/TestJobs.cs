@@ -10,7 +10,7 @@ internal static class TestJobs
         string description = "General description.",
         params string[] requirements) =>
         new(
-            Id: id,
+            Id: id.ToString(),
             Title: title,
             Company: $"Company {id}",
             Location: "Remote",
@@ -18,5 +18,5 @@ internal static class TestJobs
             Requirements: requirements,
             Link: $"https://example.com/jobs/{id}",
             SourcingPlatform: "Test",
-            DatePublished: new DateTime(2026-01-01));
+            DatePublished: new DateTime(2026, 1, 1));
 }

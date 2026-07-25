@@ -2,6 +2,8 @@ namespace ApifySdk.Actors.Indeed.Models;
 
 public class IndeedJobResult
 {
+    public string Key { get; set; } = null!;
+    
     public string Title { get; set; } = null!;
 
     public string Url { get; set; } = null!;

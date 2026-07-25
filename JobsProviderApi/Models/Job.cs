@@ -1,7 +1,7 @@
 namespace JobsProviderApi.Models;
 
 public record Job(
-    int Id,
+    string Id,
     string Title,
     string? Company,
     string? Location,

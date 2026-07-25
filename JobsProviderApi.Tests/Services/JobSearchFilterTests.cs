@@ -27,7 +27,7 @@ public class JobSearchFilterTests
 
         ListResponse<Job> result = _sut.Apply(jobs, MatchAllQuery with { Search = "Go" });
 
-        Assert.Equal([1, 2], result.Items.Select(j => j.Id));
+        Assert.Equal(["1", "2"], result.Items.Select(j => j.Id));
     }
 
     [Fact]
@@ -37,7 +37,7 @@ public class JobSearchFilterTests
 
         ListResponse<Job> result = _sut.Apply(jobs, MatchAllQuery with { Search = "go" });
 
-        Assert.Equal([1], result.Items.Select(j => j.Id));
+        Assert.Equal(["1"], result.Items.Select(j => j.Id));
     }
 
     [Fact]
@@ -52,7 +52,7 @@ public class JobSearchFilterTests
 
         ListResponse<Job> result = _sut.Apply(jobs, MatchAllQuery with { MustHaveSkills = ["Go", "gRPC"] });
 
-        Assert.Equal([1], result.Items.Select(j => j.Id));
+        Assert.Equal(["1"], result.Items.Select(j => j.Id));
     }
 
     [Fact]
@@ -67,7 +67,7 @@ public class JobSearchFilterTests
 
         ListResponse<Job> result = _sut.Apply(jobs, MatchAllQuery with { PreferredSkills = ["Rust", "Ruby"] });
 
-        Assert.Equal([1, 2], result.Items.Select(j => j.Id));
+        Assert.Equal(["1", "2"], result.Items.Select(j => j.Id));
     }
 
     [Fact]
@@ -81,7 +81,7 @@ public class JobSearchFilterTests
 
         ListResponse<Job> result = _sut.Apply(jobs, MatchAllQuery with { MustHaveSkills = ["Go"] });
 
-        Assert.Equal([1], result.Items.Select(j => j.Id));
+        Assert.Equal(["1"], result.Items.Select(j => j.Id));
     }
 
     [Fact]
@@ -91,7 +91,7 @@ public class JobSearchFilterTests
 
         ListResponse<Job> result = _sut.Apply(jobs, MatchAllQuery with { MustHaveSkills = ["go"] });
 
-        Assert.Equal([1], result.Items.Select(j => j.Id));
+        Assert.Equal(["1"], result.Items.Select(j => j.Id));
     }
 
     [Fact]
@@ -106,7 +106,7 @@ public class JobSearchFilterTests
 
         ListResponse<Job> result = _sut.Apply(jobs, MatchAllQuery with { Locations = ["Berlin", "Remote"] });
 
-        Assert.Equal([1, 2], result.Items.Select(j => j.Id));
+        Assert.Equal(["1", "2"], result.Items.Select(j => j.Id));
     }
 
     [Fact]
@@ -120,7 +120,7 @@ public class JobSearchFilterTests
 
         ListResponse<Job> result = _sut.Apply(jobs, MatchAllQuery with { Locations = ["germany"] });
 
-        Assert.Equal([1], result.Items.Select(j => j.Id));
+        Assert.Equal(["1"], result.Items.Select(j => j.Id));
     }
 
     [Fact]
@@ -149,7 +149,7 @@ public class JobSearchFilterTests
                 Locations: ["Berlin"],
                 CountryCode: "DE"));
 
-        Assert.Equal([1], result.Items.Select(j => j.Id));
+        Assert.Equal(["1"], result.Items.Select(j => j.Id));
     }
 
     [Fact]
@@ -167,7 +167,7 @@ public class JobSearchFilterTests
                 CountryCode: "DE"));
 
         Assert.Equal(100, result.Items.Count);
-        Assert.Equal(Enumerable.Range(1, 100), result.Items.Select(j => j.Id));
+        Assert.Equal(Enumerable.Range(1, 100).Select(id => id.ToString()), result.Items.Select(j => j.Id));
     }
 
     [Fact]
@@ -177,7 +177,7 @@ public class JobSearchFilterTests
 
         ListResponse<Job> result = _sut.Apply(jobs, MatchAllQuery with { Take = 3 });
 
-        Assert.Equal([1, 2, 3], result.Items.Select(j => j.Id));
+        Assert.Equal(["1", "2", "3"], result.Items.Select(j => j.Id));
     }
 
     [Fact]
@@ -191,7 +191,7 @@ public class JobSearchFilterTests
 
         ListResponse<Job> result = _sut.Apply(jobs, MatchAllQuery with { MustHaveSkills = ["Go"] });
 
-        Assert.Equal([2], result.Items.Select(j => j.Id));
+        Assert.Equal(["2"], result.Items.Select(j => j.Id));
     }
 
     [Fact]
@@ -205,6 +205,6 @@ public class JobSearchFilterTests
 
         ListResponse<Job> result = _sut.Apply(jobs, MatchAllQuery with { PreferredSkills = ["Go"] });
 
-        Assert.Equal([2], result.Items.Select(j => j.Id));
+        Assert.Equal(["2"], result.Items.Select(j => j.Id));
     }
 }
