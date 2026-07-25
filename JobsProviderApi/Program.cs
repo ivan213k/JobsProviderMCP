@@ -1,3 +1,4 @@
+using JobsProviderApi.Configuration;
 using JobsProviderApi.Endpoints.Cache;
 using JobsProviderApi.Endpoints.Indeed;
 using JobsProviderApi.Endpoints.Stepstone;
@@ -21,9 +22,12 @@ builder.Services.AddOpenApi(options =>
     });
 });
 
+var cachingOptions = builder.Configuration.GetSection(CachingOptions.SectionName).Get<CachingOptions>() ?? new CachingOptions();
+
 builder.Services.AddMemoryCache();
+builder.Services.Configure<CachingOptions>(builder.Configuration.GetSection(CachingOptions.SectionName));
 builder.Services.AddFusionCache()
-    .WithDefaultEntryOptions(new FusionCacheEntryOptions { Duration = TimeSpan.FromHours(3) });
+    .WithDefaultEntryOptions(new FusionCacheEntryOptions { Duration = cachingOptions.SearchResultsDuration });
 builder.Services.AddValidation();
 builder.Services.AddSingleton<IJobsProvider, MockJobsProvider>();
 builder.Services.AddScoped<IJobSearchFilter, JobSearchFilter>();

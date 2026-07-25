@@ -21,6 +21,21 @@ public static class IndeedJobsEndpoint
             .Produces<ListResponse<Job>>()
             .ProducesValidationProblem();
 
+        app.MapGet("/api/indeed/jobs/{id:int}", IndeedJobByIdHandler.HandleAsync)
+            .WithName("GetIndeedJobById")
+            .WithTags("Indeed")
+            .WithSummary("Get a single Indeed job posting by id.")
+            .WithDescription("""
+                Cache-only lookup: only returns a job that has previously been returned by a search against
+                this source and whose individual cache entry hasn't expired. Returns 404 for a job id that
+                exists in the dataset but was never searched for (or was matched but paginated past), and for
+                one whose cache entry has expired — there is no fallback fetch.
+
+                Also available as the `get_indeed_job` MCP tool (mounted at `/mcp`).
+                """)
+            .Produces<Job>()
+            .Produces(StatusCodes.Status404NotFound);
+
         return app;
     }
 }
