@@ -26,3 +26,6 @@ obj/
 ## OS
 .DS_Store
 Thumbs.db
+
+deploy/.env
+deploy/redis/.env

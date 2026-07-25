@@ -4,6 +4,13 @@ set -euo pipefail
 script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 state_file="$script_dir/.current-version"
 
+if [[ -f "$script_dir/.env" ]]; then
+    set -a
+    # shellcheck disable=SC1091
+    source "$script_dir/.env"
+    set +a
+fi
+
 IMAGE="ivan213k/jobsproviderapi"
 CONTAINER_NAME="jobsproviderapi"
 HOST_PORT="${HOST_PORT:-8080}"
