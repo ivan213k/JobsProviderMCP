@@ -2,5 +2,5 @@ namespace ApifySdk;
 
 public interface IApifyApiClient
 {
-    Task<IEnumerable<T>> PostAsync<T>(string actorId, object input, CancellationToken cancellationToken = default);
+    Task<IEnumerable<TResponse>> PostAsync<TResponse, TSearchQuery>(string actorId, TSearchQuery query, CancellationToken cancellationToken = default);
 }

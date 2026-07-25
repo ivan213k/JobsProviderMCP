@@ -6,7 +6,7 @@ public class IndeedJobResult
 
     public string Url { get; set; } = null!;
 
-    public DateTime? DatePublished { get; set; }
+    public DateTime DatePublished { get; set; }
 
     public JobLocation? Location { get; set; }
 

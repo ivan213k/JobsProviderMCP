@@ -57,26 +57,19 @@ public class IndeedJobsProvider(IIndeedActor indeedActor) : IIndeedJobsProvider
         return new Job(
             Id: index,
             Title: result.Title,
-            Company: result.Employer?.Name ?? string.Empty,
+            Company: result.Employer?.Name,
             Location: FormatLocation(result.Location),
             Description: result.Description.Text,
             Requirements: requirements,
             Link: result.Url,
             SourcingPlatform: "Indeed",
-            DatePublished: FormatDatePublished(result.DatePublished));
+            DatePublished: result.DatePublished);
     }
 
-    private static string FormatLocation(JobLocation? location)
+    private static string? FormatLocation(JobLocation? location)
     {
-        if (location is null)
-        {
-            return string.Empty;
-        }
-
-        string?[] locationParts = [location.City, location.CountryName];
-        return string.Join(',', locationParts.Where(part => !string.IsNullOrWhiteSpace(part)));
+        string?[] locationParts = [location?.City, location?.CountryName];
+        string joinedLocation = string.Join(", ", locationParts.Where(part => !string.IsNullOrWhiteSpace(part)));
+        return string.IsNullOrEmpty(joinedLocation) ? null : joinedLocation;
     }
-
-    private static string FormatDatePublished(DateTime? datePublished) =>
-        datePublished?.ToString("yyyy-MM-dd") ?? string.Empty;
 }

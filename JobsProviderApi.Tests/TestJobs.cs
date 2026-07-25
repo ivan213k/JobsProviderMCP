@@ -18,5 +18,5 @@ internal static class TestJobs
             Requirements: requirements,
             Link: $"https://example.com/jobs/{id}",
             SourcingPlatform: "Test",
-            DatePublished: "2026-01-01");
+            DatePublished: new DateTime(2026-01-01));
 }

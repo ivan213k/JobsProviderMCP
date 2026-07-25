@@ -50,7 +50,7 @@ public class JobSearchFilter : IJobSearchFilter
     }
 
     private static bool IsInLocation(Job job, string normalizedLocation) =>
-        job.Location.Contains(normalizedLocation, StringComparison.OrdinalIgnoreCase);
+        job.Location?.Contains(normalizedLocation, StringComparison.OrdinalIgnoreCase) ?? false;
 
     private static string[] NormalizeForComparing(string[]? values) =>
         values?.Where(value => !string.IsNullOrWhiteSpace(value))
