@@ -3,7 +3,6 @@ using ApifySdk.Actors.Indeed;
 using JobsProviderApi.Endpoints.Indeed;
 using JobsProviderApi.Endpoints.Stepstone;
 using JobsProviderApi.Providers;
-using JobsProviderApi.Providers.Indeed;
 using JobsProviderApi.Resilience;
 using JobsProviderApi.Services;
 using JobsProviderApi.Services.Indeed;
@@ -38,10 +37,8 @@ builder.Services
 
 builder.Services.AddScoped<IIndeedActor, IndeedActor>();
 
-// One provider per source. Swap any source onto the mock dataset by pointing its registration at
-// MockJobsProvider<TSource>.
-builder.Services.AddScoped<IJobsProvider<IndeedSource>, IndeedJobsProvider>();
-builder.Services.AddSingleton<IJobsProvider<StepstoneSource>, MockJobsProvider<StepstoneSource>>();
+builder.Services.AddScoped<IIndeedJobsProvider, IndeedJobsProvider>();
+builder.Services.AddSingleton<IStepstoneJobsProvider, MockJobsProvider>();
 builder.Services.AddScoped<IJobSearchFilter, JobSearchFilter>();
 builder.Services.AddScoped<IIndeedJobsService, IndeedJobsService>();
 builder.Services.AddScoped<IStepstoneJobsService, StepstoneJobsService>();

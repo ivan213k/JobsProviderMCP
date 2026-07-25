@@ -1,6 +1,5 @@
 using JobsProviderApi.Mcp;
 using JobsProviderApi.Models;
-using JobsProviderApi.Providers;
 using JobsProviderApi.Services;
 using JobsProviderApi.Services.Indeed;
 using JobsProviderApi.Tests.Fakes;
@@ -17,7 +16,7 @@ public class IndeedJobSearchToolTests
             TestJobs.Create(1, title: "Senior Go Engineer"),
             TestJobs.Create(2, title: "Java Engineer"),
         };
-        IIndeedJobsService service = new IndeedJobsService(new FakeJobsProvider<IndeedSource>(jobs), new JobSearchFilter());
+        IIndeedJobsService service = new IndeedJobsService(new FakeJobsProvider(jobs), new JobSearchFilter());
 
         ListResponse<Job> result = await IndeedJobSearchTool.SearchIndeedJobsAsync(
             service,
@@ -32,7 +31,7 @@ public class IndeedJobSearchToolTests
     public async Task SearchIndeedJobsAsync_WithSpecialCharacters_MatchesAsPlainText()
     {
         IIndeedJobsService service = new IndeedJobsService(
-            new FakeJobsProvider<IndeedSource>([TestJobs.Create(1, title: "Backend Engineer (C++/Go)")]),
+            new FakeJobsProvider([TestJobs.Create(1, title: "Backend Engineer (C++/Go)")]),
             new JobSearchFilter());
 
         ListResponse<Job> result = await IndeedJobSearchTool.SearchIndeedJobsAsync(
@@ -47,7 +46,7 @@ public class IndeedJobSearchToolTests
     public async Task SearchIndeedJobsAsync_WithSkip_SkipsResults()
     {
         List<Job> jobs = Enumerable.Range(1, 5).Select(id => TestJobs.Create(id)).ToList();
-        IIndeedJobsService service = new IndeedJobsService(new FakeJobsProvider<IndeedSource>(jobs), new JobSearchFilter());
+        IIndeedJobsService service = new IndeedJobsService(new FakeJobsProvider(jobs), new JobSearchFilter());
 
         ListResponse<Job> result = await IndeedJobSearchTool.SearchIndeedJobsAsync(
             service,

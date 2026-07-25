@@ -7,7 +7,7 @@ namespace JobsProviderApi.Services.Indeed;
 /// Serves the first 50 jobs from the Indeed <see cref="IJobsProvider{TSource}"/>, filtered by
 /// <see cref="JobSearchQuery"/>.
 /// </summary>
-public class IndeedJobsService(IJobsProvider<IndeedSource> jobsProvider, IJobSearchFilter jobSearchFilter) : IIndeedJobsService
+public class IndeedJobsService(IIndeedJobsProvider jobsProvider, IJobSearchFilter jobSearchFilter) : IIndeedJobsService
 {
     private const int SliceSize = 50;
 

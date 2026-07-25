@@ -3,9 +3,9 @@ using ApifySdk.Actors.Indeed;
 using ApifySdk.Actors.Indeed.Models;
 using JobsProviderApi.Models;
 
-namespace JobsProviderApi.Providers.Indeed;
+namespace JobsProviderApi.Providers;
 
-public class IndeedJobsProvider(IIndeedActor indeedActor) : IJobsProvider<IndeedSource>
+public class IndeedJobsProvider(IIndeedActor indeedActor) : IIndeedJobsProvider
 {
     private const string MaxAgeOfPostingInDays = "7";
 

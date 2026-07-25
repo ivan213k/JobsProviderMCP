@@ -7,7 +7,7 @@ namespace JobsProviderApi.Services.Stepstone;
 /// Serves everything after the first 50 jobs from the Stepstone <see cref="IJobsProvider{TSource}"/>, filtered
 /// by <see cref="JobSearchQuery"/>.
 /// </summary>
-public class StepstoneJobsService(IJobsProvider<StepstoneSource> jobsProvider, IJobSearchFilter jobSearchFilter) : IStepstoneJobsService
+public class StepstoneJobsService(IStepstoneJobsProvider jobsProvider, IJobSearchFilter jobSearchFilter) : IStepstoneJobsService
 {
     private const int Skip = 50;
 

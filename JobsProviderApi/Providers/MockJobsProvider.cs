@@ -3,8 +3,7 @@ using JobsProviderApi.Models;
 
 namespace JobsProviderApi.Providers;
 
-public class MockJobsProvider<TSource>(IWebHostEnvironment environment) : IJobsProvider<TSource>
-    where TSource : IJobSource
+public class MockJobsProvider(IWebHostEnvironment environment) : IIndeedJobsProvider, IStepstoneJobsProvider
 {
     private static readonly JsonSerializerOptions JsonOptions = new(JsonSerializerDefaults.Web);
 
