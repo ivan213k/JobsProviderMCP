@@ -43,10 +43,10 @@ public class StepstoneJobsServiceTests
         IStepstoneJobsService service = new StepstoneJobsService(provider, new JobSearchFilter(), TestFusionCache.Create(), TestCachingOptions.Default());
         await service.SearchAsync(new JobSearchQuery(Search: "Go", MustHaveSkills: null, PreferredSkills: null, Locations: null, CountryCode: "DE"));
 
-        Job? job = await service.GetByIdAsync(51);
+        Job? job = await service.GetByIdAsync("51");
 
         Assert.NotNull(job);
-        Assert.Equal(51, job.Id);
+        Assert.Equal("51", job.Id);
     }
 
     [Fact]
@@ -56,7 +56,7 @@ public class StepstoneJobsServiceTests
         var provider = new FakeJobsProvider(jobs);
         IStepstoneJobsService service = new StepstoneJobsService(provider, new JobSearchFilter(), TestFusionCache.Create(), TestCachingOptions.Default());
 
-        Job? job = await service.GetByIdAsync(51);
+        Job? job = await service.GetByIdAsync("51");
 
         Assert.Null(job);
     }

@@ -22,7 +22,7 @@ public static class StepstoneJobsEndpoint
             .Produces<ListResponse<Job>>()
             .ProducesValidationProblem();
 
-        app.MapGet("/api/stepstone/jobs/{id:int}", StepstoneJobByIdHandler.HandleAsync)
+        app.MapGet("/api/stepstone/jobs/{id}", StepstoneJobByIdHandler.HandleAsync)
             .WithName("GetStepstoneJobById")
             .WithTags("Stepstone")
             .WithSummary("Get a single Stepstone job posting by id.")

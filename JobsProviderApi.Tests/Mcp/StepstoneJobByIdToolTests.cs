@@ -19,10 +19,10 @@ public class StepstoneJobByIdToolTests
             new FakeJobsProvider(jobs), new JobSearchFilter(), TestFusionCache.Create(), TestCachingOptions.Default());
         await StepstoneJobSearchTool.SearchStepstoneJobsAsync(service, search: "Go", countryCode: "DE");
 
-        Job? job = await StepstoneJobByIdTool.GetStepstoneJobAsync(service, id: 51);
+        Job? job = await StepstoneJobByIdTool.GetStepstoneJobAsync(service, id: "51");
 
         Assert.NotNull(job);
-        Assert.Equal(51, job.Id);
+        Assert.Equal("51", job.Id);
     }
 
     [Fact]
@@ -32,7 +32,7 @@ public class StepstoneJobByIdToolTests
         IStepstoneJobsService service = new StepstoneJobsService(
             new FakeJobsProvider(jobs), new JobSearchFilter(), TestFusionCache.Create(), TestCachingOptions.Default());
 
-        Job? job = await StepstoneJobByIdTool.GetStepstoneJobAsync(service, id: 51);
+        Job? job = await StepstoneJobByIdTool.GetStepstoneJobAsync(service, id: "51");
 
         Assert.Null(job);
     }

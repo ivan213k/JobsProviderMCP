@@ -22,7 +22,7 @@ public static class IndeedJobsEndpoint
             .Produces<ListResponse<Job>>()
             .ProducesValidationProblem();
 
-        app.MapGet("/api/indeed/jobs/{id:int}", IndeedJobByIdHandler.HandleAsync)
+        app.MapGet("/api/indeed/jobs/{id}", IndeedJobByIdHandler.HandleAsync)
             .WithName("GetIndeedJobById")
             .WithTags("Indeed")
             .WithSummary("Get a single Indeed job posting by id.")

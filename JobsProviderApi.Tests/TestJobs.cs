@@ -10,7 +10,7 @@ internal static class TestJobs
         string description = "General description.",
         params string[] requirements) =>
         new(
-            Id: id,
+            Id: id.ToString(),
             Title: title,
             Company: $"Company {id}",
             Location: "Remote",

@@ -16,7 +16,7 @@ public static class StepstoneJobByIdTool
         """)]
     public static async Task<Job?> GetStepstoneJobAsync(
         IStepstoneJobsService jobsService,
-        [Description("The job's id.")] int id,
+        [Description("The job's id.")] string id,
         CancellationToken cancellationToken = default) =>
         await jobsService.GetByIdAsync(id, cancellationToken);
 }

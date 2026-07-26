@@ -39,10 +39,10 @@ public class IndeedJobsServiceTests
         IIndeedJobsService service = new IndeedJobsService(provider, new JobSearchFilter(), TestFusionCache.Create(), TestCachingOptions.Default());
         await service.SearchAsync(new JobSearchQuery(Search: "Go", MustHaveSkills: null, PreferredSkills: null, Locations: null, CountryCode: "DE"));
 
-        Job? job = await service.GetByIdAsync(1);
+        Job? job = await service.GetByIdAsync("1");
 
         Assert.NotNull(job);
-        Assert.Equal(1, job.Id);
+        Assert.Equal("1", job.Id);
     }
 
     [Fact]
@@ -51,7 +51,7 @@ public class IndeedJobsServiceTests
         var provider = new FakeJobsProvider([TestJobs.Create(1, title: "Go Engineer")]);
         IIndeedJobsService service = new IndeedJobsService(provider, new JobSearchFilter(), TestFusionCache.Create(), TestCachingOptions.Default());
 
-        Job? job = await service.GetByIdAsync(1);
+        Job? job = await service.GetByIdAsync("1");
 
         Assert.Null(job);
     }

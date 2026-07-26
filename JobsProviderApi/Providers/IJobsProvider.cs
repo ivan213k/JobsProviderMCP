@@ -4,5 +4,5 @@ namespace JobsProviderApi.Providers;
 
 public interface IJobsProvider
 {
-    Task<IReadOnlyList<Job>> GetJobsAsync(CancellationToken cancellationToken = default);
+    Task<IReadOnlyList<Job>> GetJobsAsync(JobSearchQuery query, CancellationToken cancellationToken = default);
 }

@@ -42,7 +42,7 @@ public record JobSearchQuery(
 
     [property: FromQuery(Name = "take")]
     [property: Description(JobSearchQueryDescriptions.Take)]
-    int Take = 10)
+    int Take = 100)
 {
     public string ToCacheKey(string source) => $"{source}:{JsonSerializer.Serialize(this)}";
 }

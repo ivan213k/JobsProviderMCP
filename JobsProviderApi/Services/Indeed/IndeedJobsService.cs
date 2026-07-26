@@ -14,7 +14,7 @@ namespace JobsProviderApi.Services.Indeed;
 /// <see cref="CachingOptions.JobDuration"/>, which is what <see cref="GetByIdAsync"/> reads from.
 /// </summary>
 public class IndeedJobsService(
-    IJobsProvider jobsProvider,
+    IIndeedJobsProvider jobsProvider,
     IJobSearchFilter jobSearchFilter,
     IFusionCache cache,
     IOptions<CachingOptions> cachingOptions) : IIndeedJobsService
@@ -28,12 +28,12 @@ public class IndeedJobsService(
             ct => SearchUncachedAsync(query, ct),
             token: cancellationToken);
 
-    public async Task<Job?> GetByIdAsync(int id, CancellationToken cancellationToken = default) =>
+    public async Task<Job?> GetByIdAsync(string id, CancellationToken cancellationToken = default) =>
         (await cache.TryGetAsync<Job>(Job.ToCacheKey(CacheKeySource, id), token: cancellationToken)).GetValueOrDefault();
 
     private async Task<ListResponse<Job>> SearchUncachedAsync(JobSearchQuery query, CancellationToken cancellationToken)
     {
-        IReadOnlyList<Job> jobs = await jobsProvider.GetJobsAsync(cancellationToken);
+        IReadOnlyList<Job> jobs = await jobsProvider.GetJobsAsync(query, cancellationToken);
         ListResponse<Job> result = jobSearchFilter.Apply(jobs.Take(SliceSize), query);
         await CacheJobsByIdAsync(result.Items, cancellationToken);
         return result;

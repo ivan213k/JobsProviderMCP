@@ -16,7 +16,7 @@ public static class IndeedJobByIdTool
         """)]
     public static async Task<Job?> GetIndeedJobAsync(
         IIndeedJobsService jobsService,
-        [Description("The job's id.")] int id,
+        [Description("The job's id.")] string id,
         CancellationToken cancellationToken = default) =>
         await jobsService.GetByIdAsync(id, cancellationToken);
 }

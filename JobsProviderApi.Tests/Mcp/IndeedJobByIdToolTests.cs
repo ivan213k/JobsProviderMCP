@@ -16,10 +16,10 @@ public class IndeedJobByIdToolTests
             new FakeJobsProvider(jobs), new JobSearchFilter(), TestFusionCache.Create(), TestCachingOptions.Default());
         await IndeedJobSearchTool.SearchIndeedJobsAsync(service, search: "Go", countryCode: "DE");
 
-        Job? job = await IndeedJobByIdTool.GetIndeedJobAsync(service, id: 1);
+        Job? job = await IndeedJobByIdTool.GetIndeedJobAsync(service, id: "1");
 
         Assert.NotNull(job);
-        Assert.Equal(1, job.Id);
+        Assert.Equal("1", job.Id);
     }
 
     [Fact]
@@ -29,7 +29,7 @@ public class IndeedJobByIdToolTests
         IIndeedJobsService service = new IndeedJobsService(
             new FakeJobsProvider(jobs), new JobSearchFilter(), TestFusionCache.Create(), TestCachingOptions.Default());
 
-        Job? job = await IndeedJobByIdTool.GetIndeedJobAsync(service, id: 1);
+        Job? job = await IndeedJobByIdTool.GetIndeedJobAsync(service, id: "1");
 
         Assert.Null(job);
     }

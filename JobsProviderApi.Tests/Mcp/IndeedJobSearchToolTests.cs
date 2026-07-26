@@ -24,7 +24,7 @@ public class IndeedJobSearchToolTests
             countryCode: "DE");
 
         Assert.Equal(1, result.TotalCount);
-        Assert.Equal([1], result.Items.Select(j => j.Id));
+        Assert.Equal(["1"], result.Items.Select(j => j.Id));
     }
 
     [Fact]
@@ -40,7 +40,7 @@ public class IndeedJobSearchToolTests
             search: "(C++/Go)",
             countryCode: "DE");
 
-        Assert.Equal([1], result.Items.Select(j => j.Id));
+        Assert.Equal(["1"], result.Items.Select(j => j.Id));
     }
 
     [Fact]
@@ -56,6 +56,6 @@ public class IndeedJobSearchToolTests
             skip: 3);
 
         Assert.Equal(5, result.TotalCount);
-        Assert.Equal([4, 5], result.Items.Select(j => j.Id));
+        Assert.Equal(["4", "5"], result.Items.Select(j => j.Id));
     }
 }
