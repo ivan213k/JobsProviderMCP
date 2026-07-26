@@ -119,6 +119,65 @@ public class IndeedJobsProviderTests
         Assert.Null(job.Location);
     }
 
+    [Fact]
+    public async Task GetJobsAsync_BuildsSearchRequestFromQuery()
+    {
+        IndeedJobsProvider sut = CreateSut();
+
+        await sut.GetJobsAsync(new JobSearchQuery(
+            Search: "backend",
+            MustHaveSkills: ["Go", "gRPC"],
+            PreferredSkills: null,
+            Locations: ["Berlin"],
+            CountryCode: "DE"));
+
+        _actor.Verify(
+            actor => actor.SearchAsync(
+                It.Is<IndeedSearchRequest>(request =>
+                    request.Keywords == "backend Go gRPC"
+                    && request.Location == "Berlin"
+                    && request.Country == "de"
+                    && request.MaxAgeOfPostingInDays == IndeedJobsProvider.MaxAgeOfPostingInDays
+                    && request.Limit == IndeedJobsProvider.Limit),
+                It.IsAny<CancellationToken>()),
+            Times.Once);
+    }
+
+    [Theory]
+    [InlineData(null, "backend")]
+    [InlineData(new[] { "Go", "gRPC" }, "backend Go gRPC")]
+    [InlineData(new[] { "Go", "   " }, "backend Go")]
+    public async Task GetJobsAsync_CombinesSearchAndMustHaveSkillsIntoKeywords(string[]? mustHaveSkills, string expectedKeywords)
+    {
+        IndeedJobsProvider sut = CreateSut();
+
+        await sut.GetJobsAsync(MatchAllQuery with { MustHaveSkills = mustHaveSkills });
+
+        _actor.Verify(
+            actor => actor.SearchAsync(
+                It.Is<IndeedSearchRequest>(request => request.Keywords == expectedKeywords),
+                It.IsAny<CancellationToken>()),
+            Times.Once);
+    }
+
+    [Theory]
+    [InlineData(new[] { "Berlin" }, "Berlin")]
+    [InlineData(null, "")]
+    [InlineData(new string[0], "")]
+    [InlineData(new[] { "Berlin", "Munich" }, "")]
+    public async Task GetJobsAsync_PassesSingleLocationOtherwiseEmptyToSearchRequest(string[]? locations, string expectedLocation)
+    {
+        IndeedJobsProvider sut = CreateSut();
+
+        await sut.GetJobsAsync(MatchAllQuery with { Locations = locations });
+
+        _actor.Verify(
+            actor => actor.SearchAsync(
+                It.Is<IndeedSearchRequest>(request => request.Location == expectedLocation),
+                It.IsAny<CancellationToken>()),
+            Times.Once);
+    }
+
     private static IndeedJobResult CreateResult() =>
         new()
         {

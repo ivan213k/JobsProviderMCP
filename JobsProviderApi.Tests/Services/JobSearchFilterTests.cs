@@ -123,6 +123,36 @@ public class JobSearchFilterTests
         Assert.Equal(["1"], result.Items.Select(j => j.Id));
     }
 
+    [Theory]
+    [InlineData(null)]
+    [InlineData("")]
+    public void Apply_LocationFilter_WithJobHavingNullOrEmptyLocation_IncludesIt(string? location)
+    {
+        var jobs = new[]
+        {
+            TestJobs.Create(1) with { Location = location },
+            TestJobs.Create(2) with { Location = "Austin, TX (On-site)" },
+        };
+
+        ListResponse<Job> result = _sut.Apply(jobs, MatchAllQuery with { Locations = ["Berlin"] });
+
+        Assert.Equal(["1"], result.Items.Select(j => j.Id));
+    }
+
+    [Fact]
+    public void Apply_WithNullLocationsQuery_DoesNotFilterByLocation()
+    {
+        var jobs = new[]
+        {
+            TestJobs.Create(1) with { Location = "Berlin, Germany (Hybrid)" },
+            TestJobs.Create(2) with { Location = "Austin, TX (On-site)" },
+        };
+
+        ListResponse<Job> result = _sut.Apply(jobs, MatchAllQuery with { Locations = null });
+
+        Assert.Equal(["1", "2"], result.Items.Select(j => j.Id));
+    }
+
     [Fact]
     public void Apply_CombinesFiltersWithAnd()
     {

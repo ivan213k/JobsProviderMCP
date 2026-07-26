@@ -8,9 +8,9 @@ namespace JobsProviderApi.Providers;
 
 public class IndeedJobsProvider(IIndeedActor indeedActor) : IIndeedJobsProvider
 {
-    private const string MaxAgeOfPostingInDays = "7";
+    public const string MaxAgeOfPostingInDays = "14";
 
-    private const int Limit = 10;
+    public const int Limit = 100;
 
     public async Task<IReadOnlyList<Job>> GetJobsAsync(JobSearchQuery query, CancellationToken cancellationToken = default)
     {
@@ -22,16 +22,24 @@ public class IndeedJobsProvider(IIndeedActor indeedActor) : IIndeedJobsProvider
             .Select(result => ToJob(result))
             .ToImmutableList();
     }
-
+    
     private IndeedSearchRequest ToSearchRequest(JobSearchQuery query) =>
         new()
         {
             Keywords = ToKeywords(query.Search, query.MustHaveSkills),
-            Location = query.Locations is [var location] ? location : string.Empty,
+            Location = ToSingleOrEmptySearchLocation(query.Locations),
             Country = query.CountryCode.ToLowerInvariant(),
             MaxAgeOfPostingInDays = MaxAgeOfPostingInDays,
             Limit = Limit
         };
+
+    private string ToSingleOrEmptySearchLocation(IReadOnlyList<string>? locations)
+    {
+        if (locations is not null && locations.Count == 1)
+            return locations[0];
+
+        return string.Empty;
+    }
 
     private string ToKeywords(string search, IReadOnlyList<string>? requirements)
     {
