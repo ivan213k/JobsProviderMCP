@@ -2,6 +2,7 @@ using ApifySdk.Actors.Indeed;
 using ApifySdk.Actors.Indeed.Models;
 using JobsProviderApi.Models;
 using JobsProviderApi.Providers;
+using JobsProviderApi.Tests.Fakes;
 using Moq;
 
 namespace JobsProviderApi.Tests.Services;
@@ -23,7 +24,7 @@ public class IndeedJobsProviderTests
             .Setup(actor => actor.SearchAsync(It.IsAny<IndeedSearchRequest>(), It.IsAny<CancellationToken>()))
             .ReturnsAsync(results);
 
-        return new IndeedJobsProvider(_actor.Object);
+        return new IndeedJobsProvider(_actor.Object, TestFusionCache.Create());
     }
 
     [Fact]

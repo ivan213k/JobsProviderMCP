@@ -7,8 +7,9 @@ using ZiggyCreatures.Caching.Fusion;
 namespace JobsProviderApi.Services.Indeed;
 
 /// <summary>
-/// Serves the first 50 jobs from <see cref="IJobsProvider"/> as the Indeed-sourced slice, filtered by
-/// <see cref="JobSearchQuery"/>. Search responses are cached per query (see
+/// Serves Indeed jobs from <see cref="IIndeedJobsProvider"/> (which fetches from the Apify actor and caches the
+/// raw result), narrowed by <see cref="JobSearchQuery"/>'s skill/location filters — free-text search is applied
+/// upstream by the actor, not here. Search responses are cached per query (see
 /// <see cref="JobSearchQuery.ToCacheKey"/>) for <see cref="CachingOptions.SearchResultsDuration"/>; every job
 /// returned from a search page is also cached individually (see <see cref="Job.ToCacheKey"/>) for
 /// <see cref="CachingOptions.JobDuration"/>, which is what <see cref="GetByIdAsync"/> reads from.
@@ -19,7 +20,6 @@ public class IndeedJobsService(
     IFusionCache cache,
     IOptions<CachingOptions> cachingOptions) : IIndeedJobsService
 {
-    private const int SliceSize = 50;
     private const string CacheKeySource = "indeed";
 
     public async Task<ListResponse<Job>> SearchAsync(JobSearchQuery query, CancellationToken cancellationToken = default) =>
@@ -34,7 +34,7 @@ public class IndeedJobsService(
     private async Task<ListResponse<Job>> SearchUncachedAsync(JobSearchQuery query, CancellationToken cancellationToken)
     {
         IReadOnlyList<Job> jobs = await jobsProvider.GetJobsAsync(query, cancellationToken);
-        ListResponse<Job> result = jobSearchFilter.Apply(jobs.Take(SliceSize), query);
+        ListResponse<Job> result = jobSearchFilter.Apply(jobs, query);
         await CacheJobsByIdAsync(result.Items, cancellationToken);
         return result;
     }

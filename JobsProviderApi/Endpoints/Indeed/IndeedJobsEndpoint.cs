@@ -16,6 +16,8 @@ public static class IndeedJobsEndpoint
                 Also available as the `search_indeed_jobs` MCP tool (mounted at `/mcp`), which takes the same
                 parameters and delegates to the same search logic.
                 `search` and `countryCode` are required; the rest are optional and combined using AND.
+                in its title or description (not a required exact phrase), so prefer specific, distinctive
+                keywords and avoid common ones like `developer` or `engineer` that match almost every posting.
                 Results are sorted newest-first by date published.
 
                 """)
