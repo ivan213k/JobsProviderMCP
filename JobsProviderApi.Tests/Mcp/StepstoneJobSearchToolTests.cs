@@ -11,8 +11,8 @@ public class StepstoneJobSearchToolTests
     [Fact]
     public async Task SearchStepstoneJobsAsync_WithValidQuery_ReturnsFilteredJobs()
     {
-        // StepstoneJobsService skips the first 50 jobs, so the fake provider needs at least that many filler jobs
-        // ahead of the ones under test.
+        // StepstoneJobsService skips the first 50 jobs. Search is no longer applied locally, so the whole second
+        // slice comes through regardless of the search term.
         List<Job> jobs = Enumerable.Range(1, 50).Select(id => TestJobs.Create(id)).ToList();
         jobs.Add(TestJobs.Create(51, title: "Senior Go Engineer"));
         jobs.Add(TestJobs.Create(52, title: "Java Engineer"));
@@ -23,8 +23,8 @@ public class StepstoneJobSearchToolTests
             search: "Go",
             countryCode: "DE");
 
-        Assert.Equal(1, result.TotalCount);
-        Assert.Equal(["51"], result.Items.Select(j => j.Id));
+        Assert.Equal(2, result.TotalCount);
+        Assert.Equal(["51", "52"], result.Items.Select(j => j.Id));
     }
 
     [Fact]

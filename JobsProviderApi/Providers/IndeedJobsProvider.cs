@@ -3,25 +3,40 @@ using ApifySdk.Actors.Indeed;
 using ApifySdk.Actors.Indeed.Models;
 using JobsProviderApi.Models;
 using System.Globalization;
+using System.Text.Json;
+using ZiggyCreatures.Caching.Fusion;
 
 namespace JobsProviderApi.Providers;
 
-public class IndeedJobsProvider(IIndeedActor indeedActor) : IIndeedJobsProvider
+public class IndeedJobsProvider(IIndeedActor indeedActor, IFusionCache cache) : IIndeedJobsProvider
 {
     public const string MaxAgeOfPostingInDays = "14";
 
     public const int Limit = 100;
 
+    private const string CacheKeySource = "indeed:provider";
+
     public async Task<IReadOnlyList<Job>> GetJobsAsync(JobSearchQuery query, CancellationToken cancellationToken = default)
     {
         IndeedSearchRequest request = ToSearchRequest(query);
 
+        return await cache.GetOrSetAsync(
+            ToCacheKey(request),
+            ct => FetchJobsAsync(request, ct),
+            token: cancellationToken);
+    }
+
+    private async Task<IReadOnlyList<Job>> FetchJobsAsync(IndeedSearchRequest request, CancellationToken cancellationToken)
+    {
         IEnumerable<IndeedJobResult> results = await indeedActor.SearchAsync(request, cancellationToken);
 
         return results
             .Select(result => ToJob(result))
             .ToImmutableList();
     }
+
+    private static string ToCacheKey(IndeedSearchRequest request) =>
+        $"{CacheKeySource}:{JsonSerializer.Serialize(request)}";
     
     private IndeedSearchRequest ToSearchRequest(JobSearchQuery query) =>
         new()

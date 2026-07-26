@@ -14,7 +14,7 @@ namespace JobsProviderApi.Services.Stepstone;
 /// <see cref="CachingOptions.JobDuration"/>, which is what <see cref="GetByIdAsync"/> reads from.
 /// </summary>
 public class StepstoneJobsService(
-    IIndeedJobsProvider jobsProvider,
+    IStepstoneJobsProvider jobsProvider,
     IJobSearchFilter jobSearchFilter,
     IFusionCache cache,
     IOptions<CachingOptions> cachingOptions) : IStepstoneJobsService

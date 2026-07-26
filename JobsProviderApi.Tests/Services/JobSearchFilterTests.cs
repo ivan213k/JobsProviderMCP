@@ -16,31 +16,6 @@ public class JobSearchFilterTests
     private readonly JobSearchFilter _sut = new();
 
     [Fact]
-    public void Apply_WithSearch_MatchesTitleOrDescription()
-    {
-        var jobs = new[]
-        {
-            TestJobs.Create(1, title: "Senior Go Engineer"),
-            TestJobs.Create(2, title: "Frontend Engineer", description: "Loves Go tooling."),
-            TestJobs.Create(3, title: "Java Engineer", description: "No relevant tech."),
-        };
-
-        ListResponse<Job> result = _sut.Apply(jobs, MatchAllQuery with { Search = "Go" });
-
-        Assert.Equal(["1", "2"], result.Items.Select(j => j.Id));
-    }
-
-    [Fact]
-    public void Apply_SearchMatching_IsCaseInsensitive()
-    {
-        var jobs = new[] { TestJobs.Create(1, title: "Senior GO Engineer") };
-
-        ListResponse<Job> result = _sut.Apply(jobs, MatchAllQuery with { Search = "go" });
-
-        Assert.Equal(["1"], result.Items.Select(j => j.Id));
-    }
-
-    [Fact]
     public void Apply_WithMustHaveSkills_RequiresAllSkillsPresent()
     {
         var jobs = new[]
@@ -173,13 +148,14 @@ public class JobSearchFilterTests
         ListResponse<Job> result = _sut.Apply(
             jobs,
             new JobSearchQuery(
+                // Search is ignored by the filter, so job 2 (Java Engineer) is narrowed only by skills/location.
                 Search: "Go Engineer",
                 MustHaveSkills: ["Go", "gRPC"],
                 PreferredSkills: ["Kubernetes", "Terraform"],
                 Locations: ["Berlin"],
                 CountryCode: "DE"));
 
-        Assert.Equal(["1"], result.Items.Select(j => j.Id));
+        Assert.Equal(["1", "2"], result.Items.Select(j => j.Id));
     }
 
     [Fact]
