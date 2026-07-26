@@ -1,11 +1,8 @@
 FROM mcr.microsoft.com/dotnet/sdk:10.0-alpine AS build
 WORKDIR /src
 
-COPY JobsProviderApi/JobsProviderApi.csproj JobsProviderApi/
-RUN dotnet restore JobsProviderApi/JobsProviderApi.csproj
-
-COPY JobsProviderApi/ JobsProviderApi/
-RUN dotnet publish JobsProviderApi/JobsProviderApi.csproj -c Release -o /app/publish --no-restore
+COPY . .
+RUN dotnet publish JobsProviderApi/JobsProviderApi.csproj -c Release -o /app/publish
 
 FROM mcr.microsoft.com/dotnet/aspnet:10.0-alpine AS final
 WORKDIR /app
