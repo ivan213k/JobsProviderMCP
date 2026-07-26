@@ -148,7 +148,6 @@ public class JobSearchFilterTests
         ListResponse<Job> result = _sut.Apply(
             jobs,
             new JobSearchQuery(
-                // Search is ignored by the filter, so job 2 (Java Engineer) is narrowed only by skills/location.
                 Search: "Go Engineer",
                 MustHaveSkills: ["Go", "gRPC"],
                 PreferredSkills: ["Kubernetes", "Terraform"],

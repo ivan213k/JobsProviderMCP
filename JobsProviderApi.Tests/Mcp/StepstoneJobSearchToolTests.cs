@@ -11,8 +11,6 @@ public class StepstoneJobSearchToolTests
     [Fact]
     public async Task SearchStepstoneJobsAsync_WithValidQuery_ReturnsFilteredJobs()
     {
-        // StepstoneJobsService skips the first 50 jobs. Search is no longer applied locally, so the whole second
-        // slice comes through regardless of the search term.
         List<Job> jobs = Enumerable.Range(1, 50).Select(id => TestJobs.Create(id)).ToList();
         jobs.Add(TestJobs.Create(51, title: "Senior Go Engineer"));
         jobs.Add(TestJobs.Create(52, title: "Java Engineer"));
