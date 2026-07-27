@@ -1,4 +1,5 @@
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Text.Json;
 using Microsoft.AspNetCore.Mvc;
 
@@ -14,6 +15,8 @@ public static class JobSearchQueryDescriptions
     public const string PreferredSkills = "Skills where at least ONE must be present among a job's requirements for it to be included.";
     public const string Locations = "Locations where at least ONE must match a job's location for it to be included.";
     public const string CountryCode = "ISO 3166-1 alpha-2 country code (e.g. `DE`) identifying which regional job board to search.";
+    public const string CountryCodePattern = "^[A-Za-z]{2}$";
+    public const string CountryCodeValidationError = "countryCode must be a 2-letter ISO 3166-1 alpha-2 code (e.g. 'DE').";
     public const string Skip = "Number of matching jobs to skip before applying `take`, for pagination. Defaults to 0.";
     public const string Take = "Maximum number of jobs to return after `skip` is applied. Defaults to 100.";
 }
@@ -37,6 +40,8 @@ public record JobSearchQuery(
 
     [property: FromQuery(Name = "countryCode")]
     [property: Description(JobSearchQueryDescriptions.CountryCode)]
+    [property: Required(AllowEmptyStrings = false, ErrorMessage = JobSearchQueryDescriptions.CountryCodeValidationError)]
+    [property: RegularExpression(JobSearchQueryDescriptions.CountryCodePattern, ErrorMessage = JobSearchQueryDescriptions.CountryCodeValidationError)]
     string CountryCode,
 
     [property: FromQuery(Name = "skip")]
