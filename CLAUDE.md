@@ -42,10 +42,14 @@ newest-first by `DatePublished`, then `skip`/`take` pagination, used by both sou
 The Endpoints/ and Services/ trees both mirror the two-source split (`Indeed/`, `Stepstone/`), while anything
 source-agnostic (`JobSearchFilter`, `IJobsProvider`/`MockJobsProvider`) stays at the top level of its folder.
 
-`JobSearchQuery` has no bespoke validation — plain-text search can't be malformed the way a regex could, so
-there's nothing for `JobSearchFilter` (or the MCP tools) to reject; `builder.Services.AddValidation()` in
-`Program.cs` still covers ASP.NET Core's automatic minimal-API required-parameter checks (e.g. missing
-`search`/`countryCode`) for the REST endpoints.
+`JobSearchQuery.CountryCode` is the one bespoke validation: `[Required(AllowEmptyStrings = false)]` plus a
+`[RegularExpression]` requiring a 2-letter ISO 3166-1 alpha-2 code, enforced by
+`builder.Services.AddValidation()`'s minimal-API endpoint filter in `Program.cs`, same as the automatic
+required-parameter checks (e.g. a missing `search`/`countryCode` query key) — REST endpoints only, since the
+MCP tools bind the same `JobSearchQuery` through the MCP SDK's own dispatch, which doesn't run ASP.NET Core's
+validation filter. `search` and the skill/location arrays still have no bespoke validation — plain-text search
+can't be malformed the way a regex could, so there's nothing for
+`JobSearchFilter` to reject.
 
 `MockJobsProvider` itself re-reads and re-parses `Data/mock-jobs.json` on every call — deliberate, since
 `IndeedJobsService`/`StepstoneJobsService` cache above it (see Caching below), so there was no reason to also
