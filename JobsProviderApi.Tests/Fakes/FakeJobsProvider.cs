@@ -3,7 +3,7 @@ using JobsProviderApi.Providers;
 
 namespace JobsProviderApi.Tests.Fakes;
 
-internal sealed class FakeJobsProvider(IReadOnlyList<Job> jobs) : IIndeedJobsProvider, IStepstoneJobsProvider
+internal sealed class FakeJobsProvider(IReadOnlyList<Job> jobs) : IIndeedJobsProvider, ILinkedInJobsProvider, IStepstoneJobsProvider
 {
     public int CallCount { get; private set; }
 

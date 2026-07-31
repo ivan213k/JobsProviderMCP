@@ -2,12 +2,15 @@ using JobsProviderApi.Configuration;
 using JobsProviderApi.Endpoints.Cache;
 using ApifySdk;
 using ApifySdk.Actors.Indeed;
+using ApifySdk.Actors.LinkedIn;
 using JobsProviderApi.Endpoints.Indeed;
+using JobsProviderApi.Endpoints.LinkedIn;
 using JobsProviderApi.Endpoints.Stepstone;
 using JobsProviderApi.Providers;
 using JobsProviderApi.Resilience;
 using JobsProviderApi.Services;
 using JobsProviderApi.Services.Indeed;
+using JobsProviderApi.Services.LinkedIn;
 using JobsProviderApi.Services.Stepstone;
 using ModelContextProtocol.Protocol;
 using ZiggyCreatures.Caching.Fusion;
@@ -61,11 +64,14 @@ builder.Services
     .AddApifyResilience();
 
 builder.Services.AddScoped<IIndeedActor, IndeedActor>();
+builder.Services.AddScoped<ILinkedInActor, LinkedInActor>();
 
 builder.Services.AddScoped<IIndeedJobsProvider, IndeedJobsProvider>();
+builder.Services.AddScoped<ILinkedInJobsProvider, LinkedInJobsProvider>();
 builder.Services.AddSingleton<IStepstoneJobsProvider, MockJobsProvider>();
 builder.Services.AddScoped<IJobSearchFilter, JobSearchFilter>();
 builder.Services.AddScoped<IIndeedJobsService, IndeedJobsService>();
+builder.Services.AddScoped<ILinkedInJobsService, LinkedInJobsService>();
 builder.Services.AddScoped<IStepstoneJobsService, StepstoneJobsService>();
 builder.Services.AddMcpServer(options =>
 {
@@ -83,6 +89,7 @@ app.UseSwaggerUI(options =>
 app.UseHttpsRedirection();
 
 app.MapIndeedJobsEndpoint();
+app.MapLinkedInJobsEndpoint();
 app.MapStepstoneJobsEndpoint();
 app.MapClearCacheEndpoint();
 app.MapMcp("/mcp");
