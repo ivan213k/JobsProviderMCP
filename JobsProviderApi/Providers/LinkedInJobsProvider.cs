@@ -49,7 +49,6 @@ public class LinkedInJobsProvider(ILinkedInActor linkedInActor, IFusionCache cac
     private LinkedInSearchRequest ToSearchRequest(JobSearchQuery query) =>
         new()
         {
-            //todo
             Keywords = [query.Search],
             Locations = ToSearchLocations(query.Locations, query.CountryCode),
             ResumeKeywords = ToResumeKeywords(query.MustHaveSkills, query.PreferredSkills),
@@ -73,7 +72,6 @@ public class LinkedInJobsProvider(ILinkedInActor linkedInActor, IFusionCache cac
             return requestedLocations;
 
         string? countryName = ToCountryName(countryCode);
-        //test if returned []
         return countryName is null ? [] : [countryName];
     }
 
