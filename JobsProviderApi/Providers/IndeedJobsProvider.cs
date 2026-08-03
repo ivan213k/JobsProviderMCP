@@ -12,7 +12,7 @@ public class IndeedJobsProvider(IIndeedActor indeedActor, IFusionCache cache) : 
 {
     public const string MaxAgeOfPostingInDays = "14";
 
-    public const int Limit = 100;
+    public const int Limit = 300;
 
     private const string CacheKeySource = "indeed:provider";
 
