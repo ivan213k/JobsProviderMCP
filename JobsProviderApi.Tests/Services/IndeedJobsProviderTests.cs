@@ -11,6 +11,7 @@ public class IndeedJobsProviderTests
 {
     private static readonly JobSearchQuery MatchAllQuery = new(
         Search: "backend",
+        SearchAliases: null,
         MustHaveSkills: null,
         PreferredSkills: null,
         Locations: null,
@@ -127,6 +128,7 @@ public class IndeedJobsProviderTests
 
         await sut.GetJobsAsync(new JobSearchQuery(
             Search: "backend",
+            SearchAliases: null,
             MustHaveSkills: ["Go", "gRPC"],
             PreferredSkills: null,
             Locations: ["Berlin"],
@@ -135,7 +137,7 @@ public class IndeedJobsProviderTests
         _actor.Verify(
             actor => actor.SearchAsync(
                 It.Is<IndeedSearchRequest>(request =>
-                    request.Keywords == "backend Go gRPC"
+                    request.Search == "backend"
                     && request.Location == "Berlin"
                     && request.Country == "de"
                     && request.MaxAgeOfPostingInDays == IndeedJobsProvider.MaxAgeOfPostingInDays
@@ -144,11 +146,16 @@ public class IndeedJobsProviderTests
             Times.Once);
     }
 
+    /// <summary>
+    /// Skills used to be appended to the actor's free-text search, which conflated "a job about X" with "a job
+    /// requiring X" and narrowed the candidate pool upstream. They are now left to
+    /// <see cref="Services.JobSearchFilter"/>, matching how the LinkedIn provider works.
+    /// </summary>
     [Theory]
     [InlineData(null, "backend")]
-    [InlineData(new[] { "Go", "gRPC" }, "backend Go gRPC")]
-    [InlineData(new[] { "Go", "   " }, "backend Go")]
-    public async Task GetJobsAsync_CombinesSearchAndMustHaveSkillsIntoKeywords(string[]? mustHaveSkills, string expectedKeywords)
+    [InlineData(new[] { "Go", "gRPC" }, "backend")]
+    [InlineData(new[] { "Go", "   " }, "backend")]
+    public async Task GetJobsAsync_DoesNotFoldSkillsIntoSearchKeywords(string[]? mustHaveSkills, string expectedSearch)
     {
         IndeedJobsProvider sut = CreateSut();
 
@@ -156,7 +163,7 @@ public class IndeedJobsProviderTests
 
         _actor.Verify(
             actor => actor.SearchAsync(
-                It.Is<IndeedSearchRequest>(request => request.Keywords == expectedKeywords),
+                It.Is<IndeedSearchRequest>(request => request.Search == expectedSearch),
                 It.IsAny<CancellationToken>()),
             Times.Once);
     }

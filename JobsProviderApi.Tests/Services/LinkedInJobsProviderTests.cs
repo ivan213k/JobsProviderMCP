@@ -12,6 +12,7 @@ public class LinkedInJobsProviderTests
 {
     private static readonly JobSearchQuery MatchAllQuery = new(
         Search: "backend",
+        SearchAliases: null,
         MustHaveSkills: null,
         PreferredSkills: null,
         Locations: null,
@@ -88,6 +89,7 @@ public class LinkedInJobsProviderTests
 
         await sut.GetJobsAsync(new JobSearchQuery(
             Search: "backend",
+            SearchAliases: null,
             MustHaveSkills: ["Go"],
             PreferredSkills: ["gRPC"],
             Locations: ["Berlin"],
@@ -103,6 +105,38 @@ public class LinkedInJobsProviderTests
                     && request.MaxItems == LinkedInJobsProvider.MaxItems
                     && request.SaveOnlyUniqueItems),
                 It.IsAny<CancellationToken>()),
+            Times.Once);
+    }
+
+    [Theory]
+    [InlineData(null, new[] { "backend" })]
+    [InlineData(new string[0], new[] { "backend" })]
+    [InlineData(new[] { "back-end" }, new[] { "backend", "back-end" })]
+    [InlineData(new[] { "back-end", "serverside" }, new[] { "backend", "back-end", "serverside" })]
+    [InlineData(new[] { " back-end ", "   " }, new[] { "backend", "back-end" })]
+    [InlineData(new[] { "BACKEND", "back-end" }, new[] { "backend", "back-end" })]
+    public async Task GetJobsAsync_SendsSearchAndAliasesAsKeywords(string[]? searchAliases, string[] expectedKeywords)
+    {
+        LinkedInJobsProvider sut = CreateSut();
+
+        await sut.GetJobsAsync(MatchAllQuery with { SearchAliases = searchAliases });
+
+        _actor.Verify(
+            actor => actor.SearchAsync(
+                It.Is<LinkedInSearchRequest>(request => request.Keywords.SequenceEqual(expectedKeywords)),
+                It.IsAny<CancellationToken>()),
+            Times.Once);
+    }
+
+    [Fact]
+    public async Task GetJobsAsync_WithAliases_StillOnlyCallsTheActorOnce()
+    {
+        LinkedInJobsProvider sut = CreateSut();
+
+        await sut.GetJobsAsync(MatchAllQuery with { SearchAliases = ["back-end", "serverside"] });
+
+        _actor.Verify(
+            actor => actor.SearchAsync(It.IsAny<LinkedInSearchRequest>(), It.IsAny<CancellationToken>()),
             Times.Once);
     }
 

@@ -49,7 +49,7 @@ public class LinkedInJobsProvider(ILinkedInActor linkedInActor, IFusionCache cac
     private LinkedInSearchRequest ToSearchRequest(JobSearchQuery query) =>
         new()
         {
-            Keywords = [query.Search],
+            Keywords = ToKeywords(query.Search, query.SearchAliases),
             Locations = ToSearchLocations(query.Locations, query.CountryCode),
             ResumeKeywords = ToResumeKeywords(query.MustHaveSkills, query.PreferredSkills),
             PublishedAt = MaxAgeOfPosting,
@@ -57,10 +57,18 @@ public class LinkedInJobsProvider(ILinkedInActor linkedInActor, IFusionCache cac
             SaveOnlyUniqueItems = true
         };
 
-    /// <summary>
-    /// The actor takes free-text locations and has no country input, so the country only stands in as the search
-    /// location when no explicit locations were requested.
-    /// </summary>
+    private static string[] ToKeywords(string search, IReadOnlyList<string>? searchAliases) =>
+        new[] { search }
+            .Concat(NormalizeAliases(searchAliases))
+            .Distinct(StringComparer.OrdinalIgnoreCase)
+            .ToArray();
+
+    private static string[] NormalizeAliases(IReadOnlyList<string>? searchAliases) =>
+        searchAliases?
+            .Where(alias => !string.IsNullOrWhiteSpace(alias))
+            .Select(alias => alias.Trim())
+            .ToArray() ?? [];
+
     private string[] ToSearchLocations(IReadOnlyList<string>? locations, string countryCode)
     {
         string[] requestedLocations = locations?

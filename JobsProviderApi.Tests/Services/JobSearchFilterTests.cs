@@ -7,6 +7,7 @@ public class JobSearchFilterTests
 {
     private static readonly JobSearchQuery MatchAllQuery = new(
         Search: "",
+        SearchAliases: null,
         MustHaveSkills: null,
         PreferredSkills: null,
         Locations: null,
@@ -149,6 +150,7 @@ public class JobSearchFilterTests
             jobs,
             new JobSearchQuery(
                 Search: "Go Engineer",
+                SearchAliases: null,
                 MustHaveSkills: ["Go", "gRPC"],
                 PreferredSkills: ["Kubernetes", "Terraform"],
                 Locations: ["Berlin"],
@@ -166,6 +168,7 @@ public class JobSearchFilterTests
             jobs,
             new JobSearchQuery(
                 Search: "",
+                SearchAliases: null,
                 MustHaveSkills: null,
                 PreferredSkills: null,
                 Locations: null,

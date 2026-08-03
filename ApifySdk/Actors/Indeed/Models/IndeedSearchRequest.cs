@@ -5,7 +5,7 @@ namespace ApifySdk.Actors.Indeed.Models;
 public class IndeedSearchRequest
 {
     [JsonPropertyName("title")]
-    public string Keywords { get; set; } = null!;
+    public string Search { get; set; } = null!;
 
     /// <summary>ISO 3166-1 alpha-2 country code selecting the regional job board, e.g. <c>"de"</c>.</summary>
     public string Country { get; set; } = null!;

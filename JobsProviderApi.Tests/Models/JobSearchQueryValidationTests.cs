@@ -16,7 +16,7 @@ public class JobSearchQueryValidationTests
     [InlineData("")]
     public void Validate_WithInvalidCountryCode_ReturnsValidationError(string countryCode)
     {
-        var query = new JobSearchQuery(Search: "engineer", MustHaveSkills: null, PreferredSkills: null, Locations: null, CountryCode: countryCode);
+        var query = new JobSearchQuery(Search: "engineer", SearchAliases: null, MustHaveSkills: null, PreferredSkills: null, Locations: null, CountryCode: countryCode);
 
         List<ValidationResult> results = Validate(query);
 
@@ -26,7 +26,7 @@ public class JobSearchQueryValidationTests
     [Fact]
     public void Validate_WithValidCountryCode_ReturnsNoValidationError()
     {
-        var query = new JobSearchQuery(Search: "engineer", MustHaveSkills: null, PreferredSkills: null, Locations: null, CountryCode: "DE");
+        var query = new JobSearchQuery(Search: "engineer", SearchAliases: null, MustHaveSkills: null, PreferredSkills: null, Locations: null, CountryCode: "DE");
 
         List<ValidationResult> results = Validate(query);
 

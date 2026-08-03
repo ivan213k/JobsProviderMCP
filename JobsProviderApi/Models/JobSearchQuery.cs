@@ -11,6 +11,11 @@ public static class JobSearchQueryDescriptions
         "Case-insensitive plain-text match against each job's title or description. " +
         "Prefer a single keyword (`C#`) for a wide result pool, or plain text (`Junior C# Developer`) " +
         "for the most relevant results.";
+    public const string SearchAliases =
+        "Fallback search terms, strongest first — ordering matters, so put the closest equivalents at the " +
+        "front to avoid running short of results. Used only when `search` alone returns fewer results than " +
+        "requested. Examples: `.NET` as an alias for `C#`; `C# Entwickler` as a localised alias for " +
+        "`C# Developer`.";
     public const string MustHaveSkills = "Skills that must ALL be present among a job's requirements for it to be included.";
     public const string PreferredSkills = "Skills where at least ONE must be present among a job's requirements for it to be included.";
     public const string Locations = "Locations where at least ONE must match a job's location for it to be included.";
@@ -25,6 +30,10 @@ public record JobSearchQuery(
     [property: FromQuery(Name = "search")]
     [property: Description(JobSearchQueryDescriptions.Search)]
     string Search,
+
+    [property: FromQuery(Name = "searchAliases")]
+    [property: Description(JobSearchQueryDescriptions.SearchAliases)]
+    string[]? SearchAliases,
 
     [property: FromQuery(Name = "mustHaveSkills")]
     [property: Description(JobSearchQueryDescriptions.MustHaveSkills)]
