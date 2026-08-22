@@ -25,29 +25,27 @@ public class IndeedJobsProvider(IIndeedActor indeedActor, IFusionCache cache) : 
         if (jobs.Count >= Limit || aliases.Length == 0)
             return jobs;
 
-        return await WidenWithAliasesAsync(jobs, query, aliases, cancellationToken);
+        return await MergeAliasResultsAsync(jobs, query, aliases, cancellationToken);
     }
     
-    private async Task<IReadOnlyList<Job>> WidenWithAliasesAsync(
+    private async Task<IReadOnlyList<Job>> MergeAliasResultsAsync(
         IEnumerable<Job> jobs,
         JobSearchQuery query,
         string[] aliases,
         CancellationToken cancellationToken)
     {
-        Dictionary<string, Job> jobsById = ToJobsById(jobs);
+        HashSet<Job> merged = new(jobs, JobIdComparer.Instance);
 
         foreach (string alias in aliases)
         {
-            foreach (Job job in await GetOrFetchJobsAsync(ToSearchRequest(query, alias), cancellationToken))
-            {
-                jobsById.TryAdd(job.Id, job);
-            }
+            IReadOnlyList<Job> aliasJobs = await GetOrFetchJobsAsync(ToSearchRequest(query, alias), cancellationToken);
+            merged.UnionWith(aliasJobs);
 
-            if (jobsById.Count >= Limit)
+            if (merged.Count >= Limit)
                 break;
         }
 
-        return jobsById.Values.ToImmutableList();
+        return merged.ToImmutableList();
     }
 
     private async Task<IReadOnlyList<Job>> GetOrFetchJobsAsync(IndeedSearchRequest request, CancellationToken cancellationToken) =>
@@ -55,17 +53,6 @@ public class IndeedJobsProvider(IIndeedActor indeedActor, IFusionCache cache) : 
             ToCacheKey(request),
             ct => FetchJobsAsync(request, ct),
             token: cancellationToken);
-
-    private static Dictionary<string, Job> ToJobsById(IEnumerable<Job> jobs)
-    {
-        Dictionary<string, Job> jobsById = [];
-        foreach (Job job in jobs)
-        {
-            jobsById.TryAdd(job.Id, job);
-        }
-
-        return jobsById;
-    }
 
     private static string[] NormalizeAliases(IReadOnlyList<string>? searchAliases) =>
         searchAliases?
@@ -124,5 +111,18 @@ public class IndeedJobsProvider(IIndeedActor indeedActor, IFusionCache cache) : 
         string?[] locationParts = [location?.City, location?.CountryName];
         string joinedLocation = string.Join(", ", locationParts.Where(part => !string.IsNullOrWhiteSpace(part)));
         return string.IsNullOrEmpty(joinedLocation) ? null : joinedLocation;
+    }
+
+    /// <summary>
+    /// Identifies jobs by <see cref="Job.Id"/> alone. <see cref="Job"/> is a record, so its own equality compares
+    /// every field — two responses describing the same posting would not be equal under it.
+    /// </summary>
+    private sealed class JobIdComparer : IEqualityComparer<Job>
+    {
+        public static readonly JobIdComparer Instance = new();
+
+        public bool Equals(Job? x, Job? y) => x?.Id == y?.Id;
+
+        public int GetHashCode(Job job) => job.Id.GetHashCode();
     }
 }
