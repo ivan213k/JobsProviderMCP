@@ -25,10 +25,10 @@ public class IndeedJobsProvider(IIndeedActor indeedActor, IFusionCache cache) : 
         if (jobs.Count >= Limit || aliases.Length == 0)
             return jobs;
 
-        return await MergeAliasResultsAsync(jobs, query, aliases, cancellationToken);
+        return await FetchForAliasesAsync(jobs, query, aliases, cancellationToken);
     }
     
-    private async Task<IReadOnlyList<Job>> MergeAliasResultsAsync(
+    private async Task<IReadOnlyList<Job>> FetchForAliasesAsync(
         IEnumerable<Job> jobs,
         JobSearchQuery query,
         string[] aliases,
@@ -113,10 +113,6 @@ public class IndeedJobsProvider(IIndeedActor indeedActor, IFusionCache cache) : 
         return string.IsNullOrEmpty(joinedLocation) ? null : joinedLocation;
     }
 
-    /// <summary>
-    /// Identifies jobs by <see cref="Job.Id"/> alone. <see cref="Job"/> is a record, so its own equality compares
-    /// every field — two responses describing the same posting would not be equal under it.
-    /// </summary>
     private sealed class JobIdComparer : IEqualityComparer<Job>
     {
         public static readonly JobIdComparer Instance = new();

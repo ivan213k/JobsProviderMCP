@@ -16,6 +16,8 @@ public static class JobSearchQueryDescriptions
         "front to avoid running short of results. Used only when `search` alone returns fewer results than " +
         "requested. Examples: `.NET` as an alias for `C#`; `C# Entwickler` as a localised alias for " +
         "`C# Developer`.";
+    public const int SearchAliasesMaxCount = 10;
+    public const string SearchAliasesValidationError = "searchAliases must contain at most 10 entries.";
     public const string MustHaveSkills = "Skills that must ALL be present among a job's requirements for it to be included.";
     public const string PreferredSkills = "Skills where at least ONE must be present among a job's requirements for it to be included.";
     public const string Locations = "Locations where at least ONE must match a job's location for it to be included.";
@@ -33,6 +35,7 @@ public record JobSearchQuery(
 
     [property: FromQuery(Name = "searchAliases")]
     [property: Description(JobSearchQueryDescriptions.SearchAliases)]
+    [property: MaxLength(JobSearchQueryDescriptions.SearchAliasesMaxCount, ErrorMessage = JobSearchQueryDescriptions.SearchAliasesValidationError)]
     string[]? SearchAliases,
 
     [property: FromQuery(Name = "mustHaveSkills")]

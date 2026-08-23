@@ -33,6 +33,45 @@ public class JobSearchQueryValidationTests
         Assert.DoesNotContain(results, result => result.MemberNames.Contains(nameof(JobSearchQuery.CountryCode)));
     }
 
+    [Fact]
+    public void Validate_WithTooManySearchAliases_ReturnsValidationError()
+    {
+        string[] aliases = Enumerable
+            .Range(0, JobSearchQueryDescriptions.SearchAliasesMaxCount + 1)
+            .Select(index => $"alias{index}")
+            .ToArray();
+        var query = new JobSearchQuery(Search: "engineer", SearchAliases: aliases, MustHaveSkills: null, PreferredSkills: null, Locations: null, CountryCode: "DE");
+
+        List<ValidationResult> results = Validate(query);
+
+        ValidationResult error = Assert.Single(results, result => result.MemberNames.Contains(nameof(JobSearchQuery.SearchAliases)));
+        Assert.Equal(JobSearchQueryDescriptions.SearchAliasesValidationError, error.ErrorMessage);
+    }
+
+    [Fact]
+    public void Validate_WithSearchAliasesAtTheLimit_ReturnsNoValidationError()
+    {
+        string[] aliases = Enumerable
+            .Range(0, JobSearchQueryDescriptions.SearchAliasesMaxCount)
+            .Select(index => $"alias{index}")
+            .ToArray();
+        var query = new JobSearchQuery(Search: "engineer", SearchAliases: aliases, MustHaveSkills: null, PreferredSkills: null, Locations: null, CountryCode: "DE");
+
+        List<ValidationResult> results = Validate(query);
+
+        Assert.DoesNotContain(results, result => result.MemberNames.Contains(nameof(JobSearchQuery.SearchAliases)));
+    }
+
+    [Fact]
+    public void Validate_WithoutSearchAliases_ReturnsNoValidationError()
+    {
+        var query = new JobSearchQuery(Search: "engineer", SearchAliases: null, MustHaveSkills: null, PreferredSkills: null, Locations: null, CountryCode: "DE");
+
+        List<ValidationResult> results = Validate(query);
+
+        Assert.DoesNotContain(results, result => result.MemberNames.Contains(nameof(JobSearchQuery.SearchAliases)));
+    }
+
     private static List<ValidationResult> Validate(JobSearchQuery query)
     {
         var results = new List<ValidationResult>();
