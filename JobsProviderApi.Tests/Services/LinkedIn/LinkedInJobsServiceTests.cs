@@ -16,7 +16,7 @@ public class LinkedInJobsServiceTests
     {
         var provider = new FakeJobsProvider([TestJobs.Create(1, title: "Go Engineer")]);
         ILinkedInJobsService service = new LinkedInJobsService(provider, new JobSearchFilter(), TestFusionCache.Create(), TestCachingOptions.Default());
-        var query = new JobSearchQuery(Search: "Go", MustHaveSkills: null, PreferredSkills: null, Locations: null, CountryCode: "DE");
+        var query = new JobSearchQuery(Search: "Go", SearchAliases: null, MustHaveSkills: null, PreferredSkills: null, Locations: null, CountryCode: "DE");
 
         await service.SearchAsync(query);
         await service.SearchAsync(query);
@@ -30,8 +30,8 @@ public class LinkedInJobsServiceTests
         var provider = new FakeJobsProvider([TestJobs.Create(1, title: "Go Engineer"), TestJobs.Create(2, title: "Java Engineer")]);
         ILinkedInJobsService service = new LinkedInJobsService(provider, new JobSearchFilter(), TestFusionCache.Create(), TestCachingOptions.Default());
 
-        await service.SearchAsync(new JobSearchQuery(Search: "Go", MustHaveSkills: null, PreferredSkills: null, Locations: null, CountryCode: "DE"));
-        await service.SearchAsync(new JobSearchQuery(Search: "Java", MustHaveSkills: null, PreferredSkills: null, Locations: null, CountryCode: "DE"));
+        await service.SearchAsync(new JobSearchQuery(Search: "Go", SearchAliases: null, MustHaveSkills: null, PreferredSkills: null, Locations: null, CountryCode: "DE"));
+        await service.SearchAsync(new JobSearchQuery(Search: "Java", SearchAliases: null, MustHaveSkills: null, PreferredSkills: null, Locations: null, CountryCode: "DE"));
 
         Assert.Equal(2, provider.CallCount);
     }
@@ -41,7 +41,7 @@ public class LinkedInJobsServiceTests
     {
         var provider = new FakeJobsProvider([TestJobs.Create(1, title: "Go Engineer")]);
         ILinkedInJobsService service = new LinkedInJobsService(provider, new JobSearchFilter(), TestFusionCache.Create(), TestCachingOptions.Default());
-        await service.SearchAsync(new JobSearchQuery(Search: "Go", MustHaveSkills: null, PreferredSkills: null, Locations: null, CountryCode: "DE"));
+        await service.SearchAsync(new JobSearchQuery(Search: "Go", SearchAliases: null, MustHaveSkills: null, PreferredSkills: null, Locations: null, CountryCode: "DE"));
 
         Job? job = await service.GetByIdAsync("1");
 
@@ -80,6 +80,7 @@ public class LinkedInJobsServiceTests
 
         ListResponse<Job> result = await service.SearchAsync(new JobSearchQuery(
             Search: "backend",
+            SearchAliases: null,
             MustHaveSkills: mustHaveSkills,
             PreferredSkills: null,
             Locations: null,
@@ -100,6 +101,7 @@ public class LinkedInJobsServiceTests
 
         ListResponse<Job> result = await service.SearchAsync(new JobSearchQuery(
             Search: "backend",
+            SearchAliases: null,
             MustHaveSkills: null,
             PreferredSkills: preferredSkills,
             Locations: null,

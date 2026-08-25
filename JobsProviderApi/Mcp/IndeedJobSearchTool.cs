@@ -17,6 +17,7 @@ public static class IndeedJobSearchTool
         IIndeedJobsService jobsService,
         [Description(JobSearchQueryDescriptions.Search)] string search,
         [Description(JobSearchQueryDescriptions.CountryCode)] string countryCode,
+        [Description(JobSearchQueryDescriptions.SearchAliases)] string[]? searchAliases = null,
         [Description(JobSearchQueryDescriptions.MustHaveSkills)] string[]? mustHaveSkills = null,
         [Description(JobSearchQueryDescriptions.PreferredSkills)] string[]? preferredSkills = null,
         [Description(JobSearchQueryDescriptions.Locations)] string[]? locations = null,
@@ -24,7 +25,7 @@ public static class IndeedJobSearchTool
         [Description(JobSearchQueryDescriptions.Take)] int take = 10,
         CancellationToken cancellationToken = default)
     {
-        var query = new JobSearchQuery(search, mustHaveSkills, preferredSkills, locations, countryCode, skip, take);
+        var query = new JobSearchQuery(search, searchAliases, mustHaveSkills, preferredSkills, locations, countryCode, skip, take);
         return await jobsService.SearchAsync(query, cancellationToken);
     }
 }

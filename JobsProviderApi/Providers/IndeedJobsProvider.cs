@@ -12,19 +12,53 @@ public class IndeedJobsProvider(IIndeedActor indeedActor, IFusionCache cache) : 
 {
     public const string MaxAgeOfPostingInDays = "14";
 
-    public const int Limit = 100;
+    public const int Limit = 300;
 
     private const string CacheKeySource = "indeed:provider";
 
     public async Task<IReadOnlyList<Job>> GetJobsAsync(JobSearchQuery query, CancellationToken cancellationToken = default)
     {
-        IndeedSearchRequest request = ToSearchRequest(query);
+        IndeedSearchRequest request = ToSearchRequest(query, query.Search);
+        IReadOnlyList<Job> jobs = await GetOrFetchJobsAsync(request, cancellationToken);
 
-        return await cache.GetOrSetAsync(
+        string[] aliases = NormalizeAliases(query.SearchAliases);
+        if (jobs.Count >= Limit || aliases.Length == 0)
+            return jobs;
+
+        return await FetchForAliasesAsync(jobs, query, aliases, cancellationToken);
+    }
+    
+    private async Task<IReadOnlyList<Job>> FetchForAliasesAsync(
+        IEnumerable<Job> jobs,
+        JobSearchQuery query,
+        string[] aliases,
+        CancellationToken cancellationToken)
+    {
+        HashSet<Job> merged = new(jobs, JobIdComparer.Instance);
+
+        foreach (string alias in aliases)
+        {
+            IReadOnlyList<Job> aliasJobs = await GetOrFetchJobsAsync(ToSearchRequest(query, alias), cancellationToken);
+            merged.UnionWith(aliasJobs);
+
+            if (merged.Count >= Limit)
+                break;
+        }
+
+        return merged.ToImmutableList();
+    }
+
+    private async Task<IReadOnlyList<Job>> GetOrFetchJobsAsync(IndeedSearchRequest request, CancellationToken cancellationToken) =>
+        await cache.GetOrSetAsync(
             ToCacheKey(request),
             ct => FetchJobsAsync(request, ct),
             token: cancellationToken);
-    }
+
+    private static string[] NormalizeAliases(IReadOnlyList<string>? searchAliases) =>
+        searchAliases?
+            .Where(alias => !string.IsNullOrWhiteSpace(alias))
+            .Select(alias => alias.Trim())
+            .ToArray() ?? [];
 
     private async Task<IReadOnlyList<Job>> FetchJobsAsync(IndeedSearchRequest request, CancellationToken cancellationToken)
     {
@@ -37,11 +71,11 @@ public class IndeedJobsProvider(IIndeedActor indeedActor, IFusionCache cache) : 
 
     private static string ToCacheKey(IndeedSearchRequest request) =>
         $"{CacheKeySource}:{JsonSerializer.Serialize(request)}";
-    
-    private IndeedSearchRequest ToSearchRequest(JobSearchQuery query) =>
+
+    private IndeedSearchRequest ToSearchRequest(JobSearchQuery query, string search) =>
         new()
         {
-            Keywords = ToKeywords(query.Search, query.MustHaveSkills),
+            Search = search,
             Location = ToSingleOrEmptySearchLocation(query.Locations),
             Country = query.CountryCode.ToLowerInvariant(),
             MaxAgeOfPostingInDays = MaxAgeOfPostingInDays,
@@ -54,24 +88,6 @@ public class IndeedJobsProvider(IIndeedActor indeedActor, IFusionCache cache) : 
             return locations[0];
 
         return string.Empty;
-    }
-
-    private string ToKeywords(string search, IReadOnlyList<string>? requirements)
-    {
-        if (requirements is null)
-            return search;
-
-        List<string> keywords = [search];
-
-        foreach (string requirement in requirements)
-        {
-            if (!string.IsNullOrWhiteSpace(requirement))
-            {
-                keywords.Add(requirement);
-            }
-        }
-
-        return string.Join(' ', keywords);
     }
 
     private Job ToJob(IndeedJobResult result)
@@ -95,5 +111,14 @@ public class IndeedJobsProvider(IIndeedActor indeedActor, IFusionCache cache) : 
         string?[] locationParts = [location?.City, location?.CountryName];
         string joinedLocation = string.Join(", ", locationParts.Where(part => !string.IsNullOrWhiteSpace(part)));
         return string.IsNullOrEmpty(joinedLocation) ? null : joinedLocation;
+    }
+
+    private sealed class JobIdComparer : IEqualityComparer<Job>
+    {
+        public static readonly JobIdComparer Instance = new();
+
+        public bool Equals(Job? x, Job? y) => x?.Id == y?.Id;
+
+        public int GetHashCode(Job job) => job.Id.GetHashCode();
     }
 }

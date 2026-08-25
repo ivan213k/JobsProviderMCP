@@ -8,9 +8,16 @@ namespace JobsProviderApi.Models;
 public static class JobSearchQueryDescriptions
 {
     public const string Search =
-        "Space-separated keywords. A job matches when AT LEAST ONE keyword appears in its title or description " +
-        "(this is not a required exact phrase). Prefer specific, distinctive keywords and avoid common ones like " +
-        "`developer` or `engineer` that match almost every posting.";
+        "Case-insensitive plain-text match against each job's title or description. " +
+        "Prefer a single keyword (`C#`) for a wide result pool, or plain text (`Junior C# Developer`) " +
+        "for the most relevant results.";
+    public const string SearchAliases =
+        "Fallback search terms, strongest first — ordering matters, so put the closest equivalents at the " +
+        "front to avoid running short of results. Used only when `search` alone returns fewer results than " +
+        "requested. Examples: `.NET` as an alias for `C#`; `C# Entwickler` as a localised alias for " +
+        "`C# Developer`.";
+    public const int SearchAliasesMaxCount = 10;
+    public const string SearchAliasesValidationError = "searchAliases must contain at most 10 entries.";
     public const string MustHaveSkills = "Skills that must ALL be present among a job's requirements for it to be included.";
     public const string PreferredSkills = "Skills where at least ONE must be present among a job's requirements for it to be included.";
     public const string Locations = "Locations where at least ONE must match a job's location for it to be included.";
@@ -25,6 +32,11 @@ public record JobSearchQuery(
     [property: FromQuery(Name = "search")]
     [property: Description(JobSearchQueryDescriptions.Search)]
     string Search,
+
+    [property: FromQuery(Name = "searchAliases")]
+    [property: Description(JobSearchQueryDescriptions.SearchAliases)]
+    [property: MaxLength(JobSearchQueryDescriptions.SearchAliasesMaxCount, ErrorMessage = JobSearchQueryDescriptions.SearchAliasesValidationError)]
+    string[]? SearchAliases,
 
     [property: FromQuery(Name = "mustHaveSkills")]
     [property: Description(JobSearchQueryDescriptions.MustHaveSkills)]
