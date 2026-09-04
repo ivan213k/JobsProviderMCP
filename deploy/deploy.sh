@@ -17,6 +17,7 @@ NETWORK_NAME="jobsprovider-net"
 HOST_PORT="${HOST_PORT:-8080}"
 REDIS_CONNECTION_STRING="${REDIS_CONNECTION_STRING:-}"
 APIFY_TOKEN="${APIFY_TOKEN:-}"
+OTEL_EXPORTER_OTLP_ENDPOINT="${OTEL_EXPORTER_OTLP_ENDPOINT-http://aspire-dashboard:18889}"
 
 latest_version_tag() {
     curl -fsSL "https://hub.docker.com/v2/repositories/${IMAGE}/tags?page_size=100" \
@@ -44,6 +45,7 @@ docker run -d \
     -p "${HOST_PORT}:8080" \
     ${REDIS_CONNECTION_STRING:+-e "ConnectionStrings__Redis=$REDIS_CONNECTION_STRING"} \
     ${APIFY_TOKEN:+-e "Apify__Token=$APIFY_TOKEN"} \
+    ${OTEL_EXPORTER_OTLP_ENDPOINT:+-e "OTEL_EXPORTER_OTLP_ENDPOINT=$OTEL_EXPORTER_OTLP_ENDPOINT"} \
     "$IMAGE:$VERSION"
 
 echo "$VERSION" > "$state_file"

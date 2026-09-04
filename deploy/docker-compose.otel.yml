@@ -1,0 +1,14 @@
+services:
+  aspire-dashboard:
+    image: mcr.microsoft.com/dotnet/aspire-dashboard:latest
+    restart: unless-stopped
+    ports:
+      - "18888:18888" # dashboard UI
+      - "4317:18889" # OTLP gRPC
+    environment:
+      - DOTNET_DASHBOARD_UNSECURED_ALLOW_ANONYMOUS=true
+
+networks:
+  default:
+    name: jobsprovider-net
+    external: true
